@@ -198,7 +198,7 @@ WHATSAPP_NUMBER=2347017747337
 
 <div align="center">
 
-## **💀 Desire-eXe v1.0 - WHERE CHAOS MEETS CODE 💀**
+## **💀 Desire-eXe V1.0 - WHERE CHAOS MEETS CODE 💀**
 
 **Made with ❤️ and ☕ by Desire**
 
@@ -207,6 +207,7 @@ WHATSAPP_NUMBER=2347017747337
 </div>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
