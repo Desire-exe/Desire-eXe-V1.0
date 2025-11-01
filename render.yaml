@@ -1,0 +1,16 @@
+# render.yaml
+services:
+  - type: web
+    name: desire-exe-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: PLATFORM
+        value: Render
+    healthCheckPath: /health
