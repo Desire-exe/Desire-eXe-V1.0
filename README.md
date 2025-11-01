@@ -105,9 +105,10 @@
 ## 🛠️ **INSTALLATION GUIDE**
 
 ### **Prerequisites**
-- Node.js 16+ 
+- Node.js 20+ 
 - WhatsApp Account
 - Gemini API Key (for AI features)
+- OpenRouter API Key (To Feel The Burn Of Desire). 
 
 ### **Local Installation**
 ```bash
@@ -206,6 +207,7 @@ WHATSAPP_NUMBER=2347017747337
 </div>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
