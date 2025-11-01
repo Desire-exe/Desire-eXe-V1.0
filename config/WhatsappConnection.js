@@ -400,7 +400,7 @@ function getQRPage() {
 </head>
 <body>
     <div class="container">
-        <h1>🤖 Desire-eXe V1.0</h1>
+        <h1>Desire-eXe V1.0</h1>
         <p class="subtitle">QR Code Authentication</p>
         
         <div class="status ${qrCode ? 'qr-pending' : 'connected'}">
@@ -466,7 +466,7 @@ async function startBot() {
   // Load config for owner JID - with environment variable fallback
   let config = {
     AUTO_BLOCK_UNKNOWN: false,
-    OWNER_JID: process.env.OWNER_JID || '2347017747337@s.whatsapp.net',
+    OWNER_JID: process.env.OWNER_JID || '234***********@s.whatsapp.net', // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*" without the "+"). 
     MAX_MEDIA_SIZE: 1500000
   };
 
