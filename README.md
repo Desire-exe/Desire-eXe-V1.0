@@ -2,8 +2,6 @@
 
 <div align="center">
 
-
-
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src="./uploads/upload/Desire.png" width="500" alt="Desire Bot Logo"></a>
 
 ## ⚡ **THE ULTIMATE WHATSAPP DOMINATION BOT** ⚡
@@ -32,28 +30,32 @@
 </div>
 
 ## 🚀 **QUICK DEPLOYMENT**
+
 ### **⚡ Instant Deploy Options:**
 
 | Platform | Deploy Button | Status |
 |----------|---------------|---------|
 | **Koyeb** | [![Deploy on Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/services/deploy?type=git&repository=github.com%2FDesire-exe%2FDesire-eXe-V1.0&branch=main&name=desire-exe-bot) | ✅ **RECOMMENDED** |
-| **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy) | ✅ Available |
+| **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Desire-exe/Desire-eXe-V1.0) | ✅ Available |
 
 ### **🔗 After You Deploy:**
 1. **Wait for deployment to complete**
-2. **Visit your app URL**: `https://your-app-name.koyeb.app`
-3. **Go to QR page**: `https://your-app-name.koyeb.app/qr`
+2. **Visit your app URL**: `https://your-app-name.koyeb.app` or `https://your-app-name.onrender.com`
+3. **Go to QR page**: `/qr`
 4. **Scan with WhatsApp**
 5. **Your bot connects!**
 
 ### **📱 Access Points:**
 - **Status**: `/status`
 - **QR Code**: `/qr` 
+- **Pairing Code**: `/pairing`
 - **Session Info**: `/session`
 - **Health Check**: `/health`
+- **Ping**: `/ping` (for uptime monitoring)
 
 *Replace `your-app-name` with your actual deployment name*
-## 🎯 **BOT FEATURES OVERVIEW (Check Menu for more Commands)**
+
+## 🎯 **BOT FEATURES OVERVIEW**
 
 ### **👑 OWNER COMMANDS** - *Absolute Power*
 - `owner` / `contact` - Contact the creator
@@ -106,13 +108,13 @@
 - Node.js 20+ 
 - WhatsApp Account
 - Gemini API Key (for AI features)
-- OpenRouter API Key (To Feel The Burn Of Desire). 
+- OpenRouter API Key
 
 ### **Local Installation**
 ```bash
 # Clone repository
 git clone https://github.com/Desire-exe/Desire-eXe-V1.0
-cd Desire-eXe V1.0 
+cd Desire-eXe-V1.0 
 
 # Install dependencies
 npm install --legacy-peer-deps
@@ -133,26 +135,25 @@ WHATSAPP_NUMBER=234**********
 ## 📱 **CONNECTION METHODS**
 
 ### **Method 1: QR Code (Recommended)**
-1. **After deployment**, visit: `https://your-app-name.koyeb.app/qr`
+1. **After deployment**, visit: `/qr` on your app
 2. Scan the QR code with WhatsApp
 3. Bot connects automatically
 
-### **Method 2: Session ID**
-1. Get session from: `https://your-app-name.koyeb.app/session/id`
-2. Set as `SESSION_ID` environment variable
-3. Restart bot
-
-*Replace `your-app-name` with your actual Koyeb app name*
+### **Method 2: Pairing Code**
+1. Visit: `/pairing` on your app
+2. Enter your phone number
+3. Get code and enter in WhatsApp
+4. Bot connects instantly
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 ## 🌐 **LIVE MONITORING**
 
 ### **Real-time Status Check**
-- **Status Page**: `/status` → `https://your-app-name.koyeb.app/status`
-- **Health Check**: `/health` → `https://your-app-name.koyeb.app/health`
-- **Session Info**: `/session` → `https://your-app-name.koyeb.app/session`
-
+- **Status Page**: `/status`
+- **Health Check**: `/health`
+- **Session Info**: `/session`
+- **Bot Info**: `/bot/info`
 
 ### **Bot Status Indicators**
 - 🟢 **Online** - Bot is connected and ready
