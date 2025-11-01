@@ -4,15 +4,15 @@
   "ANTI_LINK": false,
   "AUTO_BLOCK_UNKNOWN": false,
   "ANTI_BADWORDS": false,
-  "OWNER_JID": "YOUR WHATSAPP_NUMBER@s.whatsapp.net",
-  "PHONE_NUMBER": "YOUR WHATSAPP_NUMBER",
+  "OWNER_JID": "2348082993830@s.whatsapp.net",
+  "PHONE_NUMBER": "2348082993830",
   "MAX_MEDIA_SIZE": "1500000",
-  "GEMINI_API": "YOUR GEMINI_API_KEY",
+  "GEMINI_API": "AIzaSyBu-o5weGLjR8-Lozzj2ou75MAgx_z_6OA",
   "GEMINI_PROMPT": "You must pretend to be a WhatsApp Bot and answer questions briefly. ",
   "GEMINI_PROMPT_ROASTING": "You must pretend to be a WhatsApp bot that really loves roasting and reply briefly. ",
   "ANIME_API": "https://graphql.anilist.co",
   "ANIME_SOURCE": "anilist",
-  "prefix": "YOUR_DESIRED_PREFIX",
+  "prefix": ".",
   "BAD_WORDS": [
     "fuck",
     "ass",
@@ -85,3 +85,4 @@
     "hillbilly"
   ]
 }
+
