@@ -23,10 +23,10 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Desire-exe/Desire-eXe?color=blue&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Desire-exe/Desire-eXe?color=yellow&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Desire-exe/Desire-eXe?label=Watchers&color=red&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/graphscommit-activity"><img height="20" src="https://img.shields.io/badge/MAINTAINED-YES-red.svg"></a>&nbsp;&nbsp;
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/stargazers"><img src="https://img.shields.io/github/stars/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=blue" alt="Stars"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/network/members"><img src="https://img.shields.io/github/forks/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=yellow" alt="Forks"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/watchers"><img src="https://img.shields.io/github/watchers/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=red" alt="Watchers"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained"></a>
 </p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
@@ -211,6 +211,7 @@ WHATSAPP_NUMBER=234**********
 </p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
