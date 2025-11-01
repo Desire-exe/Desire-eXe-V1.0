@@ -84,16 +84,70 @@ function unwrapMessage(message) {
   return message;
 }
 
-// Bug detection helpers
+// Bug detection helpers - UPDATED FOR COMPLEX EMOJIS
 function isDangerousText(msg) {
   const text = msg?.conversation || msg?.extendedTextMessage?.text || '';
-  const patterns = [
-    /[\u200B-\u200F\u202A-\u202E\u2060]/,
-    /(.+)\1{100,}/,
-    /.{6000,}/,
-    /[\uFFF9-\uFFFF]/,
+  
+  if (!text || text.trim().length === 0) return false;
+  
+  // Safe emoji ranges (common WhatsApp emojis including complex sequences)
+  const safeEmojiRanges = [
+    /[\u263a-\u27bf]/,                    // Miscellaneous symbols
+    /[\ud83c\udf00-\ud83c\udfff]/,        // Miscellaneous symbols and pictographs
+    /[\ud83d\udc00-\ud83d\ude4f]/,        // Emoticons, animals, people
+    /[\ud83d\ude80-\ud83d\udeff]/,        // Transport and map symbols
+    /[\u2600-\u26ff]/,                    // Miscellaneous symbols
+    /[\u2700-\u27bf]/,                    // Dingbats
+    /[\u231a-\u231b]/,                    // Watch and hourglass
+    /[\u23e9-\u23f3]/,                    // Media controls, symbols
+    /[\u23f8-\u23fa]/,                    // Media controls
+    /[\u24c2-\u24c2]/,                    // M circled
+    /[\u25aa-\u25ab]/,                    // Geometric shapes
+    /[\u25b6-\u25c0]/,                    // Play/pause symbols
+    /[\u25fb-\u25fe]/,                    // Geometric shapes
+    /[\u2b05-\u2b07]/,                    // Arrows
+    /[\u2b1b-\u2b1c]/,                    // Black/white squares
+    /[\u2934-\u2935]/,                    // Arrows
+    /[\u3030-\u3030]/,                    // Wavy dash
+    /[\u3297-\u3299]/,                    // Circled ideographs
+    /[\ufe0f-\ufe0f]/,                    // Variation selector-16 (emoji presentation)
+    /[\u200d-\u200d]/,                    // Zero-width joiner (for complex emojis)
   ];
-  return patterns.some(p => p.test(text));
+  
+  // Dangerous patterns (actual threats)
+  const dangerousPatterns = [
+    /[\u200B-\u200C\u200E-\u200F\u202A-\u202E\u2060]/, // Exclude \u200D (ZWJ) from dangerous
+    /(.+)\1{50,}/,  // Repeated text spam
+    /.{4000,}/,     // Extremely long messages
+    /[\uFFF9-\uFFFF]/, // Specials and private use area
+    /[\u0000-\u0008\u000B-\u000C\u000E-\u001F]/, // Control characters
+    /[\u0080-\u009F]/, // C1 control characters
+    /[\u2028-\u2029]/, // Line/paragraph separators
+    /[\uE000-\uF8FF]/, // Private Use Area
+  ];
+  
+  // Special case: Check for complex emoji sequences first
+  const complexEmojiRegex = /[\u263a-\u27bf\ud83c\udf00-\ud83c\udfff\ud83d\udc00-\ud83d\udeff\u2600-\u26ff\u2700-\u27bf][\u200d\uFE0F][\u263a-\u27bf\ud83c\udf00-\ud83c\udfff\ud83d\udc00-\ud83d\udeff\u2600-\u26ff\u2700-\u27bf\uFE0F]*/g;
+  
+  // Remove complex emojis from the text for checking
+  let textToCheck = text;
+  const complexEmojis = text.match(complexEmojiRegex) || [];
+  
+  // Replace complex emojis with placeholder to check remaining text
+  complexEmojis.forEach(emoji => {
+    textToCheck = textToCheck.replace(emoji, '');
+  });
+  
+  // Also remove simple emojis
+  textToCheck = textToCheck.replace(/[\u263a-\u27bf\ud83c\udf00-\ud83c\udfff\ud83d\udc00-\ud83d\udeff\u2600-\u26ff\u2700-\u27bf\uFE0F\u200d]/g, '');
+  
+  // If nothing left after removing all emoji content, it's safe
+  if (textToCheck.trim().length === 0) {
+    return false;
+  }
+  
+  // Check remaining text for dangerous patterns
+  return dangerousPatterns.some(p => p.test(textToCheck));
 }
 
 function isSuspiciousMedia(msg, maxBytes) {
@@ -726,4 +780,5 @@ module.exports = {
   getQRPage, 
   getQRCode: () => ({ qrCode, qrCodeImage, isConnected }) 
 };
+
 
