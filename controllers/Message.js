@@ -217,7 +217,7 @@ if (messageBody.startsWith(currentPrefix)) {
     // 🎯 SPECIAL RULE: In chat mode, only owner commands work
     if (chatSessions.isChatEnabled(chatId)) {
         const senderJid = getSenderJid(msg); 
-        const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+        const ownerJid = '2348082993830@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
         const isOwner = senderJid === ownerJid || msg.key.fromMe;
         
         if (!isOwner) {
@@ -240,7 +240,7 @@ console.log('📥 Prefix:', currentPrefix);
 function getSenderJid(msg) {
     // If you sent the message
     if (msg.key.fromMe) {
-        return '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+        return '2348082993830@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
     }
     
     const isGroup = msg.key.remoteJid.endsWith('@g.us');
@@ -287,7 +287,7 @@ if (chatSessions.isChatEnabled(chatId) && !command) {
 // ==============================================
 if (command) {
     const senderJid = getSenderJid(msg);
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+    const ownerJid = '2348082993830@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
     const isOwner = senderJid === ownerJid || msg.key.fromMe;
 
     // Check if command should be allowed based on public/private mode
@@ -1298,7 +1298,7 @@ if (command === 'fact') {
 
 if (command === 'vv') {
     const sender = msg.key.participant || msg.key.remoteJid;
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+"). 
+    const ownerJid = '2348082993830@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+"). 
     const contextInfo = msg.message?.extendedTextMessage?.contextInfo;
     const quotedMsg = contextInfo?.quotedMessage;
 
@@ -1430,7 +1430,7 @@ if (command === 'vv') {
 // vv2 command - sends to specific number with argument
 if (command === 'vv2') {
     const sender = msg.key.participant || msg.key.remoteJid;
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+    const ownerJid = '2348082993830@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
     
     // Check if phone number argument is provided
     if (!args[0]) {
@@ -7791,6 +7791,7 @@ if (command === 'antilink-status') {
 }
 
 module.exports = Message;
+
 
 
 
