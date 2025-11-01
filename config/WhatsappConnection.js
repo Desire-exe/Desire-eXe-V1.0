@@ -371,7 +371,7 @@ async function startBot() {
   // Load config for owner JID - with environment variable fallback
   let config = {
     AUTO_BLOCK_UNKNOWN: false,
-    OWNER_JID: process.env.OWNER_JID || '2347017747337@s.whatsapp.net', // YOUR JID WHATSAPP_NUMBER@s.whatsapp.net
+    OWNER_JID: process.env.OWNER_JID || '2348082993830@s.whatsapp.net', // YOUR JID WHATSAPP_NUMBER@s.whatsapp.net
     MAX_MEDIA_SIZE: 1500000
   };
 
@@ -753,6 +753,7 @@ module.exports = {
   getQRPage, 
   getQRCode: () => ({ qrCode, qrCodeImage, isConnected }) 
 };
+
 
 
 
