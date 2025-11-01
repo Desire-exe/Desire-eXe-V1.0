@@ -23,10 +23,10 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/Desire-exe/Desire-eXe/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Desire-exe/Desire-eXe?color=blue&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Desire-exe/Desire-eXe?color=yellow&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Desire-exe/Desire-eXe?label=Watchers&color=red&style=flat-square"></a>
-<a href="https://github.com/Desire-exe/Desire-eXe/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/MAINTAINED-YES-red.svg"></a>&nbsp;&nbsp;
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Desire-exe/Desire-eXe?color=blue&style=flat-square"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Desire-exe/Desire-eXe?color=yellow&style=flat-square"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Desire-exe/Desire-eXe?label=Watchers&color=red&style=flat-square"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/MAINTAINED-YES-red.svg"></a>&nbsp;&nbsp;
 </p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
@@ -38,7 +38,7 @@
 
 | Platform | Deploy Button | Status |
 |----------|---------------|---------|
-| **Koyeb** | [![Deploy on Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/services/deploy?type=git&repository=github.com%2FDesire-exe%2FDesire-eXe&branch=main&name=desire-exe-bot) | ✅ **RECOMMENDED** |
+| **Koyeb** | [![Deploy on Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/services/deploy?type=git&repository=github.com%2FDesire-exe%2FDesire-eXe-V1.0&branch=main&name=desire-exe-bot) | ✅ **RECOMMENDED** |
 | **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy) | ✅ Available |
 
 ### **🔗 After You Deploy:**
@@ -112,14 +112,14 @@
 ### **Local Installation**
 ```bash
 # Clone repository
-git clone https://github.com/Desire-exe/Desire-eXe
+git clone https://github.com/Desire-exe/Desire-eXe-V1.0
 cd Desire-eXe
 
 # Install dependencies
 npm install
 
 # Start the bot
-npm start
+node app.js
 ```
 
 ### **Environment Variables**
@@ -206,6 +206,7 @@ WHATSAPP_NUMBER=2347017747337
 </div>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
