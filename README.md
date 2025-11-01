@@ -58,47 +58,47 @@
 ## 🎯 **BOT FEATURES OVERVIEW (Check Menu for more Commands)**
 
 ### **👑 OWNER COMMANDS** - *Absolute Power*
-- `.owner` / `.contact` - Contact the creator
-- `.shutdown` / `.Arise` - System control
-- `.groups` - View all groups
-- `.setpp` - Set profile picture
-- `.clone-pfp` - Copy user profile picture
+- `owner` / `contact` - Contact the creator
+- `shutdown` / `.Arise` - System control
+- `groups` - View all groups
+- `setpp` - Set profile picture
+- `clone-pfp` - Copy user profile picture
 
 ### **💬 GROUP DOMINATION** - *My Rules*
-- `.promote` / `.demote` - Admin management
-- `.warn` / `.unwarn` - Warning system  
-- `.nuke` - Remove all non-admins
-- `.mute` / `.unmute` - Chat control
-- `.tagall` - Mass mention
-- `.gc-name` / `.gc-desc` - Group identity
+- `promote` / `demote` - Admin management
+- `warn` / `unwarn` - Warning system  
+- `nuke` - Remove all non-admins
+- `mute` / `unmute` - Chat control
+- `tagall` - Mass mention
+- `gc-name` / `gc-desc` - Group identity
 
 ### **🧠 AI INTELLIGENCE** - *Smarter Than You*
-- `.gemini` - AI conversations
-- `.gemini-img` - Image analysis
-- `.wiki-ai` - Knowledge search
-- `.tr` - Translation
-- `.math` - Calculations
+- `gemini` - AI conversations
+- `gemini-img` - Image analysis
+- `wiki-ai` - Knowledge search
+- `tr` - Translation
+- `math` - Calculations
 
 ### **📥 MEDIA DOWNLOAD** - *Content Master*
-- `.play` - Audio download
-- `.video` - Video download  
-- `.yt-mp4/mp3` - YouTube downloads
-- `.igdl` - Instagram content
-- `.tkdl` - TikTok videos
+- `play` - Audio download
+- `video` - Video download  
+- `yt-mp4/mp3` - YouTube downloads
+- `igdl` - Instagram content
+- `tkdl` - TikTok videos
 
 ### **🛡️ SECURITY SUITE** - *Total Protection*
-- `.antilink` - Block links
-- `.antibadwords` - Filter language
-- `.autoblock` - Auto-block strangers
-- `.antimention` - Stop mass mentions
-- `.block` / `.unblock` - User control
+- `antilink` - Block links
+- `antibadwords` - Filter language
+- `autoblock` - Auto-block strangers
+- `antimention` - Stop mass mentions
+- `block` / `unblock` - User control
 
 ### **🔮 DARK ARTS** - *Advanced Tools*
-- `.weather` - Weather forecasts
-- `.qrcode` - QR generation
-- `.ocr` - Image text extraction
-- `.github` - GitHub profile info
-- `.ipinfo` - IP information
+- `weather` - Weather forecasts
+- `qrcode` - QR generation
+- `ocr` - Image text extraction
+- `github` - GitHub profile info
+- `ipinfo` - IP information
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
@@ -206,6 +206,7 @@ WHATSAPP_NUMBER=2347017747337
 </div>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
