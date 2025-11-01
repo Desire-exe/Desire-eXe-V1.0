@@ -1,0 +1,52 @@
+{
+  "name": "Desire-eXe V1.0",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@octokit/rest": "^20.0.2",
+    "@whiskeysockets/baileys": "^7.0.0-rc.6",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^2.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^5.1.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "sharp": "^0.33.0",
+    "gtts": "^0.2.1",
+    "jimp": "^0.22.10",
+    "link-preview-js": "^3.1.0",
+    "node-fetch": "^3.3.2",
+    "play-dl": "^1.9.7",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "side-channel": "^1.1.0",
+    "tesseract.js": "^5.1.1",
+    "youtube-dl-exec": "^3.0.10",
+    "yt-dlp-exec": "^1.0.2",
+    "ytdl-core": "^4.11.5",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2"
+    
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+
+
+
+
+
+
+
