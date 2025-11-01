@@ -126,8 +126,8 @@ node app.js
 ### **Environment Variables**
 ```env
 CLEAN_SESSION=true
-OWNER_JID=2347017747337@s.whatsapp.net
-WHATSAPP_NUMBER=2347017747337
+OWNER_JID=YOUR_WHATSAPP_NUMBER@s.whatsapp.net
+WHATSAPP_NUMBER=234**********
 ```
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
@@ -211,6 +211,7 @@ WHATSAPP_NUMBER=2347017747337
 </p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 
 
 
