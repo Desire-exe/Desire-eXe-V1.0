@@ -27,7 +27,6 @@ const path = require('path');
 const gTTS = require('gtts');
 const P = require('pino');
 const Tesseract = require('tesseract.js');
-const ownerNumber = config.WHATSAPP_NUMBER;
 const os = require('os');
 const process = require('process');
 const dns = require('dns');
@@ -44,6 +43,7 @@ const validFileTypes = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt
 
 // ✅ Load config ONCE at the top
 const configPath = path.join(__dirname, '../config.json');
+const ownerNumber = config.WHATSAPP_NUMBER;
 const warningFile = './warnings.json';
 let config = {};
 
@@ -9009,6 +9009,7 @@ if (command === 'antibadwords-off') {
 }
 
 module.exports = Message;
+
 
 
 
