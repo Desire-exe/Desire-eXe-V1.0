@@ -344,19 +344,52 @@ if (command) {
         return;
     }
 
-    // 🔹 Send Basic Text 
-    if (command === "alive") {
-        await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
-        try {
-            const responseMessage = "I'm Alive And Well Nigga";
-            await sock.sendMessage(chatId, { text: responseMessage }, { quoted: msg });
-            await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
-        } catch (error) {
-            console.error("Error sending message:", error);
-            await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
-        }
-        return;
+   // 🔹 Alive Command with Performance Indicators
+if (command === "alive") {
+    await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
+    try {
+        const startTime = Date.now();
+        
+        // Get metrics
+        const uptime = process.uptime();
+        const memoryUsage = process.memoryUsage();
+        
+        // Format uptime
+        const days = Math.floor(uptime / 86400);
+        const hours = Math.floor((uptime % 86400) / 3600);
+        const minutes = Math.floor((uptime % 3600) / 60);
+        const seconds = Math.floor(uptime % 60);
+        const uptimeString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        
+        // Memory calculations
+        const usedMemory = (memoryUsage.rss / 1024 / 1024).toFixed(2);
+        const totalMemory = (memoryUsage.heapTotal / 1024 / 1024).toFixed(2);
+        const memoryPercentage = ((memoryUsage.heapUsed / memoryUsage.heapTotal) * 100).toFixed(1);
+        
+        // Performance indicators
+        const ping = Date.now() - startTime;
+        let pingEmoji = "🟢";
+        if (ping > 1000) pingEmoji = "🔴";
+        else if (ping > 500) pingEmoji = "🟡";
+        
+        let memoryEmoji = "🟢";
+        if (memoryPercentage > 80) memoryEmoji = "🔴";
+        else if (memoryPercentage > 60) memoryEmoji = "🟡";
+        
+        const statusMessage = `I'm Alive And Well Nigga
+
+${pingEmoji} STATUS: ONLINE (${uptimeString})  
+📶 PING: ${ping}ms | Koyeb Server`;
+
+        await sock.sendMessage(chatId, { text: statusMessage }, { quoted: msg });
+        await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
+        
+    } catch (error) {
+        console.error("Error in alive command:", error);
+        await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
     }
+    return;
+}
 
     if (command === "smile") {
         try {
@@ -887,9 +920,9 @@ if (command === 'menu') {
 if (command === "owner" || command === "contact") {
     const vcard = 
         'BEGIN:VCARD\n' +
-        'VERSION:1.9.0\n' +
-        'FN:Daramola Daniel (Desire)\n' + // Your full name
-        'ORG:Desire-eXe Bot;\n' +         // Organization or tag line
+        'VERSION:1.0\n' +
+        'FN:Desire-eXe (Desire)\n' + 
+        'ORG:Desire-eXe V1.0;\n' +         
         'TEL;type=CELL;type=VOICE;waid=2347017747337:+234 701 774 7337\n' + // Your WhatsApp number
         'END:VCARD';
 
@@ -902,11 +935,11 @@ if (command === "owner" || command === "contact") {
 }
 
 
-// 👨‍💻 Shutdown Desire-eXe
+// 👨‍💻 Shutdown Desire-eXe V1.0
 if (command === 'shutdown') {
     const chatId = msg.key.remoteJid;
     const isGroup = chatId.endsWith('@g.us');
-    const sender = isGroup ? msg.key.participant : msg.key.remoteJid;
+    const sender = isGroup ? msg.key.participant : chatId; 
     const isFromMe = msg.key.fromMe || false;
 
     if (!isFromMe) {
@@ -917,10 +950,11 @@ if (command === 'shutdown') {
     }
 
     await sock.sendMessage(chatId, {
-        text: "⚠️ Are you sure you want to shutdown *Desire eXe Bot*?\nReply with *yes* or *no* within 30 seconds.",
+        text: "⚠️ Are you sure you want to shutdown *Desire-eXe V1.0*?\nReply with *yes* or *no* within 30 seconds.",
     }, { quoted: msg });
 
     let responseReceived = false;
+    let timeoutId;
 
     // Create a one-time listener for the response
     const responseHandler = async ({ messages }) => {
@@ -936,14 +970,20 @@ if (command === 'shutdown') {
         if (responseChat === chatId && responseSender === sender) {
             if (responseText === 'yes') {
                 responseReceived = true;
+                clearTimeout(timeoutId);
                 sock.ev.off('messages.upsert', responseHandler);
                 await sock.sendMessage(chatId, {
-                    text: "🛑 Shutting down *Desire eXe Bot*..."
+                    text: "🛑 Shutting down *Desire-eXe V1.0*..."
                 }, { quoted: incoming });
-                console.log('🛑 Bot shutdown initiated by owner');
+                console.log('🛑 Desire-eXe V1.0 shutdown initiated by owner');
+                
+                // Graceful shutdown for Koyeb
+                await sock.end();
                 process.exit(0);
+                
             } else if (responseText === 'no') {
                 responseReceived = true;
+                clearTimeout(timeoutId);
                 sock.ev.off('messages.upsert', responseHandler);
                 await sock.sendMessage(chatId, {
                     text: "✅ Shutdown cancelled."
@@ -955,20 +995,45 @@ if (command === 'shutdown') {
     // Add the listener
     sock.ev.on('messages.upsert', responseHandler);
 
-    // Timeout cleanup
-    setTimeout(() => {
+    // ⚠️ CRITICAL: Add timeout to clean up the listener
+    timeoutId = setTimeout(async () => {
         if (!responseReceived) {
+            responseReceived = true;
             sock.ev.off('messages.upsert', responseHandler);
-            sock.sendMessage(chatId, {
-                text: "⏰ Timeout. Shutdown cancelled."
-            }, { quoted: msg });
+            await sock.sendMessage(chatId, {
+                text: "⏰ Shutdown confirmation timed out. Command cancelled."
+            });
+            console.log('⏰ Shutdown confirmation timed out');
         }
-    }, 30000);
+    }, 30000); // 30 seconds timeout
 }
 
-// 👨‍💻 Activate Desire-eXe
+	// RESTART Desire-eXe
+if (command === 'restart') {
+    const chatId = msg.key.remoteJid;
+    const isFromMe = msg.key.fromMe || false;
+
+    if (!isFromMe) {
+        await sock.sendMessage(chatId, {
+            text: '🚫 You are not authorized to eXecute this command.',
+        }, { quoted: msg });
+        return;
+    }
+
+    await sock.sendMessage(chatId, {
+        text: "🔄 Restarting *Desire-eXe V1.0*...",
+    }, { quoted: msg });
+
+    console.log('🔄 Bot restart initiated by owner');
+    
+    // Graceful restart
+    await sock.end();
+    process.exit(1); // Use exit code 1 to signal restart (not normal shutdown)
+}
+
+// Activate Desire-eXe
 if (command === 'Arise') {
-    const videoPath = path.join(__dirname, '../uploads/Arise.mp4');
+    const videoPath = path.join(__dirname, '../uploads/DesireAura.mp4');
 
     await sock.sendMessage(chatId, { react: { text: "👨‍💻", key: msg.key } });
 
@@ -977,20 +1042,20 @@ if (command === 'Arise') {
 
         await sock.sendMessage(chatId, {
             video: videoBuffer,
-            caption: "_*Desire eXe Bot is Ready and running under his eXecutor (Desire)*_",
+            caption: "_*Desire-eXe V1.0 is Ready and running under his eXecutor (Desire)*_",
             mimetype: 'video/mp4'
         }, { quoted: msg });
 
         await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
     } catch (error) {
-        console.error('Error sending .Desire-on video:', error);
+        console.error('Error sending .Arise video:', error);
         await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
     }
 }
 
 
-// 👨‍💻 Desire-eXe Groups
-if (command === 'groups' && sender === ownerJid) {
+// Groups
+if (command === 'groups' && chatId === ownerJid) {
     try {
         const groups = await sock.groupFetchAllParticipating();
         const groupList = Object.values(groups);
@@ -1015,7 +1080,7 @@ if (command === 'groups' && sender === ownerJid) {
     }
 }
 
-
+// Save Status
 if (command === 'save') {
     const quoted = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
 
@@ -7791,6 +7856,7 @@ if (command === 'antilink-status') {
 }
 
 module.exports = Message;
+
 
 
 
