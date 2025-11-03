@@ -1436,186 +1436,56 @@ if (command === 'fact') {
         mentions: [msg.key.participant || msg.key.remoteJid]
     });
 }
-       
+       // ==============================================
+// NSFW Commands
+// ==============================================
 
-// 👨‍💻 Desire-eXe Information Command 
-if (command === 'Des-info') {
-    const botInfo = `
-┏━━━━━━━【 *Bot Information* 】━━━━━━━┓
-┃ *Bot Name*: Desire eXe Bot
-┃ *Version*: 3.0.0
-┃ *Creator*: Desire eXe
-┃ *Description*: A powerful WhatsApp bot with over 100 fun, cool, and interactive commands.
-
-┃ *Features*:
-┃ ▶ Jokes, Fun, and Utility Commands
-┃ ▶ Games and Challenges
-┃ ▶ AI/ Text Generation
-┃ ▶ Media Commands (Images, GIFs, Stickers)
-┃ ▶ Group Interaction Commands (Polls, Warnings, and more)
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-    `;
-    
-    await sock.sendMessage(chatId, { text: botInfo });
-    console.log('Bot information sent successfully.');
-}
-
-
-// 👨‍💻 Enable disappearing messages with options
-if (command === 'dis-on') {
-    if (!args[0]) {
-        // Show options if no duration specified
-        const optionsMessage = `💨 *Disappearing Messages*\n\nPlease choose a duration:\n\n• *24h* - 24 hours\n• *72h* - 72 hours  \n• *7d* - 7 days\n\nUsage: ${currentPrefix}dis-on <option>\nExample: ${currentPrefix}dis-on 24h`;
-        await sock.sendMessage(chatId, { text: optionsMessage }, { quoted: msg });
-        return;
-    }
-
-    const duration = args[0].toLowerCase();
-    let seconds = 0;
-    let durationText = '';
-
-    switch(duration) {
-        case '24h':
-            seconds = 86400; // 24 hours
-            durationText = '24 hours';
-            break;
-        case '72h':
-            seconds = 259200; // 72 hours
-            durationText = '72 hours';
-            break;
-        case '7d':
-            seconds = 604800; // 7 days
-            durationText = '7 days';
-            break;
-        default:
-            await sock.sendMessage(chatId, { 
-                text: `❌ Invalid option! Please use: *24h*, *72h*, or *7d*\n\nExample: ${currentPrefix}dis-on 24h` 
-            }, { quoted: msg });
-            return;
-    }
-
+if (command === 'boobs') {
     try {
-        await sock.sendMessage(chatId, {
-            disappearingMessagesInChat: seconds
+        const res = await axios.get('https://nekobot.xyz/api/image?type=boobs'); 
+        await sock.sendMessage(chatId, { 
+            image: { url: res.data.message }, 
+            caption: '*Boobs*' 
         });
-        await sock.sendMessage(chatId, { 
-            text: `💨 Disappearing messages have been *enabled* (${durationText}).` 
-        }, { quoted: msg });
-    } catch (e) {
-        console.error(e);
-        await sock.sendMessage(chatId, { 
-            text: "❌ Failed to enable disappearing messages." 
-        }, { quoted: msg });
-    }
-}
-
-// 👨‍💻 Disable disappearing messages
-if (command === 'dis-off') {
-    try {
-        await sock.sendMessage(chatId, {
-            disappearingMessagesInChat: 0   // 0 = Off
-        });
-        await sock.sendMessage(chatId, { 
-            text: "🚫 Disappearing messages have been *disabled*." 
-        }, { quoted: msg });
-    } catch (e) {
-        console.error(e);
-        await sock.sendMessage(chatId, { 
-            text: "❌ Failed to disable disappearing messages." 
-        }, { quoted: msg });
-    }
-}
-
-
-
-// 👨‍💻 Delete Message 
-if (command === 'del' && msg.message?.extendedTextMessage?.contextInfo?.quotedMessage) {
-    try {
-        const contextInfo = msg.message.extendedTextMessage.contextInfo;
-        const quotedMsgId = contextInfo.stanzaId;
-        const senderJid = contextInfo.participant || msg.key.remoteJid; 
-        const quotedMessage = contextInfo.quotedMessage;
-
-        await sock.sendMessage(chatId, {
-            delete: {
-                remoteJid: chatId,
-                fromMe: false,
-                id: quotedMsgId,
-                participant: senderJid
-            }
-        });
-
-        await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });
-
     } catch (error) {
-        console.error('❌ Failed to delete message:', error);
-        await sock.sendMessage(chatId, {
-            text: '❌ Could not delete the quoted message.'
-        }, { quoted: msg });
-
-        await sock.sendMessage(chatId, { react: { text: '❌', key: msg.key } });
-    }
-}
-
-// 👨‍💻 Poll Message (Single Answer Only)
-if (command === 'poll') {
-    try {
-        const from = msg.key.remoteJid;
-
-        // Join args back into one string, then split by ','
-        const input = args.join(" ").split(",").map(s => s.trim()).filter(s => s.length > 0);
-
-        if (input.length < 2) {
-            await sock.sendMessage(from, { text: "❌ Usage: \\poll Question, option1, option2, ..." });
-            return;
-        }
-
-        const question = input[0]; // first part = poll question
-        const options = input.slice(1); // rest = poll options
-
-        await sock.sendMessage(from, {
-            poll: {
-                name: question,
-                values: options,
-                selectableCount: 1
-            }
+        console.error('❌ Boobs command error:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to fetch image. Please try again later.' 
         });
-
-    } catch (err) {
-        console.error("Poll command error:", err);
-        await sock.sendMessage(msg.key.remoteJid, { text: "❌ Failed to create poll." });
     }
 }
 
-// 👨‍💻 Poll Message (Multiple Answers)
-if (command === 'mpoll') {
+if (command === 'ass') {
     try {
-        const from = msg.key.remoteJid;
-
-        // Join args back into one string, then split by ','
-        const input = args.join(" ").split(",").map(s => s.trim()).filter(s => s.length > 0);
-
-        if (input.length < 2) {
-            await sock.sendMessage(from, { text: "❌ Usage: \\mpoll Question, option1, option2, ..." });
-            return;
-        }
-
-        const question = input[0]; // first part = poll question
-        const options = input.slice(1); // rest = poll options
-
-        await sock.sendMessage(from, {
-            poll: {
-                name: question,
-                values: options,
-                selectableCount: options.length // ✅ multi-select allowed
-            }
+        const res = await axios.get('https://nekobot.xyz/api/image?type=ass'); 
+        await sock.sendMessage(chatId, { 
+            image: { url: res.data.message }, 
+            caption: '*Dat ass tho.*' 
         });
-
-    } catch (err) {
-        console.error("Poll command error:", err);
-        await sock.sendMessage(msg.key.remoteJid, { text: "❌ Failed to create poll." });
+    } catch (error) {
+        console.error('❌ Ass command error:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to fetch image. Please try again later.' 
+        });
     }
 }
+		
+if (command === 'neko') {
+    try {
+        const res = await axios.get('https://nekobot.xyz/api/image?type=neko'); 
+        await sock.sendMessage(chatId, { 
+            image: { url: res.data.message }, 
+            caption: '*Neko*' 
+        });
+    } catch (error) {
+        console.error('❌ Neko command error:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to fetch image. Please try again later.' 
+        });
+    }
+}		
+		
+
 
 // ==============================================
 // 🔹OWNER COMMANDS
@@ -1928,6 +1798,184 @@ if (command === 'Arise') {
     }
 }
 
+// 👨‍💻 Desire-eXe Information Command 
+if (command === 'Des-info') {
+    const botInfo = `
+┏━━━━━━━【 *Bot Information* 】━━━━━━━┓
+┃ *Bot Name*: Desire eXe Bot
+┃ *Version*: 3.0.0
+┃ *Creator*: Desire eXe
+┃ *Description*: A powerful WhatsApp bot with over 100 fun, cool, and interactive commands.
+
+┃ *Features*:
+┃ ▶ Jokes, Fun, and Utility Commands
+┃ ▶ Games and Challenges
+┃ ▶ AI/ Text Generation
+┃ ▶ Media Commands (Images, GIFs, Stickers)
+┃ ▶ Group Interaction Commands (Polls, Warnings, and more)
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+    `;
+    
+    await sock.sendMessage(chatId, { text: botInfo });
+    console.log('Bot information sent successfully.');
+}
+
+
+// 👨‍💻 Enable disappearing messages with options
+if (command === 'dis-on') {
+    if (!args[0]) {
+        // Show options if no duration specified
+        const optionsMessage = `💨 *Disappearing Messages*\n\nPlease choose a duration:\n\n• *24h* - 24 hours\n• *72h* - 72 hours  \n• *7d* - 7 days\n\nUsage: ${currentPrefix}dis-on <option>\nExample: ${currentPrefix}dis-on 24h`;
+        await sock.sendMessage(chatId, { text: optionsMessage }, { quoted: msg });
+        return;
+    }
+
+    const duration = args[0].toLowerCase();
+    let seconds = 0;
+    let durationText = '';
+
+    switch(duration) {
+        case '24h':
+            seconds = 86400; // 24 hours
+            durationText = '24 hours';
+            break;
+        case '72h':
+            seconds = 259200; // 72 hours
+            durationText = '72 hours';
+            break;
+        case '7d':
+            seconds = 604800; // 7 days
+            durationText = '7 days';
+            break;
+        default:
+            await sock.sendMessage(chatId, { 
+                text: `❌ Invalid option! Please use: *24h*, *72h*, or *7d*\n\nExample: ${currentPrefix}dis-on 24h` 
+            }, { quoted: msg });
+            return;
+    }
+
+    try {
+        await sock.sendMessage(chatId, {
+            disappearingMessagesInChat: seconds
+        });
+        await sock.sendMessage(chatId, { 
+            text: `💨 Disappearing messages have been *enabled* (${durationText}).` 
+        }, { quoted: msg });
+    } catch (e) {
+        console.error(e);
+        await sock.sendMessage(chatId, { 
+            text: "❌ Failed to enable disappearing messages." 
+        }, { quoted: msg });
+    }
+}
+
+// 👨‍💻 Disable disappearing messages
+if (command === 'dis-off') {
+    try {
+        await sock.sendMessage(chatId, {
+            disappearingMessagesInChat: 0   // 0 = Off
+        });
+        await sock.sendMessage(chatId, { 
+            text: "🚫 Disappearing messages have been *disabled*." 
+        }, { quoted: msg });
+    } catch (e) {
+        console.error(e);
+        await sock.sendMessage(chatId, { 
+            text: "❌ Failed to disable disappearing messages." 
+        }, { quoted: msg });
+    }
+}
+
+
+
+// 👨‍💻 Delete Message 
+if (command === 'del' && msg.message?.extendedTextMessage?.contextInfo?.quotedMessage) {
+    try {
+        const contextInfo = msg.message.extendedTextMessage.contextInfo;
+        const quotedMsgId = contextInfo.stanzaId;
+        const senderJid = contextInfo.participant || msg.key.remoteJid; 
+        const quotedMessage = contextInfo.quotedMessage;
+
+        await sock.sendMessage(chatId, {
+            delete: {
+                remoteJid: chatId,
+                fromMe: false,
+                id: quotedMsgId,
+                participant: senderJid
+            }
+        });
+
+        await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } });
+
+    } catch (error) {
+        console.error('❌ Failed to delete message:', error);
+        await sock.sendMessage(chatId, {
+            text: '❌ Could not delete the quoted message.'
+        }, { quoted: msg });
+
+        await sock.sendMessage(chatId, { react: { text: '❌', key: msg.key } });
+    }
+}
+
+// 👨‍💻 Poll Message (Single Answer Only)
+if (command === 'poll') {
+    try {
+        const from = msg.key.remoteJid;
+
+        // Join args back into one string, then split by ','
+        const input = args.join(" ").split(",").map(s => s.trim()).filter(s => s.length > 0);
+
+        if (input.length < 2) {
+            await sock.sendMessage(from, { text: "❌ Usage: \\poll Question, option1, option2, ..." });
+            return;
+        }
+
+        const question = input[0]; // first part = poll question
+        const options = input.slice(1); // rest = poll options
+
+        await sock.sendMessage(from, {
+            poll: {
+                name: question,
+                values: options,
+                selectableCount: 1
+            }
+        });
+
+    } catch (err) {
+        console.error("Poll command error:", err);
+        await sock.sendMessage(msg.key.remoteJid, { text: "❌ Failed to create poll." });
+    }
+}
+
+// 👨‍💻 Poll Message (Multiple Answers)
+if (command === 'mpoll') {
+    try {
+        const from = msg.key.remoteJid;
+
+        // Join args back into one string, then split by ','
+        const input = args.join(" ").split(",").map(s => s.trim()).filter(s => s.length > 0);
+
+        if (input.length < 2) {
+            await sock.sendMessage(from, { text: "❌ Usage: \\mpoll Question, option1, option2, ..." });
+            return;
+        }
+
+        const question = input[0]; // first part = poll question
+        const options = input.slice(1); // rest = poll options
+
+        await sock.sendMessage(from, {
+            poll: {
+                name: question,
+                values: options,
+                selectableCount: options.length // ✅ multi-select allowed
+            }
+        });
+
+    } catch (err) {
+        console.error("Poll command error:", err);
+        await sock.sendMessage(msg.key.remoteJid, { text: "❌ Failed to create poll." });
+    }
+}
 
 // Groups
 if (command === 'groups' && chatId === ownerJid) {
@@ -8961,6 +9009,7 @@ if (command === 'antibadwords-off') {
 }
 
 module.exports = Message;
+
 
 
 
