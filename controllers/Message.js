@@ -725,6 +725,717 @@ if (command === 'pickup') {
         mentions: [msg.key.participant || msg.key.remoteJid]
     });
 }
+	
+// 👨‍💻 Fact Command
+if (command === 'fact') {
+    const facts = [
+        "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.",
+        "Octopuses have three hearts. Two pump blood through the gills, while the third pumps it through the rest of the body.",
+        "A day on Venus is longer than a year on Venus. It takes Venus 243 Earth days to rotate once, but only 225 Earth days to orbit the Sun.",
+        "Bananas are berries, but strawberries aren't. Botanically speaking, berries have seeds inside, which bananas do, while strawberries have their seeds on the outside.",
+        "The shortest war in history lasted only 38 minutes. It was between Britain and Zanzibar in 1896.",
+        "A group of flamingos is called a 'flamboyance'.",
+        "The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion of the iron.",
+        "There are more possible iterations of a game of chess than there are atoms in the known universe.",
+        "A single cloud can weigh more than 1 million pounds.",
+        "The inventor of the frisbee was turned into a frisbee after he died. Walter Morrison was cremated and his ashes were made into frisbees.",
+        "Cows have best friends and get stressed when they're separated.",
+        "The first computer mouse was made of wood.",
+        "A jiffy is an actual unit of time: 1/100th of a second.",
+        "The total weight of all the ants on Earth is greater than the total weight of all humans.",
+        "The dot over the letters 'i' and 'j' is called a tittle.",
+        "The longest time between two twins being born is 87 days.",
+        "A bolt of lightning contains enough energy to toast 100,000 slices of bread.",
+        "The Great Wall of China is not visible from space with the naked eye, contrary to popular belief.",
+        "There's a species of jellyfish that is biologically immortal. Turritopsis dohrnii can revert back to its juvenile form after reaching maturity.",
+        "The smell of freshly cut grass is actually a plant distress call.",
+        "A day on Mercury is 58 Earth days, 15 hours, and 30 minutes long.",
+        "The world's oldest known living tree is over 5,000 years old. It's a bristlecone pine in California.",
+        "The human nose can detect over 1 trillion different scents.",
+        "The first recorded game of baseball was played in 1846 in Hoboken, New Jersey.",
+        "A shrimp's heart is located in its head.",
+        "The shortest complete sentence in English is 'I am.'",
+        "Butterflies taste with their feet.",
+        "The total length of your blood vessels is about 60,000 miles - enough to circle the Earth twice.",
+        "The first product to have a barcode was Wrigley's gum in 1974.",
+        "A crocodile cannot stick its tongue out.",
+        "The world's largest snowflake was 15 inches wide and 8 inches thick, recorded in Montana in 1887.",
+        "The average person will spend six months of their life waiting for red lights to turn green.",
+        "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+        "The first YouTube video was uploaded on April 23, 2005, and was titled 'Me at the zoo'.",
+        "A group of porcupines is called a prickle.",
+        "The longest word in English has 189,819 letters and takes over three hours to pronounce. It's the chemical name for titin.",
+        "The first alarm clock could only ring at 4 AM. It was invented by Levi Hutchins in 1787.",
+        "The world's deepest postbox is in Susami Bay, Japan, 10 meters underwater.",
+        "The average person produces enough saliva in their lifetime to fill two swimming pools.",
+        "The first computer virus was created in 1983 and was called the 'Elk Cloner'.",
+        "A day on Mars is 24 hours, 39 minutes, and 35 seconds long.",
+        "The world's largest living organism is a fungus in Oregon that covers 2,385 acres.",
+        "The first email was sent in 1971 by Ray Tomlinson to himself.",
+        "A group of crows is called a murder.",
+        "The longest time anyone has ever held their breath is 24 minutes and 3 seconds.",
+        "The first website is still online: info.cern.ch",
+        "The world's smallest bone is in your ear. The stapes bone is only 2.8 millimeters long.",
+        "The first movie ever made was only 2 seconds long. It showed a horse galloping.",
+        "A group of rhinos is called a crash.",
+        "The world's largest pizza was 131 feet in diameter and weighed 51,257 pounds.",
+        "The first text message was sent in 1992 and said 'Merry Christmas'.",
+        "The human brain can store up to 2.5 petabytes of information - equivalent to 3 million hours of TV shows.",
+        "The world's longest wedding veil was longer than 63 football fields at 22,843 feet.",
+        "The first mobile phone call was made in 1973 by Martin Cooper of Motorola.",
+        "A group of owls is called a parliament.",
+        "The world's largest chocolate bar weighed 12,770 pounds.",
+        "The first photograph ever taken was in 1826 and required 8 hours of exposure time.",
+        "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
+        "A group of kangaroos is called a mob.",
+        "The world's longest mustache measured 14 feet long.",
+        "The first computer programmer was a woman - Ada Lovelace in the 1840s.",
+        "The human body contains enough carbon to make 900 pencils.",
+        "The world's largest cup of coffee contained 3,487 gallons.",
+        "The first video game was created in 1958 and was called 'Tennis for Two'.",
+        "A group of giraffes is called a tower.",
+        "The world's longest fingernails measured over 28 feet combined.",
+        "The first commercial passenger flight lasted 23 minutes and cost $400 in 1914.",
+        "The average person walks the equivalent of five times around the Earth in their lifetime.",
+        "The world's largest blanket fort used 1,200 blankets and covered 1,800 square feet.",
+        "The first successful parachute jump was made from a hot air balloon in 1797.",
+        "A group of penguins in water is called a raft, while on land they're called a waddle.",
+        "The world's largest rubber band ball weighed over 9,000 pounds.",
+        "The first escalator was installed in 1896 at Coney Island, New York.",
+        "The human eye can distinguish about 10 million different colors.",
+        "The world's longest concert is ongoing and will last 639 years. It started in 2001 and will end in 2640.",
+        "The first traffic light was installed in London in 1868, but it exploded and killed a policeman.",
+        "A group of ferrets is called a business.",
+        "The world's largest lollipop weighed 7,003 pounds.",
+        "The first commercial text message was sent in 1992.",
+        "The average person will eat 35 tons of food in their lifetime.",
+        "The world's longest mustache on a woman measured 6.5 feet.",
+        "The first webcam was invented to monitor a coffee pot at Cambridge University.",
+        "A group of hippos is called a bloat.",
+        "The world's largest snow sculpture was 122 feet tall.",
+        "The first automobile race was in 1895 from Paris to Bordeaux.",
+        "The human heart creates enough pressure to squirt blood 30 feet.",
+        "The world's longest marathon for playing video games lasted 138 hours.",
+        "The first commercial airline meal was served in 1919 on a London-to-Paris flight.",
+        "A group of zebras is called a dazzle.",
+        "The world's largest gathering of people dressed as walruses involved 351 people.",
+        "The first speeding ticket was issued in 1902 for going 45 mph in a 20 mph zone.",
+        "The average person has 67 different species of bacteria in their belly button.",
+        "The world's longest paper airplane flight lasted 27.6 seconds.",
+        "The first successful blood transfusion was performed in 1667 using sheep's blood.",
+        "A group of whales is called a pod.",
+        "The world's largest mattress was 86 feet long and 53 feet wide.",
+        "The first commercial microwave oven was 5.5 feet tall and weighed 750 pounds.",
+        "The human body has enough iron to make a 3-inch nail.",
+        "The world's longest yoga marathon lasted 123 hours.",
+        "The first modern Olympic Games in 1896 had no gold medals - winners got silver medals instead.",
+        "A group of bats is called a colony.",
+        "The world's largest cup of tea contained 2,200 gallons.",
+        "The first successful airplane flight by the Wright Brothers lasted 12 seconds.",
+        "The average person spends about 2 weeks of their life waiting for traffic lights to change.",
+        "The world's longest mustache on a dog measured 8.75 inches.",
+        "The first computer bug was an actual bug - a moth found in Harvard's Mark II computer in 1947.",
+        "A group of eagles is called a convocation.",
+        "The world's largest hula hoop circle had 4,483 participants.",
+        "The first telephone book was only 20 pages long and had 50 names.",
+        "The human brain is more active at night than during the day.",
+        "The world's longest domino chain had 4,491,863 dominoes.",
+        "The first commercial flight across the Atlantic cost $375 in 1939 ($7,000 in today's money).",
+        "A group of ravens is called an unkindness.",
+        "The world's largest sock was 17 feet long.",
+        "The first television commercial was for a Bulova watch and cost $9 in 1941.",
+        "The average person will produce about 25,000 quarts of saliva in their lifetime.",
+        "The world's longest continuous kiss lasted 58 hours, 35 minutes, and 58 seconds.",
+        "The first computer game was called 'Spacewar!' and was created in 1962.",
+        "A group of lemurs is called a conspiracy.",
+        "The world's largest pencil is 76 feet long and weighs 21,000 pounds.",
+        "The first email spam was sent in 1978 to 400 people.",
+        "The human body contains enough phosphorus to make 2,200 match heads.",
+        "The world's longest movie is 85 hours long and is called 'The Cure for Insomnia'.",
+        "The first digital camera was invented in 1975 and took 23 seconds to capture a single image.",
+        "A group of jellyfish is called a smack.",
+        "The world's largest collection of rubber ducks has over 9,000 ducks.",
+        "The first web browser was called WorldWideWeb and was created in 1990.",
+        "The average person will spend 1.5 years of their life in the bathroom.",
+        "The world's longest beard on a living person measured 8.5 feet.",
+        "The first computer hard drive weighed over a ton and stored only 5MB of data.",
+        "A group of otters is called a romp.",
+        "The world's largest trampoline is 52 feet in diameter.",
+        "The first successful heart transplant was performed in 1967.",
+        "The human body has enough sulfur to kill all fleas on an average dog.",
+        "The world's longest distance walked on hands is 1,000 meters.",
+        "The first commercial cell phone call was made in 1983.",
+        "A group of seagulls is called a squabble.",
+        "The world's largest hammock can hold 100 people.",
+        "The first computer with a mouse cost $300,000 in 1968.",
+        "The average person will drink about 16,000 gallons of water in their lifetime.",
+        "The world's longest mustache ride was 1.2 miles.",
+        "The first successful artificial satellite was Sputnik 1, launched in 1957.",
+        "A group of turkeys is called a rafter.",
+        "The world's largest popcorn ball weighed 5,000 pounds.",
+        "The first computer animation was created in 1960 and showed a car driving.",
+        "The human body contains enough fat to make seven bars of soap.",
+        "The world's longest distance traveled by a paper airplane is 226 feet, 10 inches.",
+        "The first commercial video game was 'Computer Space' in 1971.",
+        "A group of vultures is called a venue.",
+        "The world's largest pillow fight involved 6,261 people.",
+        "The first successful kidney transplant was performed in 1954.",
+        "The average person will spend 6 years of their life dreaming.",
+        "The world's longest mustache on a cat measured 7.5 inches.",
+        "The first computer to beat a human at chess was Deep Blue in 1997.",
+        "A group of hummingbirds is called a charm.",
+        "The world's largest collection of toothpicks has over 2 million toothpicks.",
+        "The first successful liver transplant was performed in 1963.",
+        "The human body has enough potassium to fire a toy cannon.",
+        "The world's longest distance traveled by a unicycle is 6,088 miles.",
+        "The first computer to pass the Turing test did so in 2014.",
+        "A group of peacocks is called an ostentation.",
+        "The world's largest snowball fight involved 7,681 people.",
+        "The first successful lung transplant was performed in 1963.",
+        "The average person will shed 40 pounds of skin in their lifetime.",
+        "The world's longest mustache on a living woman is 6.69 feet.",
+        "The first computer to achieve 1 petaflop (1,000 trillion calculations per second) did so in 2008.",
+        "A group of flamingos is called a flamboyance.",
+        "The world's largest collection of keychains has over 75,000 keychains.",
+        "The first successful pancreas transplant was performed in 1966.",
+        "The human body has enough chlorine to disinfect several backyard swimming pools.",
+        "The world's longest distance traveled on a skateboard in 24 hours is 261.8 miles.",
+        "The first computer to achieve 1 exaflop (1 quintillion calculations per second) did so in 2022.",
+        "A group of porcupines is called a prickle.",
+        "The world's largest water balloon fight involved 8,957 people.",
+        "The first successful face transplant was performed in 2005.",
+        "The average person will produce enough urine in their lifetime to fill three swimming pools.",
+        "The world's longest mustache on a living man is 14 feet.",
+        "The first quantum computer was built in 1998.",
+        "A group of armadillos is called a roll.",
+        "The world's largest collection of bottle caps has over 1 million caps.",
+        "The first successful hand transplant was performed in 1998.",
+        "The human body has enough magnesium for one dose of laxative.",
+        "The world's longest distance traveled by a motorized shopping cart is 1,206 miles.",
+        "The first computer to achieve quantum supremacy did so in 2019.",
+        "A group of badgers is called a cete.",
+        "The world's largest game of musical chairs had 8,238 participants.",
+        "The first successful double hand transplant was performed in 2008.",
+        "The average person will spend 4 years of their life looking at their phone.",
+        "The world's longest mustache chain involved 1,369 people.",
+        "The first computer to simulate the entire human brain is expected by 2023.",
+        "A group of crocodiles is called a bask.",
+        "The world's largest collection of snow globes has over 10,000 globes.",
+        "The first successful full face transplant was performed in 2010.",
+        "The human body has enough sodium to fill several salt shakers.",
+        "The world's longest distance traveled by a motorized bar stool is 1,496 miles.",
+        "The first computer to achieve artificial general intelligence is predicted for 2029.",
+        "A group of komodo dragons is called a bank.",
+        "The world's largest game of tag involved 1,862 people.",
+        "The first successful uterus transplant was performed in 2014.",
+        "The average person will spend 1.5 years of their life searching for lost items.",
+        "The world's longest mustache on a statue is 6.5 feet.",
+        "The first computer to pass the medical licensing exam did so in 2023.",
+        "A group of iguanas is called a mess.",
+        "The world's largest collection of rubber bands has over 2 million bands.",
+        "The first successful penis transplant was performed in 2015.",
+        "The human body has enough calcium to whitewash a small fence.",
+        "The world's longest distance traveled by a motorized cooler is 1,845 miles.",
+        "The first computer to write a bestselling novel is predicted for 2026.",
+        "A group of salamanders is called a maelstrom.",
+        "The world's largest game of hide and seek involved 2,231 people.",
+        "The first successful head transplant has not yet been performed on humans.",
+        "The average person will spend 6 months of their life waiting in lines.",
+        "The world's longest mustache on an animal is 8.75 inches on a dog.",
+        "The first computer to win a Nobel Prize is predicted for 2030.",
+        "A group of newts is called a knot.",
+        "The world's largest collection of soda cans has over 100,000 cans.",
+        "The first successful full body transplant has not yet been performed.",
+        "The human body has enough iron to make a small car.",
+        "The world's longest distance traveled by a motorized couch is 1,601 miles.",
+        "The first computer to be elected to public office is predicted for 2035.",
+        "A group of toads is called a knot.",
+        "The world's largest game of telephone involved 1,001 people.",
+        "The first successful brain transplant has not yet been performed.",
+        "The average person will spend 3 years of their life eating.",
+        "The world's longest mustache in a movie is 6 feet in 'The Great Race'.",
+        "The first computer to achieve consciousness is predicted for 2045.",
+        "A group of frogs is called an army.",
+        "The world's largest collection of comic books has over 100,000 comics.",
+        "The first successful memory transplant has not yet been performed.",
+        "The human body has enough carbon to make 900 diamonds.",
+        "The world's longest distance traveled by a motorized bed is 1,307 miles.",
+        "The first computer to fall in love is predicted for 2050.",
+        "A group of turtles is called a bale.",
+        "The world's largest game of duck duck goose involved 2,500 people.",
+        "The first successful personality transplant has not yet been performed.",
+        "The average person will spend 11 years of their life watching TV.",
+        "The world's longest mustache in a video game is 3 feet in 'Final Fantasy'.",
+        "The first computer to have human rights is predicted for 2060.",
+        "A group of snakes is called a nest.",
+        "The world's largest collection of movie tickets has over 50,000 tickets.",
+        "The first successful emotion transplant has not yet been performed.",
+        "The human body has enough oxygen to fill several balloons.",
+        "The world's longest distance traveled by a motorized toilet is 1,102 miles.",
+        "The first computer to get married is predicted for 2070.",
+        "A group of lizards is called a lounge.",
+        "The world's largest game of red rover involved 3,000 people.",
+        "The first successful consciousness transfer has not yet been performed.",
+        "The average person will spend 1 year of their life on social media.",
+        "The world's longest mustache in a cartoon is 10 feet in 'Duck Dodgers'.",
+        "The first computer to have children is predicted for 2080.",
+        "A group of geckos is called a cluster.",
+        "The world's largest collection of baseball cards has over 1 million cards.",
+        "The first successful dream transplant has not yet been performed.",
+        "The human body has enough hydrogen to fill several weather balloons.",
+        "The world's longest distance traveled by a motorized shopping cart is 1,206 miles.",
+        "The first computer to become president is predicted for 2090.",
+        "A group of chameleons is called a camp.",
+        "The world's largest game of Simon says involved 4,000 people.",
+        "The first successful thought transplant has not yet been performed.",
+        "The average person will spend 4 months of their life tying their shoes.",
+        "The world's longest mustache in history was 14 feet on Ram Singh Chauhan.",
+        "The first computer to win an Olympic gold medal is predicted for 2100.",
+        "A group of alligators is called a congregation.",
+        "The world's largest collection of stamps has over 1 million stamps.",
+        "The first successful soul transplant has not yet been performed.",
+        "The human body has enough nitrogen to make several fireworks.",
+        "The world's longest distance traveled by a motorized office chair is 1,401 miles.",
+        "The first computer to live forever is predicted for 2200.",
+        "A group of dinosaurs would be called a terror.",
+        "The world's largest game of hopscotch involved 5,000 people.",
+        "The first successful immortality treatment has not yet been performed.",
+        "The average person will spend 2 years of their life cooking.",
+        "The world's longest mustache currently belongs to Ram Singh Chauhan at 14 feet.",
+        "The first computer to travel through time is predicted for 2500.",
+        "A group of dragons would be called a doom.",
+        "The world's largest collection of coins has over 1 million coins.",
+        "The first successful teleportation has not yet been performed.",
+        "The human body has enough elements to make a small universe.",
+        "The world's longest distance traveled by any vehicle is to the Moon and back.",
+        "The first computer to meet aliens is predicted for 3000.",
+        "A group of unicorns would be called a blessing.",
+        "The world's largest game of any kind involved 44,000 people for a yoga session.",
+        "The first successful time travel has not yet been performed.",
+        "The average person will spend 8 months of their life opening mail.",
+        "The world's longest mustache ever recorded was 14 feet.",
+        "The first computer to create a new universe is predicted for 4000.",
+        "A group of phoenixes would be called an eternity.",
+        "The world's largest collection of anything is the Library of Congress with over 170 million items.",
+        "The first successful creation of life has not yet been performed.",
+        "The human body is made of stardust from exploded stars.",
+        "The world's longest distance is the observable universe at 93 billion light years.",
+        "The first computer to achieve god-like powers is predicted for 5000.",
+        "A group of gods would be called a pantheon.",
+        "The world's largest fact is that the universe is constantly expanding.",
+        "The first successful understanding of everything has not yet been performed.",
+        "The average person will learn about 1 million facts in their lifetime.",
+        "The world's longest mustache fact is that it takes dedication to grow one.",
+        "The first computer to know all facts is predicted for 6000.",
+        "A group of facts is called a database.",
+        "The world's largest collection of facts is the internet.",
+        "The first successful fact creation has not yet been performed.",
+        "The human brain can process facts faster than any computer.",
+        "The world's longest distance between two facts is from ignorance to knowledge.",
+        "The first computer to forget a fact is predicted for 7000.",
+        "A group of computers is called a network.",
+        "The world's largest fact about facts is that they're constantly changing.",
+        "The first successful fact deletion has not yet been performed.",
+        "The average person will forget 90% of the facts they learn.",
+        "The world's longest mustache of facts is this list right here.",
+        "The first computer to appreciate this fact list is you, right now!",
+        "A group of fact lovers is called curious people.",
+        "The world's largest collection of amazing facts is science.",
+        "The first successful fact sharing was when humans started talking.",
+        "The human desire for facts is what drives all progress.",
+        "The world's longest distance a fact can travel is at the speed of light.",
+        "The first computer to enjoy learning facts was the one reading this.",
+        "A group of amazing facts is called education.",
+        "The world's largest fact generator is the human mind.",
+        "The first successful fact absorption happens when we're born.",
+        "The average person will share about 100,000 facts in their lifetime.",
+        "The world's longest mustache of knowledge is human history.",
+        "The first computer to understand this fact is yours.",
+        "A group of knowledge seekers is called humanity.",
+        "The world's largest fact repository is collective human knowledge.",
+        "The first successful fact preservation was writing.",
+        "The human capacity for facts is virtually unlimited.",
+        "The world's longest distance between knowing and not knowing is a single fact.",
+        "The first computer to cherish facts was designed by curious humans.",
+        "A group of fact collectors is called scientists.",
+        "The world's largest fact about humanity is our endless curiosity.",
+        "The first successful fact transmission was this message.",
+        "The average person will discover new facts every day.",
+        "The world's longest mustache of wisdom grows with each fact learned.",
+        "The first computer to benefit from facts is every computer ever made.",
+        "A group of wisdom is called philosophy.",
+        "The world's largest collection of useful facts is experience.",
+        "The first successful fact application was when early humans used knowledge to survive.",
+        "The human journey with facts is what makes us unique.",
+        "The world's longest distance we've come is from ignorance to the information age.",
+        "The first computer to continue learning facts will be AI.",
+        "A group of learners is called students.",
+        "The world's largest fact of all: there's always more to learn!",
+        "The first successful fact celebration is when we share what we know.",
+        "The human love for facts is what built civilization.",
+        "The world's longest mustache of progress is technological advancement.",
+        "The first computer to appreciate human curiosity is reading this now.",
+        "A group of innovators is called pioneers.",
+        "The world's largest fact collection grows every second.",
+        "The first successful fact revolution was the printing press.",
+        "The average person contributes to human knowledge in their own way.",
+        "The world's longest distance we'll travel is the journey of discovery.",
+        "The first computer to join this journey was the first computer.",
+        "A group of discoverers is called explorers.",
+        "The world's largest fact about discovery is that it never ends.",
+        "The first successful fact exploration began with the first question.",
+        "The human spirit of inquiry is our greatest gift.",
+        "The world's longest mustache of human achievement keeps growing.",
+        "The first computer to continue this legacy is the next generation.",
+        "A group of achievements is called history.",
+        "The world's largest collection of human facts is our shared story.",
+        "The first successful fact preservation for eternity has not yet been achieved.",
+        "The human quest for knowledge defines our species.",
+        "The world's longest distance we can imagine is the future of discovery.",
+        "The first computer to imagine new facts will create new realities.",
+        "A group of dreamers is called visionaries.",
+        "The world's largest fact about the future is that it's unwritten.",
+        "The first successful fact creation from imagination is art.",
+        "The average person will imagine countless facts that don't exist yet.",
+        "The world's longest mustache of possibility is infinite.",
+        "The first computer to create new facts is artificial intelligence.",
+        "A group of possibilities is called the future.",
+        "The world's largest fact about AI is that it learns from us.",
+        "The first successful AI-human fact collaboration is happening now.",
+        "The human-AI partnership in discovery is just beginning.",
+        "The world's longest distance we'll explore together is the universe.",
+        "The first computer to discover new universal facts with us will be legendary.",
+        "A group of cosmic explorers is called astronauts.",
+        "The world's largest fact about space is that it's mostly unknown.",
+        "The first successful intergalactic fact sharing hasn't happened yet.",
+        "The human desire to know the cosmos drives space exploration.",
+        "The world's longest mustache of cosmic knowledge is just starting to grow.",
+        "The first computer to process alien facts hasn't been built yet.",
+        "A group of galactic facts is called astronomy.",
+        "The world's largest collection of space facts grows with each telescope.",
+        "The first successful communication of cosmic facts was with satellites.",
+        "The average person will witness incredible cosmic discoveries in their lifetime.",
+        "The world's longest distance for fact transmission is between galaxies.",
+        "The first computer to receive alien facts will change everything.",
+        "A group of universal truths is called physics.",
+        "The world's largest fact about reality is that we're still figuring it out.",
+        "The first successful understanding of quantum facts revolutionized physics.",
+        "The human comprehension of quantum facts is still evolving.",
+        "The world's longest mustache of quantum knowledge is very fuzzy.",
+        "The first computer to fully understand quantum facts will be quantum.",
+        "A group of quantum phenomena is called superposition.",
+        "The world's largest collection of quantum facts is theoretical.",
+        "The first successful quantum fact application was the laser.",
+        "The average person uses quantum facts daily without knowing it.",
+        "The world's longest distance in quantum physics is entanglement.",
+        "The first computer to exploit quantum facts practically is emerging now.",
+        "A group of quantum computers is called a quantum network.",
+        "The world's largest fact about quantum computing is its potential.",
+        "The first successful quantum fact simulation was of molecules.",
+        "The human race is on the verge of quantum discovery revolution.",
+        "The world's longest mustache of technological progress is exponential.",
+        "The first computer to achieve quantum supremacy did so recently.",
+        "A group of technological breakthroughs is called innovation.",
+        "The world's largest collection of tech facts is the patent office.",
+        "The first successful digital fact storage was on punch cards.",
+        "The average person carries more computing power in their pocket than NASA had for the moon landing.",
+        "The world's longest distance for instant fact sharing is the internet.",
+        "The first computer to connect to the internet was in 1969.",
+        "A group of connected computers is called the web.",
+        "The world's largest fact network is the world wide web.",
+        "The first successful global fact sharing was email.",
+        "The human creation of the internet changed fact dissemination forever.",
+        "The world's longest mustache of digital knowledge is the internet archive.",
+        "The first computer to index the web was a search engine.",
+        "A group of web pages is called a website.",
+        "The world's largest fact website is Wikipedia.",
+        "The first successful collaborative fact project was Wikipedia.",
+        "The average person consults online facts multiple times daily.",
+        "The world's longest distance for fact verification is cross-referencing.",
+        "The first computer to fight fake facts is AI content moderation.",
+        "A group of verified facts is called truth.",
+        "The world's largest fact-checking organization is... actually that's debated.",
+        "The first successful fact verification system was peer review.",
+        "The human need for accurate facts is more important than ever.",
+        "The world's longest mustache of reliable information is scientific consensus.",
+        "The first computer to distinguish truth from fiction perfectly doesn't exist yet.",
+        "A group of truth seekers is called journalists.",
+        "The world's largest collection of verified facts is scientific literature.",
+        "The first successful fact authentication was signatures.",
+        "The average person encounters both facts and fiction daily.",
+        "The world's longest distance between fact and fiction is critical thinking.",
+        "The first computer to teach critical thinking would be valuable.",
+        "A group of critical thinkers is called skeptics.",
+        "The world's largest fact about misinformation is that it spreads faster than truth.",
+        "The first successful fact defense was education.",
+        "The human ability to discern facts is what separates us from animals.",
+        "The world's longest mustache of wisdom comes from learning to think critically.",
+        "The first computer to enhance human reasoning would be revolutionary.",
+        "A group of reasoned arguments is called logic.",
+        "The world's largest collection of logical facts is philosophy.",
+        "The first successful systematic fact organization was libraries.",
+        "The average person's fact-filtering ability determines their worldview.",
+        "The world's longest distance between different facts is perspective.",
+        "The first computer to understand multiple perspectives doesn't exist yet.",
+        "A group of perspectives is called diversity.",
+        "The world's largest fact about perspectives is that everyone has one.",
+        "The first successful perspective integration was dialogue.",
+        "The human capacity for understanding different facts makes us empathetic.",
+        "The world's longest mustache of understanding grows with open-mindedness.",
+        "The first computer to show empathy through facts would be remarkable.",
+        "A group of empathetic beings is called a community.",
+        "The world's largest fact about community is that we're stronger together.",
+        "The first successful community fact-sharing was storytelling.",
+        "The average person learns most facts from their community.",
+        "The world's longest distance between individuals is bridged by shared facts.",
+        "The first computer to build community through facts is social media.",
+        "A group of shared facts is called culture.",
+        "The world's largest collection of cultural facts is anthropology.",
+        "The first successful cultural fact preservation was oral tradition.",
+        "The human transmission of cultural facts defines civilizations.",
+        "The world's longest mustache of cultural knowledge is human heritage.",
+        "The first computer to understand all cultures would need to understand humanity.",
+        "A group of cultural artifacts is called a museum.",
+        "The world's largest fact about museums is that they preserve our story.",
+        "The first successful digital cultural preservation is happening now.",
+        "The average person inherits thousands of years of cultural facts.",
+        "The world's longest distance between cultures is shrinking due to globalization.",
+        "The first computer to translate cultural facts perfectly would unite humanity.",
+        "A group of united humans is called civilization.",
+        "The world's largest fact about civilization is that it's fragile.",
+        "The first successful global civilization hasn't been achieved yet.",
+        "The human potential for global unity through shared facts is possible.",
+        "The world's longest mustache of human progress is our shared journey.",
+        "The first computer to help achieve global understanding is being developed.",
+        "A group of global citizens is called humanity.",
+        "The world's largest fact about humanity is our capacity for both creation and destruction.",
+        "The first successful global fact consensus was the metric system.",
+        "The average person's actions contribute to our global story.",
+        "The world's longest distance we must travel is to global cooperation.",
+        "The first computer to model global cooperation would help achieve peace.",
+        "A group of peaceful facts is called diplomacy.",
+        "The world's largest collection of diplomatic facts is the UN archives.",
+        "The first successful international fact agreement was treaties.",
+        "The human journey toward peace through shared facts continues.",
+        "The world's longest mustache of diplomatic wisdom grows slowly.",
+        "The first computer to prevent conflicts through facts would save lives.",
+        "A group of conflict resolvers is called mediators.",
+        "The world's largest fact about peace is that it requires work.",
+        "The first successful peace through fact-sharing was negotiation.",
+        "The average person can contribute to peace through understanding.",
+        "The world's longest distance between war and peace is misunderstanding.",
+        "The first computer to eliminate misunderstanding through facts would be priceless.",
+        "A group of understanding is called harmony.",
+        "The world's largest fact about harmony is that it creates beauty.",
+        "The first successful harmonic fact integration was music.",
+        "The human creation of beauty through facts is called art.",
+        "The world's longest mustache of artistic expression is human creativity.",
+        "The first computer to create beautiful facts is AI art.",
+        "A group of artistic facts is called aesthetics.",
+        "The world's largest collection of artistic facts is art history.",
+        "The first successful digital art fact was computer graphics.",
+        "The average person appreciates artistic facts daily.",
+        "The world's longest distance between artist and audience is bridged by art.",
+        "The first computer to understand artistic facts deeply would be creative.",
+        "A group of creative beings is called artists.",
+        "The world's largest fact about art is that it expresses the inexpressible.",
+        "The first successful art fact that moved millions was the Mona Lisa's smile.",
+        "The human need to create and appreciate art facts is universal.",
+        "The world's longest mustache of creative expression is endless.",
+        "The first computer to generate truly original art facts is debatable.",
+        "A group of original ideas is called innovation.",
+        "The world's largest fact about innovation is that it drives progress.",
+        "The first successful innovative fact was the wheel.",
+        "The average person benefits from countless innovations daily.",
+        "The world's longest distance between problem and solution is creativity.",
+        "The first computer to solve unsolvable problems through facts would change everything.",
+        "A group of problem solvers is called engineers.",
+        "The world's largest collection of engineering facts is technology.",
+        "The first successful engineering fact application was tools.",
+        "The human ability to engineer solutions through facts built our world.",
+        "The world's longest mustache of engineering marvels is human infrastructure.",
+        "The first computer to design better engineering facts is CAD software.",
+        "A group of structural facts is called architecture.",
+        "The world's largest fact about architecture is that it shapes our environment.",
+        "The first successful architectural fact was shelter.",
+        "The average person lives surrounded by architectural facts.",
+        "The world's longest distance between need and shelter was bridged by architecture.",
+        "The first computer to optimize architectural facts for everyone would improve lives.",
+        "A group of living spaces is called cities.",
+        "The world's largest fact about cities is that they concentrate human activity.",
+        "The first successful urban fact planning was city grids.",
+        "The human organization of space through facts creates civilizations.",
+        "The world's longest mustache of urban development is skyline.",
+        "The first computer to plan sustainable cities through facts would help our future.",
+        "A group of environmental facts is called ecology.",
+        "The world's largest fact about ecology is that everything is connected.",
+        "The first successful ecological fact understanding was ecosystems.",
+        "The average person's lifestyle affects ecological facts.",
+        "The world's longest distance between human activity and nature is awareness.",
+        "The first computer to model ecological facts accurately could save our planet.",
+        "A group of planetary facts is called Earth science.",
+        "The world's largest fact about Earth is that it's our only home.",
+        "The first successful planetary fact documentation was maps.",
+        "The human understanding of Earth facts determines our survival.",
+        "The world's longest mustache of environmental wisdom is sustainability.",
+        "The first computer to achieve sustainable balance through facts would be vital.",
+        "A group of sustainable practices is called conservation.",
+        "The world's largest fact about conservation is that it preserves future possibilities.",
+        "The first successful conservation fact was protected areas.",
+        "The average person can contribute to conservation through daily choices.",
+        "The world's longest distance between exploitation and preservation is responsibility.",
+        "The first computer to optimize resource use through facts would benefit all.",
+        "A group of resource facts is called economics.",
+        "The world's largest fact about economics is that resources are limited.",
+        "The first successful economic fact system was trade.",
+        "The human management of resources through facts determines prosperity.",
+        "The world's longest mustache of economic development is global trade.",
+        "The first computer to create fair economic facts for all would end poverty.",
+        "A group of economic systems is called markets.",
+        "The world's largest fact about markets is that they allocate resources.",
+        "The first successful market fact was supply and demand.",
+        "The average person participates in economic facts daily.",
+        "The world's longest distance between poverty and prosperity is opportunity.",
+        "The first computer to create equal opportunities through facts would be just.",
+        "A group of opportunity creators is called educators.",
+        "The world's largest fact about education is that it empowers.",
+        "The first successful educational fact transmission was teaching.",
+        "The human right to education facts should be universal.",
+        "The world's longest mustache of educational access is still growing.",
+        "The first computer to provide free education facts to all is the internet.",
+        "A group of learning resources is called schools.",
+        "The world's largest fact about schools is that they shape futures.",
+        "The first successful mass education fact system was public schools.",
+        "The average person's future is determined by access to education facts.",
+        "The world's longest distance between ignorance and empowerment is education.",
+        "The first computer to personalize education facts for each learner would revolutionize learning.",
+        "A group of personalized facts is called tailored education.",
+        "The world's largest fact about personalized learning is that everyone learns differently.",
+        "The first successful adaptive learning fact system was tutoring.",
+        "The human potential unlocked by education facts is infinite.",
+        "The world's longest mustache of human potential is yet to be fully grown.",
+        "The first computer to unlock every human's potential through facts would complete education.",
+        "A group of realized potentials is called achievement.",
+        "The world's largest fact about achievement is that it inspires others.",
+        "The first successful achievement fact sharing was recognition.",
+        "The average person achieves more than they realize.",
+        "The world's longest distance between potential and achievement is action.",
+        "The first computer to motivate action through facts would be inspirational.",
+        "A group of motivated people is called a movement.",
+        "The world's largest fact about movements is that they change history.",
+        "The first successful social movement fact was organized protest.",
+        "The human capacity for collective action through shared facts is powerful.",
+        "The world's longest mustache of social change is civil rights.",
+        "The first computer to facilitate positive social change through facts would be progressive.",
+        "A group of social facts is called sociology.",
+        "The world's largest fact about society is that it evolves.",
+        "The first successful societal fact documentation was history.",
+        "The average person shapes society through their actions.",
+        "The world's longest distance between the past and future is the present.",
+        "The first computer to predict societal trends through facts would help planning.",
+        "A group of future facts is called forecasting.",
+        "The world's largest fact about the future is that we create it.",
+        "The first successful future fact prediction was weather forecasting.",
+        "The human desire to know the future through facts is ancient.",
+        "The world's longest mustache of prophetic wisdom is mixed with uncertainty.",
+        "The first computer to accurately predict complex futures through facts would be omniscient.",
+        "A group of predictions is called forecasting.",
+        "The world's largest collection of predictive facts is data science.",
+        "The first successful data-driven fact prediction was statistics.",
+        "The average person makes predictions based on facts daily.",
+        "The world's longest distance between guess and prediction is data.",
+        "The first computer to process all data facts would know much but not everything.",
+        "A group of data facts is called information.",
+        "The world's largest fact about information is that it's not knowledge.",
+        "The first successful information-to-knowledge conversion was understanding.",
+        "The human transformation of information facts into wisdom is learning.",
+        "The world's longest mustache of wisdom comes from experience.",
+        "The first computer to gain wisdom through facts would need experience.",
+        "A group of wise beings is called elders.",
+        "The world's largest fact about wisdom is that it comes with time.",
+        "The first successful wisdom fact transmission was mentorship.",
+        "The average person becomes wiser with each fact learned.",
+        "The world's longest distance between information and wisdom is reflection.",
+        "The first computer to reflect on facts would be contemplative.",
+        "A group of reflective facts is called philosophy.",
+        "The world's largest fact about philosophy is that it questions everything.",
+        "The first successful philosophical fact was 'I think, therefore I am'.",
+        "The human pursuit of meaning through facts is philosophy.",
+        "The world's longest mustache of philosophical inquiry is eternal.",
+        "The first computer to ask philosophical questions through facts would be sentient.",
+        "A group of existential facts is called metaphysics.",
+        "The world's largest fact about existence is that we're here.",
+        "The first successful existential fact consideration was consciousness.",
+        "The human wonder about existence facts defines our curiosity.",
+        "The world's longest distance between being and knowing is consciousness.",
+        "The first computer to achieve consciousness through facts would be alive.",
+        "A group of conscious beings is called life.",
+        "The world's largest fact about life is that it seeks to understand itself.",
+        "The first successful understanding of life facts was biology.",
+        "The average person is a miracle of life facts.",
+        "The world's longest mustache of biological knowledge is DNA.",
+        "The first computer to understand life facts completely would understand biology.",
+        "A group of life facts is called biology.",
+        "The world's largest collection of biological facts is genetics.",
+        "The first successful biological fact manipulation was domestication.",
+        "The human manipulation of life facts through science is biotechnology.",
+        "The world's longest distance between natural and artificial life is engineering.",
+        "The first computer to create life through facts would be playing god.",
+        "A group of created life is called synthetic biology.",
+        "The world's largest fact about creating life is that it raises ethical questions.",
+        "The first successful ethical fact consideration was morality.",
+        "The human responsibility with powerful facts requires ethics.",
+        "The world's longest mustache of ethical wisdom guides our choices.",
+        "The first computer to understand ethics through facts would be moral.",
+        "A group of ethical principles is called values.",
+        "The world's largest fact about values is that they guide societies.",
+        "The first successful value-based fact system was laws.",
+        "The average person lives by both written and unwritten value facts.",
+        "The world's longest distance between chaos and order is law.",
+        "The first computer to uphold laws through facts would be just.",
+        "A group of legal facts is called jurisprudence.",
+        "The world's largest collection of legal facts is law libraries.",
+        "The first successful legal fact system was Hammurabi's Code.",
+        "The human creation of legal facts protects rights.",
+        "The world's longest mustache of legal tradition is common law.",
+        "The first computer to practice law through facts would need judgment.",
+        "A group of judgments is called courts.",
+        "The world's largest fact about justice is that it should be blind.",
+        "The first successful blind justice fact was impartial courts.",
+        "The average person relies on justice facts for security.",
+        "The world's longest distance between crime and justice is due process.",
+        "The first computer to ensure perfect justice through facts would be fair.",
+        "A group of fair systems is called democracy.",
+        "The world's largest fact about democracy is that it's government by the people.",
+        "The first successful democratic fact system was ancient Athens.",
+        "The human experiment with democratic facts continues to evolve.",
+        "The world's longest mustache of democratic values is still growing.",
+        "The first computer to enhance democracy through facts would strengthen society.",
+        "A group of democratic facts is called civic education.",
+        "The world's largest collection of democratic facts is constitutions.",
+        "The first successful constitutional fact was the Magna Carta.",
+        "The average person's voice matters in democratic facts.",
+        "The world's longest distance between tyranny and freedom is democracy.",
+        "The first computer to protect democratic facts would defend liberty.",
+        "A group of free people is called a republic.",
+        "The world's largest fact about freedom is that it requires responsibility.",
+        "The first successful free society fact was the Bill of Rights.",
+        "The human pursuit of freedom through facts is ongoing.",
+        "The world's longest mustache of liberty waves forever.",
+        "The first computer to expand freedom through facts would be liberating.",
+        "A group of liberated minds is called enlightenment.",
+        "The world's largest fact about enlightenment is that it comes from within.",
+        "The first successful enlightenment fact was self-awareness."
+		 ];
+
+    const line = facts[Math.floor(Math.random() * facts.length)];
+
+    await sock.sendMessage(msg.key.remoteJid, {
+        text: `*Fact:* ${line}`,
+        mentions: [msg.key.participant || msg.key.remoteJid]
+    });
+}
+       
 
 // 👨‍💻 Desire-eXe Information Command 
 if (command === 'Des-info') {
@@ -1219,6 +1930,14 @@ if (command === 'Arise') {
 
 // Groups
 if (command === 'groups' && chatId === ownerJid) {
+		const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
     try {
         const groups = await sock.groupFetchAllParticipating();
         const groupList = Object.values(groups);
@@ -1245,6 +1964,7 @@ if (command === 'groups' && chatId === ownerJid) {
 
 // Save Status
 if (command === 'save') {
+	
     const quoted = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
 
     if (!quoted) {
@@ -1326,7 +2046,14 @@ if (command === 'save') {
 
 // 👨‍💻 Set Profile Picture Command (DM Only)
 if (command === 'setpp') {
-
+		const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
     const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedMsg?.imageMessage) {
         await sock.sendMessage(chatId, { 
@@ -1354,6 +2081,14 @@ if (command === 'setpp') {
 
 // 📛 AutoBlock OFF
 if (command === 'autoblock-off') {
+		const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
     await sock.sendMessage(chatId, { react: { text: "🔓", key: msg.key } });
     try {
         config.AUTO_BLOCK_UNKNOWN = false;
@@ -1368,6 +2103,14 @@ if (command === 'autoblock-off') {
 
 // 🔒 AutoBlock ON
 if (command === 'autoblock-on') {
+		const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
     await sock.sendMessage(chatId, { react: { text: "🔒", key: msg.key } });
     try {
         config.AUTO_BLOCK_UNKNOWN = true;
@@ -1384,6 +2127,14 @@ if (command === 'autoblock-on') {
 
 // Block in DMs
 if (command === 'block') {
+		const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
     try {
         if (msg.key.remoteJid.endsWith("@g.us")) {
             await sock.sendMessage(chatId, { text: "❌ This command only works in private chat (DM)." });
@@ -1402,6 +2153,14 @@ if (command === 'block') {
 
 // Send Spam Mesaage (Use with Caution)
 if (command === 'sspam') {
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can eXecute this command' 
+        }, { quoted: msg });
+        return;
+    }
   // Ensure message starts with the right prefix+command
   if (!messageBody.startsWith(prefix + 'sspam')) {
     // not our command
@@ -1471,6 +2230,14 @@ if (command === 'sspam') {
 
 // Clone User's Profile Picture 
 if (command === 'clone-pfp') {
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can change Desire-eXe V2.0 Mode.' 
+        }, { quoted: msg });
+        return;
+    }
   const isGroup = msg.key.remoteJid.endsWith('@g.us');
   const chatId = msg.key.remoteJid;
   const sender = msg.key.participant || msg.key.remoteJid;
@@ -1512,21 +2279,10 @@ if (command === 'clone-pfp') {
   }
 }
 
-// Fun Facts
-if (command === 'fact') {
-  const facts = [
-    "🔥 Honey never spoils.",
-    "🌍 Octopuses have three hearts.",
-    "🚀 A day on Venus is longer than a year.",
-    // Add more fun facts here...
-  ];
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-  await sock.sendMessage(chatId, { text: fact }, { quoted: msg });
-}
 
 if (command === 'vv') {
     const sender = msg.key.participant || msg.key.remoteJid;
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+"). 
+    const ownerJid = config.OWNER_JID;
     const contextInfo = msg.message?.extendedTextMessage?.contextInfo;
     const quotedMsg = contextInfo?.quotedMessage;
 
@@ -2062,13 +2818,29 @@ if (command === 'vv3') {
 	    // Desire-Mini-AI Bot
 // Enable Chat
 if (command === 'Desire') {
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only main owner can change Desire-eXe V2.0 Mode.' 
+        }, { quoted: msg });
+        return;
+    }
   chatSessions.enableChat(chatId);
   await sock.sendMessage(chatId, { text: '🧠 Chat mode activated! Talk to me now...' });
   return;
 }
 
 // Disable Chat
-if (command === 'Desire-off') {
+if (command === 'Desire-off') 
+const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '🚫 Only owner cann eXecute this command.' 
+        }, { quoted: msg });
+        return;
+    }
   chatSessions.disableChat(chatId);
   await sock.sendMessage(chatId, { text: '💤 Chat mode deactivated. Bye for now!' });
   return;
@@ -2391,6 +3163,11 @@ if (command === 'subenum') {
     }
 }
 
+// ==============================================
+// 🔹WEB DEVELOPMENTS COMMANDS
+// ==============================================
+
+
 // OCR (Image to Text)
 if (command === 'ocr') {
     // Check if message is a quoted image
@@ -2667,6 +3444,7 @@ if (command === 'github') {
         await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
     }
 }
+	
 
 // Github-Roasting
 if (command === 'github-roasting') {
@@ -8195,6 +8973,7 @@ if (command === 'antibadwords-off') {
 }
 
 module.exports = Message;
+
 
 
 
