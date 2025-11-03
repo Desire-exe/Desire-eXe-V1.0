@@ -1,14 +1,18 @@
 {
-  "name": "Desire-eXe V1.0",
+ "name": "Desire-eXe V1.0",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "koyeb": "node app.js",
+    "render": "node app.js",
+    "katabump": "node app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["whatsapp-bot", "multi-platform"],
+  "author": "Desire",
   "license": "MIT",
-  "description": "",
+  "description": "The WhatsApp Bot with all Desires",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@octokit/rest": "^20.0.2",
@@ -42,6 +46,7 @@
     "node": ">=18.0.0"
   }
 }
+
 
 
 
