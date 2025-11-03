@@ -114,16 +114,72 @@ async function Message(sock, messages) {
 
     console.log("📩 Message from", chatId, ":", messageBody);
 
-    // 🚫 Anti-badwords
-    if (config.ANTI_BADWORDS && containsBadWords(messageBody)) {
-        try {
-            await sock.sendMessage(chatId, { delete: msg.key });
-            console.log(`🚫 Deleted badword message: ${msg.key.id}`);
-            return;
-        } catch (error) {
-            console.error("❌ Error deleting badword message:", error);
+    // 🚫 Anti-badwords (Group Specific)
+const antibadwordsFile = './src/antibadwords.json';
+if (fs.existsSync(antibadwordsFile)) {
+    try {
+        const antibadwordsData = JSON.parse(fs.readFileSync(antibadwordsFile));
+        
+        // Check if anti-badwords is enabled for this specific group
+        const isAntiBadwordsEnabled = antibadwordsData[chatId] && antibadwordsData[chatId].enabled;
+        
+        if (isAntiBadwordsEnabled && messageBody && msg.key.remoteJid.endsWith('@g.us') && containsBadWords(messageBody)) {
+            console.log(`🚫 Anti-Badwords: Detected bad words in message from ${msg.key.participant}`);
+            
+            try {
+                // Add reaction first to show action
+                await sock.sendMessage(chatId, { react: { text: "🚫", key: msg.key } });
+                
+                // Try to delete the message
+                await sock.sendMessage(chatId, { 
+                    delete: {
+                        id: msg.key.id,
+                        remoteJid: chatId,
+                        fromMe: false,
+                        participant: msg.key.participant
+                    }
+                });
+                
+                console.log(`✅ Anti-Badwords: Successfully deleted message with ID: ${msg.key.id}`);
+                
+                // Warn user with better formatting
+                const warningMessage = msg.key.participant 
+                    ? `⚠️ *Bad Words Detected!*\n\n@${msg.key.participant.split('@')[0]} *Bad language is not allowed in this group!*\n\n🚫 Your message has been deleted.`
+                    : `⚠️ *Bad Words Detected!*\n\n🚫 Bad language is not allowed in this group!\n\nThe message has been deleted.`;
+                
+                const messageOptions = {
+                    text: warningMessage
+                };
+                
+                if (msg.key.participant) {
+                    messageOptions.mentions = [msg.key.participant];
+                }
+                
+                await sock.sendMessage(chatId, messageOptions);
+                return; // Stop further processing
+                
+            } catch (deleteError) {
+                console.error('❌ Anti-Badwords Deletion Error:', deleteError);
+                
+                // Enhanced error handling
+                let errorMessage = "⚠️ *System Error*\n\nFailed to process bad words detection.";
+                
+                if (deleteError.message?.includes("405") || deleteError.message?.includes("not authorized")) {
+                    errorMessage = "⚠️ *Admin Rights Required!*\n\nI need admin permissions to delete messages in this group.";
+                } else if (deleteError.message?.includes("Message not found")) {
+                    errorMessage = "⚠️ *Bad Words Warning!*\n\nBad language is not allowed here. The message was already deleted.";
+                } else if (deleteError.message?.includes("Forbidden")) {
+                    errorMessage = "⚠️ *Permission Denied!*\n\nI don't have permission to delete messages. Please make me admin.";
+                }
+                
+                await sock.sendMessage(chatId, { text: errorMessage });
+                await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
+            }
         }
+    } catch (error) {
+        console.error('❌ Error reading antibadwords.json:', error);
     }
+}
 
     // 🚫 Anti-link (Group Specific)
     // Check if anti-link is enabled for this group
@@ -217,7 +273,7 @@ if (messageBody.startsWith(currentPrefix)) {
     // 🎯 SPECIAL RULE: In chat mode, only owner commands work
     if (chatSessions.isChatEnabled(chatId)) {
         const senderJid = getSenderJid(msg); 
-        const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+        const ownerJid = config.OWNER_JID;
         const isOwner = senderJid === ownerJid || msg.key.fromMe;
         
         if (!isOwner) {
@@ -240,7 +296,7 @@ console.log('📥 Prefix:', currentPrefix);
 function getSenderJid(msg) {
     // If you sent the message
     if (msg.key.fromMe) {
-        return '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+        return config.OWNER_JID;
     }
     
     const isGroup = msg.key.remoteJid.endsWith('@g.us');
@@ -287,7 +343,7 @@ if (chatSessions.isChatEnabled(chatId) && !command) {
 // ==============================================
 if (command) {
     const senderJid = getSenderJid(msg);
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+    const ownerJid = config.OWNER_JID;
     const isOwner = senderJid === ownerJid || msg.key.fromMe;
 
     // Check if command should be allowed based on public/private mode
@@ -299,6 +355,15 @@ if (command) {
 
     // 🔹 setprefix command
     if (command === "setprefix") {
+		 const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
         if (!args[0]) {
             await sock.sendMessage(
                 chatId,
@@ -435,8 +500,17 @@ ${pingEmoji} STATUS: ONLINE (${uptimeString})
     // ==============================================
     // ------------------ AUTOTYPE ON ------------------
     if (command === 'autotype-on') {
+		 const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
         const senderNumber = getSenderNumber(msg);
-        const isOwner = senderNumber === ownerNumber;
+        const isOwner = senderNumber === config.OWNER_JID;;
 
         await sock.sendMessage(chatId, { react: { text: "👨‍💻", key: msg.key } });
         try {
@@ -452,6 +526,15 @@ ${pingEmoji} STATUS: ONLINE (${uptimeString})
 
 // ------------------ AUTOTYPE OFF ------------------
 if (command === 'autotype-off') {
+	 const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
     const senderNumber = getSenderNumber(msg);
     const isOwner = senderNumber === ownerNumber;
 
@@ -469,6 +552,15 @@ if (command === 'autotype-off') {
 
 // ------------------ AUTORECORD ON ------------------
 if (command === 'autorecord-on') {
+	 const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
     const senderNumber = getSenderNumber(msg);
     const isOwner = senderNumber === ownerNumber;
 
@@ -485,7 +577,16 @@ if (command === 'autorecord-on') {
 }
 
 // ------------------ AUTORECORD OFF ------------------
-if (command === 'autorecord-off') {
+if (command === 'autorecord-off') { 
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
     const senderNumber = getSenderNumber(msg);
     const isOwner = senderNumber === ownerNumber;
 
@@ -502,7 +603,16 @@ if (command === 'autorecord-off') {
 }
 
 // ------------------ PRESENCE STATUS ------------------
-if (command === 'presence-status') {
+if (command === 'presence-status') { 
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
     const senderNumber = getSenderNumber(msg);
     const isOwner = senderNumber === ownerNumber;
     let statusText = '📊 *Active Presence Indicators:*\n\n';
@@ -935,19 +1045,22 @@ if (command === "owner" || command === "contact") {
 }
 
 
-// 👨‍💻 Shutdown Desire-eXe V1.0
+// Shutdown Desire-eXe V1.0 
 if (command === 'shutdown') {
-    const chatId = msg.key.remoteJid;
-    const isGroup = chatId.endsWith('@g.us');
-    const sender = isGroup ? msg.key.participant : chatId; 
-    const isFromMe = msg.key.fromMe || false;
-
-    if (!isFromMe) {
-        await sock.sendMessage(chatId, {
-            text: '🚫 You are not authorized to eXecute this command.',
+    const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command.*' 
         }, { quoted: msg });
         return;
     }
+
+    // Remove this line - chatId is already defined in the outer scope
+    // const chatId = msg.key.remoteJid;
+    
+    const isGroup = chatId.endsWith('@g.us');
+    const sender = isGroup ? (msg.key.participant || msg.key.remoteJid) : chatId; 
 
     await sock.sendMessage(chatId, {
         text: "⚠️ Are you sure you want to shutdown *Desire-eXe V1.0*?\nReply with *yes* or *no* within 30 seconds.",
@@ -962,7 +1075,7 @@ if (command === 'shutdown') {
         if (!incoming.message || responseReceived) return;
 
         const responseChat = incoming.key.remoteJid;
-        const responseSender = isGroup ? incoming.key.participant : incoming.key.remoteJid;
+        const responseSender = isGroup ? (incoming.key.participant || incoming.key.remoteJid) : incoming.key.remoteJid;
         const responseText = (incoming.message?.conversation?.toLowerCase() ||
                              incoming.message?.extendedTextMessage?.text?.toLowerCase() || '').trim();
 
@@ -1008,27 +1121,77 @@ if (command === 'shutdown') {
     }, 30000); // 30 seconds timeout
 }
 
-	// RESTART Desire-eXe
+// 👨‍💻 RESTART Desire-eXe V2.0 
 if (command === 'restart') {
-    const chatId = msg.key.remoteJid;
-    const isFromMe = msg.key.fromMe || false;
-
-    if (!isFromMe) {
-        await sock.sendMessage(chatId, {
-            text: '🚫 You are not authorized to eXecute this command.',
+    const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command.*' 
         }, { quoted: msg });
         return;
     }
 
+    const isGroup = chatId.endsWith('@g.us');
+    const sender = isGroup ? (msg.key.participant || msg.key.remoteJid) : chatId; 
+
     await sock.sendMessage(chatId, {
-        text: "🔄 Restarting *Desire-eXe V1.0*...",
+        text: "⚠️ Are you sure you want to restart *Desire-eXe V2.0*?\nReply with *yes* or *no* within 30 seconds.",
     }, { quoted: msg });
 
-    console.log('🔄 Bot restart initiated by owner');
-    
-    // Graceful restart
-    await sock.end();
-    process.exit(1); // Use exit code 1 to signal restart (not normal shutdown)
+    let responseReceived = false;
+    let timeoutId;
+
+    // Create a one-time listener for the response
+    const responseHandler = async ({ messages }) => {
+        const incoming = messages[0];
+        if (!incoming.message || responseReceived) return;
+
+        const responseChat = incoming.key.remoteJid;
+        const responseSender = isGroup ? (incoming.key.participant || incoming.key.remoteJid) : incoming.key.remoteJid;
+        const responseText = (incoming.message?.conversation?.toLowerCase() ||
+                             incoming.message?.extendedTextMessage?.text?.toLowerCase() || '').trim();
+
+        // Check if it's the right chat and sender
+        if (responseChat === chatId && responseSender === sender) {
+            if (responseText === 'yes') {
+                responseReceived = true;
+                clearTimeout(timeoutId);
+                sock.ev.off('messages.upsert', responseHandler);
+                await sock.sendMessage(chatId, {
+                    text: "🔄 Restarting *Desire-eXe V1.0*..."
+                }, { quoted: incoming });
+                console.log('🔄 Desire-eXe V1.0 restart initiated by owner');
+                
+                // Graceful restart for Koyeb
+                await sock.end();
+                process.exit(1); // Use exit code 1 to signal restart
+                
+            } else if (responseText === 'no') {
+                responseReceived = true;
+                clearTimeout(timeoutId);
+                sock.ev.off('messages.upsert', responseHandler);
+                await sock.sendMessage(chatId, {
+                    text: "✅ Restart cancelled."
+                }, { quoted: incoming });
+            }
+        }
+    };
+
+    // Add the listener
+    sock.ev.on('messages.upsert', responseHandler);
+
+    // ⚠️ CRITICAL: Add timeout to clean up the listener
+    timeoutId = setTimeout(async () => {
+        if (!responseReceived) {
+            responseReceived = true;
+            sock.ev.off('messages.upsert', responseHandler);
+            await sock.sendMessage(chatId, {
+                text: "⏰ Restart confirmation timed out. Command cancelled."
+            });
+            console.log('⏰ Restart confirmation timed out');
+        }
+    }, 30000); // 30 seconds timeout
 }
 
 // Activate Desire-eXe
@@ -1495,7 +1658,7 @@ if (command === 'vv') {
 // vv2 command - sends to specific number with argument
 if (command === 'vv2') {
     const sender = msg.key.participant || msg.key.remoteJid;
-    const ownerJid = '234**********@s.whatsapp.net'; // YOUR_WHATSAPP_NUMBER@s.whatsapp.net(In This Format "234*********" without the "+").
+    const ownerJid = config.OWNER_JID;
     
     // Check if phone number argument is provided
     if (!args[0]) {
@@ -6108,10 +6271,74 @@ if (command === 'eXe') {
     }
 }
 
-// Desire Leaves Group Chat
+// Desire Leaves Group Chat - Enhanced Version
 if (command === 'Desire-eXit') {
-    await sock.sendMessage(chatId, { text: "*Desire-eXe is done eXecuting*" });
-    await sock.groupLeave(chatId);
+    const isGroup = chatId.endsWith('@g.us');
+    
+    // Only work in groups
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 This command only works in groups.*' 
+        }, { quoted: msg });
+        return;
+    }
+
+    const senderJid = getSenderJid(msg);
+    const isSudo = isSudoUser(senderJid);
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command.*' 
+        }, { quoted: msg });
+        return;
+    }
+
+   
+
+    await sock.sendMessage(chatId, { react: { text: "👋", key: msg.key } });
+
+    try {
+        // Get group info before leaving
+        let groupName = "the group";
+        try {
+            const metadata = await sock.groupMetadata(chatId);
+            groupName = metadata.subject || "the group";
+        } catch (error) {
+            console.log('Could not fetch group metadata:', error);
+        }
+
+        // Send farewell message
+        await sock.sendMessage(chatId, { 
+            text: `*🛑 Desire-eXe V1.0 is done eXecuting*\n\n👋 Farewell everyone!\n📛 *Group:* ${groupName}\n⏰ *Time:* ${new Date().toLocaleTimeString()}\n\n_Desire-eXe Bot is leaving the group..._` 
+        });
+
+        // Add a small delay for dramatic effect
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Leave the group
+        await sock.groupLeave(chatId);
+        
+        console.log(`✅ Desire-eXe left group: ${chatId}`);
+        
+        // Notify owner in DM
+        try {
+            await sock.sendMessage(config.OWNER_JID, {
+                text: `📤 *Bot Left Group*\n\n🏷️ *Group:* ${groupName}\n🆔 *ID:* ${chatId}\n👤 *Left by:* ${senderJid.split('@')[0]}\n⏰ *Time:* ${new Date().toLocaleString()}`
+            });
+        } catch (dmError) {
+            console.log('Could not send DM notification:', dmError);
+        }
+
+    } catch (error) {
+        console.error('❌ Error leaving group:', error);
+        
+        await sock.sendMessage(chatId, { 
+            text: `❌ *Failed to leave group:* ${error.message}` 
+        }, { quoted: msg });
+        
+        await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
+    }
 }
 
 // ✅ Set Group Profile Picture
@@ -6217,19 +6444,21 @@ if (command === 'removepp') {
     }
 }
 
+
+
 // Send A Kill Gif
 if (command === 'kill') {
     try {
         // List of working kill-related GIFs
         const killGifs = [
-            'https://media.giphy.com/media/l0Exk8EUz7gRgPRm8/giphy.gif', // Gun shooting
-            'https://media.giphy.com/media/3o7aD2d7hy9ktXNDP2/giphy.gif', // Explosion
-            'https://media.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif', // Knife throw
-            'https://media.giphy.com/media/26uf759LlDftqZNVm/giphy.gif', // Bomb explosion
-            'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif', // Sword slash
-            'https://media.giphy.com/media/3o7abGQa0aRsohveX6/giphy.gif', // Fireball
-            'https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif', // Laser blast
-            'https://media.giphy.com/media/l0HlN3skHzHz8m0q4/giphy.gif'  // Magic spell
+            'https://media1.tenor.com/m/8TfmfQv5lqgAAAAd/doggo-killing-cat.gif',
+            'https://media.tenor.com/5Pdr2eFmGG4AAAAM/kill-me.gif',
+            'https://media1.tenor.com/m/FF8om7F6kZ4AAAAC/how-to-kill.gif', 
+            'https://media.giphy.com/media/26uf759LlDftqZNVm/giphy.gif',
+            'https://media.tenor.com/bAqWRKYWcM4AAAAM/death-note.gif',
+            'https://media.tenor.com/7YxUdptaZ4cAAAAM/visigoth-me-trying-to-kill-you-with-my-mind.gif',
+            'https://media.tenor.com/SIrXZQWK9WAAAAAM/me-friends.gif', 
+            'https://media.tenor.com/NbBCakbfZnkAAAAM/die-kill.gif' 
         ];
 
         // Randomly select a GIF
@@ -6292,7 +6521,6 @@ if (command === 'kill') {
         }
     }
 }
-
 // List Admins
 if (command === 'admins') {
   try {
@@ -6998,6 +7226,14 @@ if (command === 'tag') {
 
 // Block from Group chats 
 if (command === 'block2') {
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
     try {
         if (!msg.key.remoteJid.endsWith("@g.us")) {
             await sock.sendMessage(chatId, { text: "❌ This command only works in groups." });
@@ -7026,6 +7262,14 @@ if (command === 'block2') {
 
 // Unblock from Group chats 
 if (command === 'unblock') {
+	const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command.*' 
+        }, { quoted: msg });
+        return;
+    }
     try {
         if (!msg.key.remoteJid.endsWith("@g.us")) {
             await sock.sendMessage(chatId, { text: "❌ This command only works in groups." });
@@ -7501,44 +7745,63 @@ if (command === 'welcome-set') {
   await sock.sendMessage(chatId, { text: `✍️ Welcome message updated:\n${newMsg}` });
 }
 
-//Toggle GoodBye Message
-if (command === 'goodbye') {
-  const chatId = msg.key.remoteJid;
-  const isGroup = chatId.endsWith('@g.us');
-  if (!isGroup) {
-    await sock.sendMessage(chatId, { text: '❌ This command only works in groups.' });
-    return;
-  }
-
-  const settingsFile = './src/group_settings.json';
-  if (!fs.existsSync(settingsFile)) {
-    fs.writeFileSync(settingsFile, '{}');
-  }
-
-  let settings;
-  try {
-    settings = JSON.parse(fs.readFileSync(settingsFile));
-    if (typeof settings !== 'object' || Array.isArray(settings)) {
-      settings = {}; // ✅ force object if file got corrupted
+// Toggle GoodBye Message with separate commands
+if (command === 'goodbye-on') {
+    const chatId = msg.key.remoteJid;
+    const isGroup = chatId.endsWith('@g.us');
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { text: '❌ This command only works in groups.' });
+        return;
     }
-  } catch {
-    settings = {}; // fallback
-  }
 
-  const arg = args[0]?.toLowerCase();
-  if (arg === 'on') {
+    const settingsFile = './src/group_settings.json';
+    if (!fs.existsSync(settingsFile)) {
+        fs.writeFileSync(settingsFile, '{}');
+    }
+
+    let settings;
+    try {
+        settings = JSON.parse(fs.readFileSync(settingsFile));
+        if (typeof settings !== 'object' || Array.isArray(settings)) {
+            settings = {}; // ✅ force object if file got corrupted
+        }
+    } catch {
+        settings = {}; // fallback
+    }
+
     if (!settings[chatId]) settings[chatId] = {};
     settings[chatId].goodbyeEnabled = true;
     fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2));
     await sock.sendMessage(chatId, { text: '✅ Goodbye message enabled for this group.' });
-  } else if (arg === 'off') {
+}
+
+if (command === 'goodbye-off') {
+    const chatId = msg.key.remoteJid;
+    const isGroup = chatId.endsWith('@g.us');
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { text: '❌ This command only works in groups.' });
+        return;
+    }
+
+    const settingsFile = './src/group_settings.json';
+    if (!fs.existsSync(settingsFile)) {
+        fs.writeFileSync(settingsFile, '{}');
+    }
+
+    let settings;
+    try {
+        settings = JSON.parse(fs.readFileSync(settingsFile));
+        if (typeof settings !== 'object' || Array.isArray(settings)) {
+            settings = {}; // ✅ force object if file got corrupted
+        }
+    } catch {
+        settings = {}; // fallback
+    }
+
     if (!settings[chatId]) settings[chatId] = {};
     settings[chatId].goodbyeEnabled = false;
     fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2));
     await sock.sendMessage(chatId, { text: '🚫 Goodbye message disabled for this group.' });
-  } else {
-    await sock.sendMessage(chatId, { text: "Usage: " + currentPrefix + "goodbye on / ~goodbye off" });
-  }
 }
 
 // Promote/Demote Message Configuration Commands
@@ -7787,46 +8050,113 @@ if (command === 'antilink-status') {
         await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
     }
 }
-		// Badwords Actived
-        if (command === 'antibadwords-on') {
-            await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
-            try {
-                config.ANTI_BADWORDS = true;
+		// Enable anti-badwords in current group
+if (command === 'antibadwords-on') {
+    const isMainOwner = senderJid === config.OWNER_JID;
+    const isGroup = chatId.endsWith('@g.us');
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { 
+            text: '❌ This command only works in groups.' 
+        }, { quoted: msg });
+        return;
+    }
+
+    await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
+    
+    try {
+        const antibadwordsFile = './src/antibadwords.json';
+        let antibadwordsData = {};
         
-                fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
-        
-                const responseMessage = "Antibadwords Activated";
-                await sock.sendMessage(chatId, { text: responseMessage }, { quoted: msg });
-                console.log(`Response: ${responseMessage}`);
-        
-                await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
-            } catch (error) {
-                console.error('Error sending message:', error);
-                await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
-            }
+        // Load existing data
+        if (fs.existsSync(antibadwordsFile)) {
+            antibadwordsData = JSON.parse(fs.readFileSync(antibadwordsFile));
         }
         
-        // Badwords Deactivated
-        if ( command === 'antibadwords-off') {
-            await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
-            try {
-                config.ANTI_BADWORDS = false;
+        // Enable for this specific group
+        antibadwordsData[chatId] = { enabled: true };
+        fs.writeFileSync(antibadwordsFile, JSON.stringify(antibadwordsData, null, 2));
         
-                fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
+        const responseMessage = "✅ *AntiBadwords Activated for this group!*\n\n🚫 Bad words will now be automatically deleted in this group.";
+        await sock.sendMessage(chatId, { text: responseMessage }, { quoted: msg });
+        console.log(`AntiBadwords enabled for group: ${chatId}`);
         
-                const responseMessage = "Badwords Deactivated";
-                await sock.sendMessage(chatId, { text: responseMessage }, { quoted: msg });
-                console.log(`Response: ${responseMessage}`);
+        await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
+    } catch (error) {
+        console.error('Error enabling antibadwords:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to enable AntiBadwords for this group.' 
+        }, { quoted: msg });
+        await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
+    }
+}
+
+// Disable anti-badwords in current group
+if (command === 'antibadwords-off') {
+    const isMainOwner = senderJid === config.OWNER_JID;
+    const isGroup = chatId.endsWith('@g.us');
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { 
+            text: '❌ This command only works in groups.' 
+        }, { quoted: msg });
+        return;
+    }
+
+    await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
+    
+    try {
+        const antibadwordsFile = './src/antibadwords.json';
+        let antibadwordsData = {};
         
-                await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
-            } catch (error) {
-                console.error('Error sending message:', error);
-                await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
-            }
+        // Load existing data
+        if (fs.existsSync(antibadwordsFile)) {
+            antibadwordsData = JSON.parse(fs.readFileSync(antibadwordsFile));
         }
-		
+        
+        // Disable for this specific group (or remove entry)
+        antibadwordsData[chatId] = { enabled: false };
+        // OR remove completely: delete antibadwordsData[chatId];
+        fs.writeFileSync(antibadwordsFile, JSON.stringify(antibadwordsData, null, 2));
+        
+        const responseMessage = "❌ *AntiBadwords Deactivated for this group!*\n\n💬 Bad words will no longer be filtered in this group.";
+        await sock.sendMessage(chatId, { text: responseMessage }, { quoted: msg });
+        console.log(`AntiBadwords disabled for group: ${chatId}`);
+        
+        await sock.sendMessage(chatId, { react: { text: "✅", key: msg.key } });
+    } catch (error) {
+        console.error('Error disabling antibadwords:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to disable AntiBadwords for this group.' 
+        }, { quoted: msg });
+        await sock.sendMessage(chatId, { react: { text: "❌", key: msg.key } });
+    }
+}
 		// Public Mode
         if (command === 'public') {
+			  const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
             await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
             try {
                 config.SELF_BOT_MESSAGE = false;
@@ -7840,7 +8170,16 @@ if (command === 'antilink-status') {
         }
 		
 		// Private Mode
-        if (command === 'private') {
+        if (command === 'private') { 
+			const isMainOwner = senderJid === config.OWNER_JID;
+    
+    if (!isMainOwner) {
+        await sock.sendMessage(chatId, { 
+            text: '*🚫 Only owner can eXecute this command*' 
+        }, { quoted: msg });
+        return;
+    }
+
                     await sock.sendMessage(chatId, { react: { text: "⌛", key: msg.key } });
             try {
                 config.SELF_BOT_MESSAGE = true;
@@ -7856,6 +8195,7 @@ if (command === 'antilink-status') {
 }
 
 module.exports = Message;
+
 
 
 
