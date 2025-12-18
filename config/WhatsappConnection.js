@@ -18,6 +18,7 @@ const CONTACT_FILE = './Desire_contact.json';
 const CONFIG_FILE = './config.json';
 const BUG_LOG = './buglog.json';
 
+// Global state variables
 let contactList = [];
 let botStartTime = null;
 let isConnected = false;
@@ -26,6 +27,23 @@ let qrCodeImage = null;
 let pairingCode = null;
 let pairingPhoneNumber = null;
 let pairingCodeExpiry = null;
+let sockInstance = null;
+
+// Initialize global variables
+global.botStatus = 'initializing';
+global.connectionTime = null;
+
+// Cleanup function
+function cleanupState() {
+  qrCode = null;
+  qrCodeImage = null;
+  pairingCode = null;
+  pairingPhoneNumber = null;
+  pairingCodeExpiry = null;
+  isConnected = false;
+  global.botStatus = 'initializing';
+  global.connectionTime = null;
+}
 
 // Load contacts
 function loadContactsFromFile() {
@@ -87,7 +105,7 @@ function unwrapMessage(message) {
   return message;
 }
 
-// Bug detection helpers - FIXED VERSION
+// Bug detection helpers
 function isDangerousText(msg) {
   const text = msg?.conversation || msg?.extendedTextMessage?.text || '';
   
@@ -214,17 +232,26 @@ The bot is now operational and listening for messages.`;
 // Generate QR Code as image
 async function generateQRImage(qr) {
   try {
+    if (!qr) return null;
     const qrImage = await qrcode.toDataURL(qr);
     return qrImage;
   } catch (error) {
     console.error('❌ Failed to generate QR image:', error);
-    return null;
+    // Return a placeholder error image
+    return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPlFSIENvZGUgRXJyb3I8L3RleHQ+PC9zdmc+';
   }
 }
 
 // Request pairing code
 async function requestPairingCode(sock, phoneNumber) {
   try {
+    if (!sock) {
+      return {
+        success: false,
+        error: 'Bot is not initialized yet. Please wait a moment.'
+      };
+    }
+    
     console.log(`📱 Requesting pairing code for: ${phoneNumber}`);
     
     // Validate phone number format
@@ -265,6 +292,13 @@ function clearExpiredPairingCode() {
     pairingPhoneNumber = null;
     pairingCodeExpiry = null;
   }
+}
+
+// Start periodic cleanup of expired pairing codes
+function startPairingCodeCleanup() {
+  setInterval(() => {
+    clearExpiredPairingCode();
+  }, 30000); // Check every 30 seconds
 }
 
 // Enhanced QR Code & Pairing HTML page
@@ -659,7 +693,7 @@ function getAuthPage() {
                         <label class="form-label" for="phoneNumber">Enter Your WhatsApp Number:</label>
                         <input type="tel" class="form-input" id="phoneNumber" 
                                placeholder="+1234567890" required
-                               pattern="^\+?[\d\s-()]+$">
+                               pattern="^\+?[\\d\\s-()]+$">
                         <small style="color: #718096; margin-top: 5px; display: block;">
                             Include country code (e.g., +1 for US, +44 for UK, +234 for Nigeria)
                         </small>
@@ -742,7 +776,7 @@ function getAuthPage() {
             timeLeft--;
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
-            countdownElement.textContent = \`\${minutes}:\${seconds.toString().padStart(2, '0')}\`;
+            countdownElement.textContent = minutes + ':' + seconds.toString().padStart(2, '0');
             
             if (timeLeft <= 0) {
                 clearInterval(countdown);
@@ -770,6 +804,9 @@ function getAuthPage() {
 
 // Main bot
 async function startBot() {
+  // Cleanup previous state
+  cleanupState();
+  
   const { state, saveCreds } = await useMultiFileAuthState(AUTH_DIR);
   let sock;
 
@@ -821,11 +858,18 @@ async function startBot() {
         return null;
       }
     });
+    
+    // Store socket instance globally
+    sockInstance = sock;
+    
   } catch (err) {
     console.error('❌ Failed to initialize socket:', err);
     setTimeout(startBot, 10000);
     return;
   }
+
+  // Start pairing code cleanup
+  startPairingCodeCleanup();
 
   sock.ev.on('creds.update', saveCreds);
 
@@ -836,6 +880,12 @@ async function startBot() {
     // Handle QR Code - Generate web-accessible QR
     if (qr) {
       console.log('📱 QR Code received - generating web QR...');
+      
+      // Clear any existing pairing info
+      pairingCode = null;
+      pairingPhoneNumber = null;
+      pairingCodeExpiry = null;
+      
       qrCode = qr;
       qrCodeImage = await generateQRImage(qr);
       global.botStatus = 'qr_pending';
@@ -1165,6 +1215,17 @@ async function startBot() {
 module.exports = { 
   startBot, 
   getAuthPage, 
-  getQRCode: () => ({ qrCode, qrCodeImage, isConnected, pairingCode, pairingPhoneNumber }),
-  requestPairingCode: (sock, phoneNumber) => requestPairingCode(sock, phoneNumber)
+  getQRCode: () => ({ 
+    qrCode, 
+    qrCodeImage, 
+    isConnected, 
+    pairingCode, 
+    pairingPhoneNumber,
+    botStatus: global.botStatus,
+    uptime: getUptimeString()
+  }),
+  requestPairingCode: (phoneNumber) => requestPairingCode(sockInstance, phoneNumber),
+  getSock: () => sockInstance,
+  getUptimeString,
+  getBotStatus: () => global.botStatus
 };
