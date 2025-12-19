@@ -1,10 +1,10 @@
 🤖 *DESIRE-EXE V1.0 MENU* 🤖
 
-*HELLO, I AM *_DESIRE-EXE V1.0_* - YOUR WHATSAPP ASSISTANT*
+*HELLO, I AM _DESIRE-EXE V1.0_* - YOUR WHATSAPP ASSISTANT*
 
 *PREFIX:* `${prefix}`
 
-*STATUS: ✅ *ONLINE*
+*STATUS: ✅ ONLINE*
 
 *COMMANDS: 173 SINS*
 
@@ -78,7 +78,7 @@ ${prefix}smile - Animated smile
 ${prefix}kill - Kill (fun)
 
 
-### 🌐 *WEATHER*
+🌐 *WEATHER*
 
 ${prefix}weather <city> - Weather info
 
@@ -173,3 +173,4 @@ ${prefix}goodbye on/off - Goodbye
 
 *POWERED BY DESIRE EXE V1.0*
 *CONTACT: +234 701 774 7337*
+
