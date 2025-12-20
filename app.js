@@ -252,7 +252,7 @@ app.post('/auth/pairing', async (req, res) => {
   }
   
   try {
-    const result = await requestPairingCode(global.whatsappBot, phoneNumber);
+    const result = await requestPairingCode(phoneNumber);
     
     if (result.success) {
       res.json({
@@ -564,4 +564,5 @@ setInterval(() => {
 
 console.log('🔄 app.js loaded - Universal deployment ready!');
 console.log(`✅ Using your environment variables: CLEAN_SESSION, OWNER_JID, WHATSAPP_NUMBER`);
+
 
