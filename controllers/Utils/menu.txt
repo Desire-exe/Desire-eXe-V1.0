@@ -1,343 +1,175 @@
-💀 *DΞSIRΞ 𝙀𝙓Ξ 𝘽𝙊𝙏* 💀  
-_Unleashing Temptation & Digital Chaos_
+🤖 DESIRE-EXE V1.0 MENU 🤖
 
-⚔ *EXECUTOR:* _@Desire eXe 🥷_
+HELLO, I AM *DESIRE-EXE V1.0 - YOUR WHATSAPP ASSISTANT*
 
-⚡ *STATUS:* _ONLINE_ ($(uptime))  
+PREFIX: ${prefix}
 
-🧠 *RAM:* $(RAM)  
+STATUS: ✅ *ONLINE
 
-👑 *OWNER:* $(metadataname)  
 
-🔑 *PREFIX:* ${prefix} _*(CHOOSE YOUR SIN)*_
 
-👨‍💻 *DESIRE:* _138 SINS_
+📋 MAIN COMMANDS
 
+👑 OWNER ONLY
 
+${prefix}menu - Show this menu
 
-👑 *𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒* | _Absolute Power_
+${prefix}shutdown - Shutdown bot
 
-▢ *${prefix}owner/.contact* → _Kneel before your creator_ ☎️  
+${prefix}restart - Restart bot
 
-▢ *${prefix}Desire-off* → _System shutdown_ 😴  
+${prefix}setprefix <prefix> - Change prefix
 
-▢ *${prefix}Desire-Arise* → _Reborn in code_ 🔥  
+${prefix}creator - Owner contact card
 
-▢ *${prefix}groups* → _My empire overview_ 🌐  
+${prefix}arise - Activation video
 
-▢ *${prefix}sspam* [nums] [count] [msg] → _Spam storm_ ⚡  
+${prefix}public - Enable public mode
 
-▢ *${prefix}save* [media] → _Archived for eternity_ 🗂  
+${prefix}private - Enable private mode
 
-▢ *${prefix}setpp* [img] → _My face, my dominance_ 👑  
+${prefix}autoblock on/off - Auto-block
 
-▢ *${prefix}clone-pfp* [user] → _Identity theft supreme_ 👤  
+${prefix}save - Save status media
 
-▢ *${prefix}test-key* → _API key verification_ 🔑  
+${prefix}setpp - Set profile picture
 
-▢ *${prefix}list-models* → _Available AI models_ 🤖  
+${prefix}vv - View once unlocker
 
-▢ *${prefix}setprefix* [new] → _Change your call sign_ 🔣  
 
+🔧 BOT CONTROL
 
-💬 *𝐆𝐑𝐎𝐔𝐏 𝐃𝐎𝐌𝐈𝐍𝐀𝐓𝐈𝐎𝐍* | _My Chat, My Rules_
+${prefix}alive - Check bot status
 
-▢ *${prefix}promote/.demote* [user] → _Power shifts_ 👑  
+${prefix}presence status - Active presence
 
-▢ *${prefix}eXe* [user] → _Digital execution_ 💀  
+${prefix}autotype on/off - Typing indicator
 
-▢ *${prefix}warn/.unwarn* [user] → _Warning system_ ⚠️  
+${prefix}autorecord on/off - Recording indicator
 
-▢ *${prefix}warnings* [user] → _Check sin count_ 📋  
+${prefix}groups - List all groups
 
-▢ *${prefix}clearwarns* [user] → _Clean slate_ 🧹  
 
-▢ *${prefix}nuke* [-y] → _Remove all non-admins_ 💣  
+🤖 AI CHAT
 
-▢ *${prefix}mute/.unmute* → _Chat control_ 🔇  
+${prefix}Desire - Enable chat mode
 
-▢ *${prefix}tagall/.Tag* → _Everyone hears me_ 📢  
+${prefix}Desire-off - Disable chat mode
 
-▢ *${prefix}tag* → _Invisible mass mention_ 👻  
+${prefix}gemini <text> - Gemini AI chat
 
-▢ *${prefix}gc-name/.gc-desc* [text] → _Group identity_ 🏷️  
+${prefix}geminiroasting <text> - Roast with AI
 
-▢ *${prefix}set-gcpp* [img] → _Group profile picture_ 💬  
 
-▢ *${prefix}removepp* → _Remove group picture_ 👻  
+🎮 FUN & GAMES
 
-▢ *${prefix}reset-link* → _New invite code_ 🔄  
+${prefix}truth - Truth question
 
-▢ *${prefix}ginfo* → _Group intelligence_ 📊  
+${prefix}dare - Dare challenge
 
-▢ *${prefix}admins* → _List of rulers_ 👑  
+${prefix}pickup - Pickup lines
 
-▢ *${prefix}inv* [numbers] → _Mass invitation_ 📨  
+${prefix}fact - Random facts
 
-▢ *${prefix}welcome-on/off/.set* → _Greeting system_ 👋  
+${prefix}savage - Savage roasts
 
-▢ *${prefix}goodbye* [on/off] → _Farewell messages_ 👋  
+${prefix}smile - Animated smile
 
-▢ *${prefix}promote-on/off/.set-promote* → _Promotion alerts_ 📈  
+${prefix}kill - Kill (fun)
 
-▢ *${prefix}demote-on/off/.set-demote* → _Demotion alerts_ 📉  
 
-▢ *${prefix}Desire-eXit* → _Leave group chat_ 🚪  
+### 🌐 WEATHER
 
-▢ *${prefix}block2/.unblock2* → _Group member control_ 💀  
+${prefix}weather <city> - Weather info
 
+${prefix}weatherdetail <city> - Detailed weather
 
-🛡️ *𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 𝐒𝐔𝐈𝐓𝐄* | _Even Chaos Needs Rules_
+${prefix}forecast <city> - 3-day forecast
 
-▢ *${prefix}antilink-on/off* → _No free promo_ 🔗  
+📰 NEWS
 
-▢ *${prefix}antibadwords-on/off* → _Watch your mouth_ ⚠️  
+${prefix}detiksearch <query> - Detik news
 
-▢ *${prefix}autoblock-on/off* → _Touch me, you're gone_ 🚫  
+${prefix}detiklatest - Latest news
 
-▢ *${prefix}antimention* [on/off] → _Stop mass mentions_ 🚫  
 
-▢ *${prefix}public/private* → _I choose my audience_ 👁  
+🎵 MUSIC
 
-▢ *${prefix}dis-on/off* → _Ephemeral messages destroyed_ 🕯  
+${prefix}play <song> - Play music
 
-▢ *${prefix}block/.unblock* → _I decide who exists_ 👊  
+${prefix}video <search> - Download video
 
-▢ *${prefix}del* [message] → _Delete messages_ 🗑️  
 
+📥 DOWNLOAD
 
-🧠 *𝐀𝐈 𝐌𝐈𝐍𝐃 𝐆𝐀𝐌𝐄𝐒* | _Where Logic Dies_
+${prefix}twmp4 <url> - Twitter video
 
-▢ *${prefix}gemini* [query] → _Smarter than your ex_ 🧩  
+${prefix}twdlmp3 <url> - Twitter audio
 
-▢ *${prefix}gemini-roasting* [query] → _I roast with love_ 🔥  
+${prefix}igdlmp4 <url> - Instagram video
 
-▢ *${prefix}gemini-img* [reply image] → _I see your soul_ 👁  
+${prefix}igdlmp3 <url> - Instagram audio
 
-▢ *${prefix}gemini-roasting-img* [reply image] → _Even your pics aren't safe_ 📸  
+${prefix}tkdlmp4 <url> - TikTok video
 
-▢ *${prefix}wiki-ai* [query] → _Knowledge is my weapon_ 📚  
+${prefix}tkdlmp3 <url> - TikTok audio
 
-▢ *${prefix}wiki-search* [query] → _You ask. I deliver._  
 
-▢ *${prefix}wiki-img* [query] → _Visual intelligence, baby_  
+🔐 TOOLS
 
-▢ *${prefix}Desire-on/off* → _Let's talk, human_ 💬  
+${prefix}aesenc <text> - AES encryption
 
+${prefix}aesdec <text> - AES decryption
 
-📥 *𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐆𝐎𝐃* | _If It Exists Online_
+${prefix}sha <text> - SHA-256 hash
 
-▢ *${prefix}play* [song] → _Summon melodies_ 🎧  
+${prefix}tr <lang> <text> - Translate
 
-▢ *${prefix}video* [video] → _Lights, camera, domination_ 🎬  
+${prefix}qrcode <text> - QR code
 
-▢ *${prefix}yt-mp4/mp3* [url] → _YouTube obeys me_ 🎥  
+${prefix}ocr - Text from image
 
-▢ *${prefix}fbdl-mp4/mp3* [url] → _Facebook falls before me_ 📘  
+${prefix}ssweb <url> - Screenshot
 
-▢ *${prefix}twdl-mp4/mp3* [url] → _Twitter trembles_ 🐦  
 
-▢ *${prefix}tw-mp4* [url] → _Twitter video download_ 🎬  
+👥 GROUP
 
-▢ *${prefix}igdl-mp4/mp3* [url] → _I own Instagram_ 📸  
+${prefix}tagall - Tag all members
 
-▢ *${prefix}tkdl-mp4/mp3* [url] → _TikTok's mine now_ 🎭  
+${prefix}admins - List admins
 
-▢ *${prefix}vmdl-mp4/mp3* [url] → _Victory is digital_ ⚡  
+${prefix}promote @user - Promote
 
-▢ *${prefix}tomp3* [reply video] → _Turn vision to sound_ 🎵  
+${prefix}demote @user - Demote
 
+${prefix}eXe @user - Kick
 
-🎵 *𝐌𝐄𝐃𝐈𝐀 𝐌𝐀𝐒𝐓𝐄𝐑* | _Content Manipulation_
+${prefix}warn @user - Warn
 
-▢ *${prefix}tts* [text] → _I whisper in your mind_ 🔊  
+${prefix}mute - Lock group
 
-▢ *${prefix}tts2* [text] [num] → _Voice notes of sin_ 😈  
+${prefix}unmute - Unlock group
 
-▢ *${prefix}sticker* [image] → _Convert to sticker_ 🎨  
+${prefix}ginfo - Group info
 
-▢ *${prefix}toimg* [sticker] → _Sticker to image_ 🖼️  
 
-▢ *${prefix}tomp3* [video] → _Video to audio_ 🎵
+🛡 PROTECTION
 
-▢ *${prefix}tovid* [sticker] → _Sticker to video_ 📺
+${prefix}antilink on/off - Anti-link
 
-▢ *${prefix}toaudio* [audio] → _Change audio format_ 🔊
+${prefix}antibadwords on/off - Anti-badwords
 
-▢ *${prefix}send-img* → _Witness my creation_ 📸  
+${prefix}welcome on/off - Welcome
 
-▢ *${prefix}smile* → _Watch your soul lighten_ 😊  
+${prefix}goodbye on/off - Goodbye
 
 
-🔮 *𝐃𝐀𝐑𝐊 𝐀𝐑𝐓𝐒* | _I Bend Data & Destiny_
+💡 QUICK TIPS
+• Use @ to mention users
+• Reply to media for conversions
+• Check ${prefix}alive for status
 
-▢ *${prefix}weather* [city] → _Forecast your doom_ 🌩  
 
-▢ *${prefix}weather-detail* [city] → _Detailed analysis_ 📊  
 
-▢ *${prefix}forecast* [city] → _3-day prediction_ 📅  
-
-▢ *${prefix}weather-compare* [cities] → _Compare climates_ ⚖️  
-
-▢ *${prefix}weather-art* [city] → _ASCII art weather_ 🎨  
-
-▢ *${prefix}tr* [lang] [text] → _Universal translator_ 🌐  
-
-▢ *${prefix}qtr* [text] → _Quick translation_ ⚡  
-
-▢ *${prefix}mtr* [langs] [text] → _Multi-target translation_ 🔄  
-
-▢ *${prefix}detectlang* [text] → _Language detection_ 🔍  
-
-▢ *${prefix}country* [name] → _Geo-stalk mode: ON_ 🌍  
-
-▢ *${prefix}seo* [domain] → _Digital aura reading_ 💻  
-
-▢ *${prefix}seo-roast* [domain] → _Website roasting_ 🔥  
-
-▢ *${prefix}seo-compare* [domains] → _SEO comparison_ 📊  
-
-▢ *${prefix}words* [text] → _I count your sins_ 🩸  
-
-▢ *${prefix}math* [exp] → _I own numbers_ 💀  
-
-▢ *${prefix}qrcode* [text] → _Encode your fate_ 📲  
-
-▢ *${prefix}ocr* [image] → _I read the unseen_ 👁  
-
-▢ *${prefix}ssweb* [url] → _Desktop captured_ 🖥  
-
-▢ *${prefix}ssmobile* [url] → _Mobile proof acquired_ 📱  
-
-▢ *${prefix}github* [user] → _I see your repos_ 👨‍💻  
-
-▢ *${prefix}github-roasting* [user] → _Weak code detected_ 💢  
-
-▢ *${prefix}anime* [name] → _I summon your waifu_ ❤️‍🔥  
-
-
-📖 *𝐃𝐈𝐕𝐈𝐍𝐄 𝐊𝐍𝐎𝐖𝐋𝐄𝐃𝐆𝐄* | _Sacred Texts_
-
-▢ *${prefix}surah* [num] → _Quranic verses_ 🕋  
-
-▢ *${prefix}verse* [surah] [ayah] → _Specific words_ 🎯  
-
-▢ *${prefix}surahlist* [page] → _List all surahs_ 📖  
-
-▢ *${prefix}bible* [book] [chapter] → _Biblical knowledge_ ✝️  
-
-▢ *${prefix}bibleverse* [book] [chapter] [verse] → _Specific verse_ 🎯  
-
-▢ *${prefix}biblesearch* [query] → _Search scriptures_ 🔍  
-
-▢ *${prefix}biblebooks* → _List all books_ 📚  
-
-▢ *${prefix}popularverses* → _Famous scriptures_ 🌟  
-
-▢ *${prefix}randomverse* → _Random wisdom_ 🎲  
-
-
-🔐 *𝐃𝐄𝐀𝐓𝐇 𝐍𝐎𝐓𝐄* | _Encryption? I Laugh_
-
-▢ *${prefix}aes-enc/dec* [text] → _Dark lock_ 🔒  
-
-▢ *${prefix}camellia-enc/dec* [text] → _Triple-sealed_ 🔐  
-
-▢ *${prefix}sha* [text] → _Irreversible damnation_ 💀  
-
-▢ *${prefix}md5* [text] → _Old school chaos_ ⚙️  
-
-▢ *${prefix}ripemd* [text] → _Cryptographic necromancy_ 📜  
-
-▢ *${prefix}bcrypt* [text] → _Salted. Buried. Gone._ ⚰️  
-
-
-📁 *𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 𝐃𝐄𝐀𝐋𝐄𝐑* | _Paperwork of Damned_
-
-▢ *${prefix}pdf/.doc/.docx* [query] → _I forge files_ 🧾  
-
-▢ *${prefix}xls/.xlsx* [query] → _Data control_ 📊  
-
-▢ *${prefix}ppt/.pptx* [query] → _Present surrender_ 🎤  
-
-▢ *${prefix}txt/.html* [query] → _Simple yet sinister_ 📄  
-
-▢ *${prefix}zip* [query] → _Compressed chaos_ 💣  
-
-▢ *${prefix}filesearch/.fsearch* [type] [query] → _Advanced search_ 🔍  
-
-▢ *${prefix}quickfiles/.qfiles* [query] → _Multi-format search_ ⚡  
-
-
-😈 *𝐃𝐀𝐑𝐊 𝐅𝐔𝐍* | _Entertainment With Consequences_
-
-▢ *${prefix}kill* [user] → _Digital execution_ ☠️  
-
-▢ *${prefix}detect-h* → _Find the thirsty_ 💧  
-
-▢ *${prefix}truth/.dare* → _Confess or suffer_ 😏  
-
-▢ *${prefix}pickup* → _Charm from hell_ ❤️  
-
-▢ *${prefix}savage* → _Roasts hotter than Satan_ 🔥  
-
-▢ *${prefix}fact* → _Truths that hurt_ 🧠  
-
-▢ *${prefix}detect* [user] → _I know you_ 🔎  
-
-▢ *${prefix}t-or-d* → _Hide secrets? Impossible_ 😈  
-
-▢ *${prefix}poll/.mpoll* → _I control democracy_ 🗳️  
-
-▢ *${prefix}vv* [view-once] → _Nothing escapes me_ 👁‍🗨 
-
-▢ *${prefix}vv2* [view-once] [Target] → _Nothing escapes us_ 👀
-
-▢ *${prefix}vv3* [view-once] [@User] → _You can't get pass this eyes_ 👁‍🗨
-
-
-
-⚡ *𝐃𝐈𝐆𝐈𝐓𝐀𝐋 𝐆𝐎𝐃* | _Network Dominance_
-
-▢ *${prefix}ping/.ping2* [target] → _Lightning strike_ ⚡  
-
-▢ *${prefix}ipinfo* [ip] → _You can't hide_ 🌍  
-
-▢ *${prefix}whois/.whois2* [target] → _Exposed_ 🔎  
-
-▢ *${prefix}dnslookup* [domain] → _DNS secrets_ 🌐  
-
-▢ *${prefix}subenum* [domain] → _Subdomain control_ 💻  
-
-
-🗞️ *𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 𝐃𝐄𝐀𝐋𝐄𝐑* | _I Know All_
-
-▢ *${prefix}detik-search* [query] → _News search_ 🔍  
-
-▢ *${prefix}detik-article* → _Latest articles_ 📰  
-
-▢ *${prefix}detik-viral* → _Trending news_ 🔥  
-
-▢ *${prefix}detik-latest* → _Fresh updates_ 📰  
-
-
-🎛️ *𝐂𝐎𝐍𝐓𝐑𝐎𝐋 𝐂𝐄𝐍𝐓𝐄𝐑* | _System Mastery_
-
-▢ *${prefix}menu* → _Perfection displayed_ 🧾  
-
-▢ *${prefix}alive* → _I never die_ 💀  
-
-▢ *${prefix}Des-info* → _System diagnostics_ 💻  
-
-▢ *${prefix}autotype-on/off* → _Typing ritual_ ⌨️  
-
-▢ *${prefix}autorecord-on/off* → _Constant presence_ 🎙️  
-
-▢ *${prefix}presence-status* → _Activity sensing_ 👁‍🗨  
-
-*$(powerPercentage)*                
-          
-📞 *CONTACT:* +2347017747337                
-  
-
-🕷 _Obey the code or face deletion._
+POWERED BY DESIRE EXE V1.0
+CONTACT: +234 701 774 7337
