@@ -6,7 +6,7 @@
   "ANTI_BADWORDS": false,
   "OWNER_JID": "2347017747337@s.whatsapp.net",
   "WHATSAPP_NUMBER": "2347017747337",
-  "BOT_NAME": "DESIRE-EXE V2.0",
+  "BOT_NAME": "DESIRE-EXE V1.0",
   "PHONE_NUMBER": "2347017747337",
   "MAX_MEDIA_SIZE": "1500000",
   "GEMINI_API": "Awsdfgg13456yhh",
@@ -17,4 +17,5 @@
   "prefix": ".",
   "BAD_WORDS": ["fork", "as", "anu"]
 }
+
 
