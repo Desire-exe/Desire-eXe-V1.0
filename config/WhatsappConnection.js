@@ -1330,4 +1330,3 @@ module.exports = {
   getUptimeString,
   getBotStatus: () => global.botStatus
 };
-
