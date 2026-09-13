@@ -214,8 +214,7 @@ Connect With Developer
 
 TOTAL PROFILE VIEWS
 
-https://api.visitorbadge.io/api/visitors?path=https://github.com/Desire-exe&label=PROFILE%20VIEWS&labelColor=%23555&countColor=%23263759
-
+[![Profile Views](https://komarev.com/ghpvc/?username=Desire-exe&style=for-the-badge&color=DC143C&labelColor=0B0708)](https://github.com/Desire-exe)
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 ---
