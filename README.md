@@ -1,196 +1,237 @@
 
+# Desire-eXe V1.0
+
 <div align="center">
 
-<a href="https://desire-exe.my.id">
-  <img src="https://readme-typing-svg.demolab.com?font=Instrument+Serif&italic=true&weight=500&size=52&duration=1&pause=99999&color=F5EDEE&center=true&vCenter=true&width=500&height=80&lines=D%CE%9ESIR%CE%9E-%CE%9EX%CE%9E" alt="DΞSIRΞ-ΞXΞ" />
-</a>
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src="./uploads/upload/Desire.png" width="500" alt="Desire Bot Logo"></a>
 
-<em>personal portfolio</em>
+## ⚡ **THE ULTIMATE WHATSAPP DOMINATION BOT** ⚡
 
-<br/><br/>
+**Multi-Device • AI-Powered • Complete Control**
 
-<a href="https://desire-exe.my.id">
-  <img src="https://img.shields.io/badge/live-desire--exe.my.id-FF3B3B?style=for-the-badge&labelColor=0B0708" />
-</a>
+<p align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=800&size=28&duration=4000&pause=1000&color=DC143C&random=false&width=435&lines=Desire-eXe+V1.0;AI-POWERED+DOMINATION;MULTI-DEVICE+WHATSAPP+BOT;COMPLETE+CHAT+CONTROL;DEVELOPED+BY+Desire-eXe" alt="Typing SVG" /></a>
+</p>
 
-<br/><br/>
+<p align="center">
+<a href="#"><img title="Creator" src="https://img.shields.io/badge/CREATOR-DESIRE-red.svg?style=for-the-badge&logo=github"></a>
+<a href="#"><img title="Version" src="https://img.shields.io/badge/VERSION-1.0-blue.svg?style=for-the-badge&logo=github"></a>
+<a href="#"><img title="WhatsApp" src="https://img.shields.io/badge/WHATSAPP-MULTI--DEVICE-green.svg?style=for-the-badge&logo=whatsapp"></a>
+</p>
 
-<img src="https://img.shields.io/badge/React-0B0708?style=flat-square&logo=react&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/TypeScript-0B0708?style=flat-square&logo=typescript&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/Tailwind-0B0708?style=flat-square&logo=tailwindcss&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/Framer_Motion-0B0708?style=flat-square&logo=framer&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/Node.js-0B0708?style=flat-square&logo=nodedotjs&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/Express-0B0708?style=flat-square&logo=express&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/Prisma-0B0708?style=flat-square&logo=prisma&logoColor=FF6B4A" />
-<img src="https://img.shields.io/badge/PostgreSQL-0B0708?style=flat-square&logo=postgresql&logoColor=FF6B4A" />
+<p align="center">
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/stargazers"><img src="https://img.shields.io/github/stars/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=blue" alt="Stars"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/network/members"><img src="https://img.shields.io/github/forks/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=yellow" alt="Forks"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/watchers"><img src="https://img.shields.io/github/watchers/Desire-exe/Desire-eXe-V1.0?style=flat-square&color=red" alt="Watchers"></a>
+<a href="https://github.com/Desire-exe/Desire-eXe-V1.0/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" alt="Maintained"></a>
+</p>
 
-<br/><br/>
-
-<sub>built by <a href="https://github.com/Desire-exe"><strong>Daramola Daniel</strong></a></sub>
-
-<br/><br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=13&duration=1&pause=99999&color=FF6B4A&center=true&vCenter=true&width=500&lines=CAN+YOU+FEEL+THE+BURN+OF+D%CE%9ESIR%CE%9E%3F" alt="tagline" />
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 </div>
 
----
+## 🚀 **QUICK DEPLOYMENT**
 
-## About
+### **⚡ Instant Deploy Options:**
 
-Full-stack developer based in Nigeria. I build web products end to end — React on the front, Node on the back, real users in between.
+| Platform | Deploy Button | Status |
+|----------|---------------|---------|
+| **Koyeb** | [![Deploy on Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/services/deploy?type=git&repository=github.com%2FDesire-exe%2FDesire-eXe-V1.0&branch=main&name=desire-exe-bot) | ✅ **AVAILABLE** |
+| **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Desire-exe/Desire-eXe-V1.0) | ✅ **AVAILABLE** |
 
-Currently shipping **Desire-eXe** and **FluxMeet**.
+### **🔗 After You Deploy:**
+1. **Wait for deployment to complete**
+2. **Visit your app URL**: `https://your-app-name.koyeb.app` or `https://your-app-name.onrender.com`
+3. **Go to Authentication page**: `/auth`
+4. **Choose QR Code or Pairing Code method**
+5. **Scan QR or Enter pairing code in WhatsApp**
+6. **Your bot connects!**
 
----
+### **📱 Access Points:**
+- **Authentication**: `/auth` (QR Code + Pairing Code)
+- **Status**: `/status`
+- **QR Code**: `/qr` (legacy redirect)
+- **Pairing Code**: `/auth` (use the Pairing tab)
+- **Session Info**: `/session`
+- **Health Check**: `/health`
+- **Ping**: `/ping` (for uptime monitoring)
 
-## Stack
+*Replace `your-app-name` with your actual deployment name*
 
-**Client**
-- Vite · React · TypeScript
-- Tailwind CSS
-- Framer Motion
-- React Router
+**Note**: The `/auth` page combines both QR Code and Pairing Code authentication in one beautiful interface with tab switching!
 
-**Server**
-- Node.js · Express · TypeScript
-- Prisma ORM · PostgreSQL
-- Resend (transactional email)
-- Zod validation · rate limiting
+## 🎯 **BOT FEATURES OVERVIEW**
 
-**Infrastructure**
-- Render (Static Site + Web Service + Postgres)
-- Custom domain via IDwebhost
-- Let's Encrypt SSL
+### **👑 OWNER COMMANDS** - *Absolute Power*
+- `contact` / `creator` - Contact the creator
+- `shutdown` / `.Arise` - System control
+- `groups` - View all groups
+- `setpp` - Set profile picture
+- `clone pfp` - Copy user profile picture
 
----
+### **💬 GROUP DOMINATION** - *My Rules*
+- `promote` / `demote` - Admin management
+- `warn` / `unwarn` - Warning system  
+- `nuke` - Remove all non-admins
+- `mute` / `unmute` - Chat control
+- `tagall` - Mass mention
+- `gc name` / `gc-desc` - Group identity
 
-## Features
+### **🧠 AI INTELLIGENCE** - *Smarter Than You*
+- `gemini` - AI conversations
+- `gemini img` - Image analysis
+- `wiki-ai` - Knowledge search
+- `tr` - Translation
+- `math` - Calculations
 
-- Multi-page SPA with animated route transitions
-- Custom ember/aurora visual system (animated gradients, particle canvas, grain overlay)
-- Project case studies with image carousels + lightbox
-- Contact form → saves to Postgres → sends email via Resend
-- Mobile-first responsive design
-- SEO: per-route page titles, sitemap, robots, Open Graph meta
+### **📥 MEDIA DOWNLOAD** - *Content Master*
+- `play` - Audio download
+- `video` - Video download  
+- `yt mp4/mp3` - YouTube downloads
+- `igdl` - Instagram content
+- `tkdl` - TikTok videos
 
----
+### **🛡️ SECURITY SUITE** - *Total Protection*
+- `antilink` - Block links
+- `antibadwords` - Filter language
+- `autoblock` - Auto-block strangers
+- `antimention` - Stop mass mentions
+- `block` / `unblock` - User control
 
-## Project Structure
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-```
+## 🛠️ **INSTALLATION GUIDE**
 
-Desfolio/
-├── client/                 # Vite + React frontend
-│   ├── public/             # Static assets (logo, OG image, project screenshots)
-│   └── src/
-│       ├── components/     # UI components + page sections
-│       ├── routes/         # Route pages (Home, Projects, About, Contact, 404)
-│       ├── data/           # Project + stack content
-│       ├── hooks/          # Custom React hooks
-│       └── lib/            # Motion variants, utilities
-└── server/                 # Express + Prisma backend
-├── prisma/             # Schema + migrations
-└── src/
-├── routes/         # API routes
-├── lib/            # Prisma client, Resend client
-└── middleware/     # Rate limiting
+### **Prerequisites**
+- Node.js 20+ 
+- WhatsApp Account
+- Gemini API Key (for AI features)
+- OpenRouter API Key
 
-```
-
----
-
-## Local Development
-
-### Prerequisites
-
-- Node.js 20+
-- PostgreSQL (local install or free tier at [Neon](https://neon.tech))
-- [Resend](https://resend.com) API key (free tier)
-
-### Setup
-
+### **Local Installation**
 ```bash
-git clone https://github.com/Desire-exe/Desfolio.git
-cd Desfolio
+# Clone repository
+git clone https://github.com/Desire-exe/Desire-eXe-V1.0
+cd Desire-eXe-V1.0 
 
-npm install
+# Install dependencies
+npm install --legacy-peer-deps
 
-cd server
-cp .env.example .env
-# Edit .env — fill in DATABASE_URL, RESEND_API_KEY, CONTACT_TO_EMAIL, etc.
-
-npx prisma generate
-npx prisma migrate dev --name init
-
-cd ..
+# Start the bot
+node app.js
 ```
-
-Run
-
-```bash
-# Terminal 1 — server
-npm run dev:server
-
-# Terminal 2 — client
-npm run dev
-```
-
-· Client: http://localhost:5173
-· Server: http://localhost:3001
-· Health check: http://localhost:3001/health
-
----
 
 Environment Variables
 
-Server (server/.env):
-
 ```env
-DATABASE_URL="postgresql://..."
-RESEND_API_KEY="re_..."
-CONTACT_TO_EMAIL="you@example.com"
-CONTACT_FROM_EMAIL="onboarding@resend.dev"
-PORT=3001
-NODE_ENV=development
-FRONTEND_URL="http://localhost:5173"
+CLEAN_SESSION=true
+OWNER_JID=YOUR_WHATSAPP_NUMBER@s.whatsapp.net
+WHATSAPP_NUMBER=234**********
 ```
 
-Client (client/.env.production for builds):
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-```env
-VITE_API_URL="https://your-api-url"
-```
+📱 CONNECTION METHODS
 
----
+Method 1: QR Code (Recommended)
 
-Deployment
+1. After deployment, visit: /auth on your app
+2. Select QR Code tab (default)
+3. Scan the QR code with WhatsApp
+4. Bot connects automatically
 
-Both services deploy automatically on push to main:
+Method 2: Pairing Code
 
-Service Type URL
-Client Render Static Site https://desire-exe.my.id
-Server Render Web Service https://desfolioexe.onrender.com
-Database Render Postgres (internal)
+1. Visit: /auth on your app
+2. Select Pairing Code tab
+3. Enter your phone number (with country code)
+4. Get 6-digit code and enter in WhatsApp
+5. Bot connects instantly
 
----
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-Contact
+🌐 LIVE MONITORING
+
+Real-time Status Check
+
+· Authentication: /auth (QR + Pairing Code)
+· Status Page: /status
+· Health Check: /health
+· Session Info: /session
+
+Bot Status Indicators
+
+· 🟢 Online - Bot is connected and ready
+· 🟡 QR Pending - Waiting for QR scan
+· 🔵 Pairing Pending - Waiting for pairing code
+· 🔴 Offline - Bot disconnected
+· 🟣 Starting - Initializing connection
+· 🟠 Reconnecting - Auto-reconnecting to WhatsApp
+
+Note: All authentication methods are now available on the unified /auth page with a beautiful tabbed interface!
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
+📈 24/7 UPTIME MONITORING
+
+Setup UptimeRobot for Permanent Online Status:
+
+1. Go to UptimeRobot.com
+2. Add New Monitor:
+   · Monitor Type: HTTP(s)
+   · Friendly Name: Desire-eXe Bot
+   · URL: https://your-app-name.koyeb.app/ping
+   · Check Interval: 5 minutes
+3. Enable notifications for instant alerts
+4. Your bot stays online 24/7! 🎯
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
+📞 SUPPORT & CONTACT
 
 <div align="center">
 
-<a href="https://github.com/Desire-exe"><img src="https://img.shields.io/badge/GitHub-0B0708?style=for-the-badge&logo=github&logoColor=F5EDEE" /></a>
-<a href="https://www.linkedin.com/in/daramola-daniel-a331b3240/"><img src="https://img.shields.io/badge/LinkedIn-0B0708?style=for-the-badge&logo=linkedin&logoColor=F5EDEE" /></a>
-<a href="https://wa.me/2348161262401"><img src="https://img.shields.io/badge/WhatsApp-0B0708?style=for-the-badge&logo=whatsapp&logoColor=F5EDEE" /></a>
-<a href="https://t.me/Desire_exe"><img src="https://img.shields.io/badge/Telegram-0B0708?style=for-the-badge&logo=telegram&logoColor=F5EDEE" /></a>
-<a href="mailto:zaddyexe097@gmail.com"><img src="https://img.shields.io/badge/Email-0B0708?style=for-the-badge&logo=gmail&logoColor=F5EDEE" /></a>
+Connect With Developer
+
+<p align="center">
+<a href="https://whatsapp.com/channel/0029Vb5qsDv9cDDa98iVoC2H"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
+<a href="https://github.com/Desire-exe"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="mailto:Dannysmartkid@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+</p>
+
+<img alt="Coding" width="300" src="https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif" />
 
 </div>
+
+⚠️ DISCLAIMER
+
+· This bot is not affiliated with WhatsApp Inc.
+· Use at your own risk
+· May violate WhatsApp Terms of Service
+· Developer not responsible for account bans
+
+📊 STATISTICS
+
+TOTAL PROFILE VIEWS
+
+https://api.visitorbadge.io/api/visitors?path=https://github.com/Desire-exe&label=PROFILE%20VIEWS&labelColor=%23555&countColor=%23263759
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 ---
 
 <div align="center">
 
-<sub>© DΞSIRΞ-ΞXΞ — All rights reserved</sub>
+💀 Desire-eXe V1.0 - WHERE CHAOS MEETS CODE 💀
+
+Made with ❤️ and ☕ by Desire
+
+"Obey the code or face deletion."
 
 </div>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=800&size=24&duration=4000&pause=1000&color=DC143C&random=false&width=435&lines=CAN+YOU+FEEL+THE+BURN+OF+DESIRE%3F" alt="Typing SVG" />
+</p>
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
